@@ -1,14 +1,14 @@
 var React = require('react');
-//find ouy how to render autho component
+
 var Signup = React.createClass({
+  getInitialState: function() {
+    return {};
+  },
+  componentWillMount: function() {
+      this.lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_CLIENT_DOMAIN');
+  },
   render: function() {
-    return (
-      <main>
-        <h1>Signup</h1>
-            SIGN YO ASS UP FOR THIS COOL SHIT
-        <hr/>
-      </main>
-    );
+    return (<Home lock={this.lock} />);
   }
 });
 
