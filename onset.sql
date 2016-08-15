@@ -20,6 +20,7 @@ CREATE TABLE Profile (
   profile_type ENUM ('artist', 'client') DEFAULT 'client',
   url varchar(2000) DEFAULT NULL,
   userId int(11) DEFAULT NULL,
+  profile_data text,
   createdAt DATETIME NOT NULL,
   updatedAt DATETIME NOT NULL,
   PRIMARY KEY (id)
