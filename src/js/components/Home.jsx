@@ -1,3 +1,5 @@
+var React = require("react");
+
 var Home = React.createClass({
   showLock: function() {
     this.props.lock.show();
