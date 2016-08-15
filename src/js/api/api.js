@@ -3,12 +3,12 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'JM_MM', 
+  user     : 'root', 
   password : '',
   database: 'onset'
 });
 
-module.exports = function OnsetAPI(conn) {
+function OnsetAPI(conn) {
   return {
     createUser: function(user, callback) {
         
@@ -48,3 +48,7 @@ module.exports = function OnsetAPI(conn) {
     }
   }
 }
+
+var onSetAPI = OnsetAPI(connection);
+
+module.exports = onSetAPI;

@@ -20,7 +20,6 @@ CREATE TABLE Profile (
   profile_type ENUM ('artist', 'client') DEFAULT 'client',
   url varchar(2000) DEFAULT NULL,
   userId int(11) DEFAULT NULL,
-  profile_data JSON,
   createdAt DATETIME NOT NULL,
   updatedAt DATETIME NOT NULL,
   PRIMARY KEY (id)
@@ -30,9 +29,9 @@ CREATE TABLE Reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   text TEXT(10000), 
   score DECIMAL(2,1),
-  createdAt DATETIME NOT NULL
+  createdAt DATETIME NOT NULL,
   userId INT,
-  profileId INT,
+  profileId INT
 );
 
 /* FOREIGN KEY (userId) REFERENCES user(id),
