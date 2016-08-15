@@ -1,10 +1,26 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>onSet</title>
+  <meta charset="UTF-8">
+  <title>onSet</title>
+  <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+  <script type="text/javascript">
+    var lock = new Auth0Lock('u62PeQq50xQ4RgaJr291OGnUwdgrc6cA', 'onset.auth0.com', {
+      auth: {
+        redirectUrl: '',
+        responseType: 'code',
+        params: {
+          scope: 'openid email' 
+        }
+      }
+    });
+  </script>
+  <button onclick="lock.show();">Login</button>
 </head>
+
 <body>
-  <h1>hello world!</h1>  
+  <h1>hello world!</h1>
 </body>
+
 </html>
