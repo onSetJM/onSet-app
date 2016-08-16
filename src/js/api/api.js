@@ -203,7 +203,7 @@ module.exports = function OnsetAPI(conn) {
   }
 }
 
-var onSetAPI = OnsetAPI(connection);
+// var onSetAPI = OnsetAPI(connection);
 
 // onSetAPI.createUser({
 //     username: "Jules",
