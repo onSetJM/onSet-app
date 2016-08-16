@@ -51,14 +51,6 @@ var Auth = React.createClass({
   },
   render: function() {
     if (this.state.profile) {
-      var userObject = {
-        username: ,
-        email:,
-        city: "montreal",
-        nickname:,
-        profilepic:,
-        typeOfLogin: 
-      };
       return (<LoggedIn profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />);
     }
     else {
