@@ -3,7 +3,6 @@
 CREATE TABLE User (
   id INT(11) NOT NULL AUTO_INCREMENT,
   username VARCHAR(50) UNIQUE NOT NULL,
-  password VARCHAR(60) NOT NULL, 
   email VARCHAR(255) NOT NULL,
   nickname VARCHAR(100) NOT NULL,
   typeOfLogin ENUM ('facebook', 'google', 'instagram'),
@@ -18,9 +17,9 @@ CREATE TABLE User (
 CREATE TABLE Profile (
   id int(11) NOT NULL AUTO_INCREMENT,
   profile_type ENUM ('artist', 'client') DEFAULT 'client',
-  url varchar(2000) DEFAULT NULL,
+  profile_data varchar(2000) DEFAULT NULL,
   userId int(11) DEFAULT NULL,
-  profile_data JSON,
+  profile_data text,
   createdAt DATETIME NOT NULL,
   updatedAt DATETIME NOT NULL,
   PRIMARY KEY (id)
@@ -30,9 +29,9 @@ CREATE TABLE Reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   text TEXT(10000), 
   score DECIMAL(2,1),
-  createdAt DATETIME NOT NULL
+  createdAt DATETIME NOT NULL,
   userId INT,
-  profileId INT,
+  profileId INT
 );
 
 /* FOREIGN KEY (userId) REFERENCES user(id),

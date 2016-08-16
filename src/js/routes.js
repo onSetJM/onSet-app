@@ -7,14 +7,18 @@ var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
 var App = require("./components/App");
-var Signup = require("./components/Signup");
+var Auth = require("./components/Auth");
 var Home = require("./components/Home");
+var LoggedIn = require("./components/LoggedIn");
+
+import Foundation from 'react-foundation';
 
 var routes = (
     <Router history={ReactRouter.browserHistory}>
         <Route path="/" component={App}>
-            <Route path="signup" component={Signup}></Route>
+            <Route path="auth" component={Auth}></Route>
             <Route path="home" component={Home}></Route>
+            <Route path="loggedin" component={LoggedIn}></Route>
         </Route>
     </Router>
 );

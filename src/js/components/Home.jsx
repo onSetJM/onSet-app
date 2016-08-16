@@ -4,10 +4,11 @@ var Home = React.createClass({
   showLock: function() {
     this.props.lock.show();
   },
+
   render: function() {
     return (
     <div className="login-box">
-      <a onClick={this.showLock}>Sign In</a>
+      <button onClick={this.showLock}>Sign In</button>
     </div>);
   }
 });
