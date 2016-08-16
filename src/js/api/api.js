@@ -8,7 +8,8 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 
-function OnsetAPI(conn) {
+
+module.exports = function RedditAPI(conn) {
   return {
     createUser: function(user, callback) {
           conn.query(

@@ -1,5 +1,15 @@
 var express = require('express');
 var app = express();
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root', 
+  password : '',
+  database: 'onset'
+});
+
+var onSetAPI = require('./src/js/api/api')(connection);
 
 app.use(express.static(__dirname + '/public'));
 
