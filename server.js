@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
   database: 'onset'
 });
 
-// var onSetAPI = require('./src/js/api/api')(connection);
+var onSetAPI = require('./src/js/api/api')(connection);
 
 app.use(express.static(__dirname + '/public'))
 /* insert any app.get or app.post you need here */
@@ -27,17 +27,99 @@ app.get('/*', function(request, response) {
   response.sendFile(__dirname + '/public/index.html');
 });
 
+app.post('/login', function(req, res){
+    onSetAPI.createUser(
+      {
+      username: req.body.rif,
+      email: req.body.rif,
+      nickname: req.body.rif,
+      profilepic: req.body.rof,
+      city: req.body.rif,
+      typeOfLogin: "Instagram"
+    }
+    , function(err, user) {
+      if(err){
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        res.send({success:true, user: user});
+      }
+    }
+  );
+});
+
+app.post('/createProfile', function(req, res){
+    onSetAPI.createProfile(
+      {
+       userId: req.body.userId,
+       type: req.body.type,
+       data: req.body.data,
+       city: req.body.city,
+       category: req.body.category
+     }
+    , function(err, profile) {
+      if(err){
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        res.send({success:true, profile: profile});
+      }
+    }
+  );
+});
+
+app.post('/createReview', function(req, res){
+    onSetAPI.createReview(
+      {
+       text: req.body.text,
+       score: req.body.score,
+       userId: req.body.userId,
+       profileId: req.body.userId
+       }
+    , function(err, review) {
+      if(err){
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        res.send({success:true, review: review});
+      }
+    }
+  );
+});
+
+app.post('/searchprofiles', function(req, res){
+    onSetAPI.getAllProfiles({},req.body.category, req.body.city, req.body.createdAt
+    , function(err, profiles) {
+      if(err){
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        res.send({success:true, profiles: profiles});
+      }
+    }
+  );
+});
+
+app.post('/displayreviews', function(req, res){
+    onSetAPI.getReviewsForProfile({},req.body.profileId
+    , function(err, reviews) {
+      if(err){
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        res.send({success:true, reviews: reviews});
+      }
+    }
+  );
+});
+
+app.listen(process.env.PORT || 8080, function() {
+  console.log('Server started');
+});
+
 // app.get('/login',
 //   jwt({secret: }),
 //   function(req, res) {
 //     if (!req.user.admin) return res.sendStatus(401);
 //     res.sendStatus(200);
 //   });
-
-app.post('/login', function(req, res){
-  //get data, do my sql magic send back response res.send
-});
-
-app.listen(process.env.PORT || 8080, function() {
-  console.log('Server started');
-});
