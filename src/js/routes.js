@@ -9,7 +9,7 @@ var App = require("./components/App");
 var Auth = require("./components/Auth");
 var Home = require("./components/Home");
 var Loggedin = require("./components/Loggedin");
-var Createareview = require("./components/createareview");
+var Createareview = require("./components/Createareview");
 
 import Foundation from 'react-foundation';
 
