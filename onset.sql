@@ -3,7 +3,6 @@
 CREATE TABLE User (
   id INT(11) NOT NULL AUTO_INCREMENT,
   username VARCHAR(50) UNIQUE NOT NULL,
-  password VARCHAR(60) NOT NULL, 
   email VARCHAR(255) NOT NULL,
   nickname VARCHAR(100) NOT NULL,
   typeOfLogin ENUM ('facebook', 'google', 'instagram'),
@@ -18,7 +17,7 @@ CREATE TABLE User (
 CREATE TABLE Profile (
   id int(11) NOT NULL AUTO_INCREMENT,
   profile_type ENUM ('artist', 'client') DEFAULT 'client',
-  url varchar(2000) DEFAULT NULL,
+  profile_data varchar(2000) DEFAULT NULL,
   userId int(11) DEFAULT NULL,
   createdAt DATETIME NOT NULL,
   updatedAt DATETIME NOT NULL,
