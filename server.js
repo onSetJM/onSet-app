@@ -16,6 +16,7 @@ app.get('/*', function(request, response) {
 });
 
 app.post('/login', function(req, res){
+  
   //get data, do my sql magic send back response res.send
 })
 
