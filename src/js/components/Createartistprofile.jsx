@@ -3,18 +3,20 @@ var $ = require('jquery');
 
 
 
-var Createareview = React.createClass({
+var Createartistprofile = React.createClass({
     getInitialState: function() {
         return {};
     },
   _handleSubmit: function(e) {
       e.preventDefault();
-      var reviewObj = {
-          score: this.refs.score.value,
-          text: this.refs.text.value,
-          userId: 1,
-          profileId: 2
-      };
+      var reviewObj = 
+      {
+       userId: 1,
+       type: "artist",
+       data: this.refs.speciality.value,
+       city: this.refs.city.value,
+       category: this.refs.text.value
+     };
       $.ajax({           
             url: '/createareview', 
             data: { reviewObj: reviewObj},
@@ -36,8 +38,8 @@ var Createareview = React.createClass({
         <form  id="reviewForm" onSubmit={this._handleSubmit}>
             <p> Please enter a score out of 10 </p>
             <input type="text" ref="score" placeholder="Score out of 10" />
-            <p> Please enter your comments </p>
-            <input ref="reviewText" type="textarea" />
+            <p> Enter your city </p>
+            <input ref="city" type="textarea" />
             <button > Submit your review !</button>
         </form>
       </div>
@@ -45,4 +47,4 @@ var Createareview = React.createClass({
   }
 });
 
-module.exports = Createareview;
+module.exports = Createartistprofile;
