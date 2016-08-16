@@ -11,31 +11,34 @@ var Createareview = React.createClass({
       e.preventDefault();
       var reviewObj = {
           score: this.refs.score.value,
-          text: this.refs.text.value,
+          text: this.refs.reviewText.value,
           userId: 1,
           profileId: 2
       };
+      console.log(reviewObj);
       $.ajax({           
             url: '/createareview', 
-            data: { reviewObj: reviewObj},
+            data: reviewObj,
             type: 'POST',
-            cache: false,           
-            success: function() {
-                this.setState({
-                    dataStatus:"success"
-                }) ;
+            success: function(resuly) {
+                console.log("This is the resuly" + resuly);
             },
             error: function() {
-              console.log('error');      
-            }.bind(this)
+              console.log('this is the ajax error');      
+            }
         });
-  },
+  
+    //   $.post('/createareview', {reviewObj: reviewObj}, function(result){
+    //         console.log("success");
+    //         console.log(result);
+    //      })
+    },
   render: function() {
     return (
       <div>
         <form  id="reviewForm" onSubmit={this._handleSubmit}>
             <p> Please enter a score out of 10 </p>
-            <input type="text" ref="score" placeholder="Score out of 10" />
+            <input type="number" ref="score" placeholder="Score out of 10" />
             <p> Please enter your comments </p>
             <input ref="reviewText" type="textarea" />
             <button > Submit your review !</button>
@@ -46,3 +49,5 @@ var Createareview = React.createClass({
 });
 
 module.exports = Createareview;
+
+

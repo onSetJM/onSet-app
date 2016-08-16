@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var mysql = require('mysql');
 var jwt = require('express-jwt');
+var bodyParser = require("body-parser");
 
 var authenticate = jwt({ secret: 'OXT7scbPPikaP_mjFyutSPR2RcGr1GZ8Ew-6F_x4RLLLRwQCbFIX9Ou58CLtas9H',
   audience: 'onset.auth0.com'})
@@ -15,7 +16,8 @@ var connection = mysql.createConnection({
 
 var onSetAPI = require('./src/js/api/api')(connection);
 
-app.use(express.static(__dirname + '/public'))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
 /* insert any app.get or app.post you need here */
 
 /*
@@ -48,7 +50,7 @@ app.post('/login', function(req, res){
   );
 });
 
-app.post('/createProfile', function(req, res){
+app.post('/createArtistProfile', function(req, res){
     onSetAPI.createProfile(
       {
        userId: req.body.userId,

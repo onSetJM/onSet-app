@@ -17,19 +17,17 @@ var Createartistprofile = React.createClass({
        city: this.refs.city.value,
        category: this.refs.text.value
      };
+      console.log(reviewObj);
       $.ajax({           
             url: '/createareview', 
-            data: { reviewObj: reviewObj},
+            data: reviewObj,
             type: 'POST',
-            cache: false,           
-            success: function() {
-                this.setState({
-                    dataStatus:"success"
-                }) ;
+            success: function(result) {
+                console.log("This is the resuly" + result);
             },
             error: function() {
-              console.log('error');      
-            }.bind(this)
+              console.log('this is the ajax error');      
+            }
         });
   },
   render: function() {
