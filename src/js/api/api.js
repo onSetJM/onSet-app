@@ -1,4 +1,3 @@
-
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -8,7 +7,8 @@ var connection = mysql.createConnection({
   database: 'onset'
 });
 
-function OnsetAPI(conn) {
+
+module.exports = function RedditAPI(conn) {
   return {
     createUser: function(user, callback) {
           conn.query(
