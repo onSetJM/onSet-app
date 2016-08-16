@@ -3,7 +3,7 @@ var React = require('react');
 var Home = require("./Home");
 var LoggedIn = require("./LoggedIn");
 import Auth0Lock from 'auth0-lock';
-var onSetAPI = require("../api/api")
+
 
 var Auth = React.createClass({
   getInitialState: function() {

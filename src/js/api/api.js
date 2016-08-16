@@ -1,4 +1,3 @@
-
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -7,6 +6,7 @@ var connection = mysql.createConnection({
   password : '',
   database: 'onset'
 });
+connection.connect();
 
 function OnsetAPI(conn) {
   return {
