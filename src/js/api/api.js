@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 });
 
 
-module.exports = function RedditAPI(conn) {
+function OnsetAPI(conn) {
   return {
     createUser: function(user, callback) {
           conn.query(
@@ -36,15 +36,15 @@ module.exports = function RedditAPI(conn) {
     },
     createProfile: function(profile, callback) {
         conn.query(
-            'INSERT INTO Profile (userId, profile_type, profile_data, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?)', 
-            [profile.userId, profile.type, profile.data, new Date(), new Date()],
+            'INSERT INTO Profile (userId, profile_type, profile_data, city, category, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+            [profile.userId, profile.type, profile.data, profile.city, profile.category, new Date(), new Date()],
             function(err, result) {
               if (err) {
                 callback(err);
               }
               else {
                 conn.query(
-                  'SELECT id, userId, profile_type, profile_data, createdAt, updatedAt FROM Profile WHERE id = ?', [result.insertId],
+                  'SELECT id, userId, profile_type, profile_data, city, category, createdAt, updatedAt FROM Profile WHERE id = ?', [result.insertId],
                   function(err, result) {
                     if (err) {
                       callback(err);
@@ -104,21 +104,22 @@ module.exports = function RedditAPI(conn) {
           u.profilePic AS profilePic,
           u.typeOfLogin as typeOfLogin,
           u.email as email,
-          u.city AS city, 
+          p.city AS city,
+          p.category AS category,
           u.createdAt AS userCreatedAt, 
-          p.id AS id,
+          p.id,
           p.profile_type as profileType,
           p.profile_data as profileData,
           p.createdAt AS profileCreatedAt,
           p.updatedAt AS profileUpdatedAt,
           AVG(r.score) as profileScore,
           COUNT(r.id) as totalReviews
-        FROM profile p
-          LEFT JOIN user u ON p.userId=u.id
-          LEFT JOIN reviews r ON r.profileId = p.id
+        FROM Profile p
+          LEFT JOIN User u ON p.userId=u.id
+          LEFT JOIN Reviews r ON r.profileId = p.id
+          WHERE city = ? and category = ?
           GROUP by p.id
-          WHERE u.city = ? AND p.profileData.category = ?
-        ORDER BY ${sortingMethod} DESC LIMIT ? OFFSET ?`, [city, category, limit, offset],
+            ORDER BY ? DESC LIMIT ? OFFSET ?`, [city, category, sortingMethod, limit, offset],
         function(err, results) {
           if (err) {
             console.log(err);
@@ -128,23 +129,24 @@ module.exports = function RedditAPI(conn) {
             // console.log(results);
             var mappedResults = results.map(function(res) {
               return {
-                id: res.id,
+                profileId: res.id,
                 nickname: res.nickname,
                 profilePic: res.profilePic,
                 profileType: res.profileType,
                 profileData : res.profileData,
-                createdAt: res.profilecreatedAt,
+                profileCategory: res.category,
+                city: res.city,
+                createdAt: res.profileCreatedAt,
                 updatedAt: res.profileUpdatedAt,
                 profileScore: res.profileScore,
                 profileReviews: res.totalReviews,
-                user: {
-                  id: res.userId,
+                userInfo: {
                   email: res.email,
                   username: res.username,
                   typeOfLogin: res.typeOfLogin
                 }
-              }
-            })
+              };
+            });
             callback(null, mappedResults);
           }
         }
@@ -167,15 +169,11 @@ module.exports = function RedditAPI(conn) {
           r.createdAt AS reviewCreatedAt, 
           r.userId as userId,
           u.username as username,
-          r.profileID as profileId,
-          u.nickname as profileNickname,
-          AVG(r.score) as profileScore,
-          COUNT(r.id) as totalReviews
+          r.profileID as profileId
         FROM Reviews r
           LEFT JOIN User u ON userId=u.id
           LEFT JOIN Profile p ON p.id=profileId
           WHERE profileId = ?
-          GROUP by p.id
         ORDER BY reviewCreatedAt DESC LIMIT ? OFFSET ?`, [profileId, limit, offset],
         function(err, results) {
           if (err) {
@@ -189,13 +187,10 @@ module.exports = function RedditAPI(conn) {
                 reviewText: res.reviewText,
                 reviewScore: res.score,
                 reviewCreatedAt: res.reviewCreatedAt,
-                profileID : res.profileID,
-                profileNickname: res.profileNickname,
-                profileScore: res.profileScore,
-                profileTotalReviews: res.totalReviews,
+                profileID : res.profileId,
                 user: {
                   username: res.username,
-                  id: res.userID
+                  id: res.userId
                 }
               }
             })
@@ -208,12 +203,11 @@ module.exports = function RedditAPI(conn) {
 }
 
 var onSetAPI = OnsetAPI(connection);
-module.exports = onSetAPI;
 
 // onSetAPI.createUser({
-//     username: "MartiMax21",
-//     email: "maxime.martin123@gmail.com",
-//     nickname: "Maxime Martin",
+//     username: "Jules",
+//     email: "julian.binder@gmail.com",
+//     nickname: "Julian Binder",
 //     profilepic: "https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-1/p160x160/10646684_10154550151650471_4084064332679043178_n.jpg?oh=ea71897c8f73618cd9fcd65d1d1fc533&oe=5813B257",
 //     city: "Montreal",
 //     typeOfLogin: "Instagram"
@@ -227,9 +221,11 @@ module.exports = onSetAPI;
 // });
 
 // onSetAPI.createProfile({
-//     userId: 2,
+//     userId: 8,
 //     type: "artist",
-//     data: "{category: Make-up Artist}"
+//     data: "{category: Make-up Artist}",
+//     city: "Montreal",
+//     category: "Hair stylist"
 //     }, function(err, profile) {
 //     if (err) {
 //       console.log(err);
@@ -240,10 +236,10 @@ module.exports = onSetAPI;
 // });
 
 // onSetAPI.createReview({
-//     text: "Maxime is NOT the best make-up artist",
-//     score: 1.5,
+//     text: "Julian has the best hair, I want hair like him",
+//     score: 9.9,
 //     userId: 2,
-//     profileId: 1
+//     profileId: 4
 //     }, function(err, review) {
 //     if (err) {
 //       console.log(err);
@@ -253,12 +249,23 @@ module.exports = onSetAPI;
 //     }
 // });
 
-onSetAPI.getReviewsForProfile({}, 1, function(err, reviews) {
-    if (err) {
-      console.log(err);
-    }
-    else{
-      console.log(reviews);
-    }
-  });
+// onSetAPI.getReviewsForProfile({}, 3, function(err, reviews) {
+//     if (err) {
+//       console.log(err);
+//     }
+//     else{
+//       console.log(reviews);
+//     }
+//   });
+  
+// onSetAPI.getAllProfiles({}, "Hair stylist", "Montreal", "profileCreatedAt", function(err, profiles) {
+//     if (err) {
+//       console.log(err);
+//     }
+//     else{
+//       console.log(profiles);
+//     }
+//   });
+
+
 

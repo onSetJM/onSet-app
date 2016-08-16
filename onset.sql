@@ -2,7 +2,7 @@
 
 CREATE TABLE User (
   id INT(11) NOT NULL AUTO_INCREMENT,
-  username VARCHAR(50) UNIQUE NOT NULL,
+  username VARCHAR(50) NOT NULL,
   email VARCHAR(255) NOT NULL,
   nickname VARCHAR(100) NOT NULL,
   typeOfLogin ENUM ('facebook', 'google', 'instagram'),
@@ -10,6 +10,9 @@ CREATE TABLE User (
   createdAt DATETIME,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE User
+DROP INDEX username
 
 -- This creates profiles. Each user has a client profile or an artist profile. The userId column references the id column of
 -- users. If a user is deleted, the corresponding posts' userIds will be set NULL.
@@ -23,7 +26,13 @@ CREATE TABLE Profile (
   updatedAt DATETIME NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-  
+
+ALTER TABLE Profile ADD COLUMN city VARCHAR(60);
+ALTER TABLE Profile ADD COLUMN category VARCHAR(60);
+
+DELETE FROM User
+WHERE id > 3;
+
 CREATE TABLE Reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   text TEXT(10000), 
