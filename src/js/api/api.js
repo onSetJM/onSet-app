@@ -1,15 +1,15 @@
-var mysql = require('mysql');
+// var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root', 
-  password : '',
-  database: 'onset'
-});
-connection.connect();
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root', 
+//   password : '',
+//   database: 'onset'
+// });
+// connection.connect();
 
 
-function OnsetAPI(conn) {
+module.exports = function OnsetAPI(conn) {
   return {
     createUser: function(user, callback) {
           conn.query(
@@ -203,7 +203,7 @@ function OnsetAPI(conn) {
   }
 }
 
-var onSetAPI = OnsetAPI(connection);
+// var onSetAPI = OnsetAPI(connection);
 
 // onSetAPI.createUser({
 //     username: "Jules",

@@ -2,25 +2,9 @@ var React = require('react');
 var $ = require('jquery');
 
 
+
 var Createareview = React.createClass({
-    getInitialState: function() {
-    return {};
-    },
-    componentDidMount: function() {
-        var that = this;
-        $.ajax({           
-            url: '/createareview', 
-            data: { reviewObj: that.state.reviewObj},
-            type: 'POST',
-            cache: false,           
-            success: function(data) {
-                 return data;
-            },
-            error: function() {
-              console.log('error');      
-            }.bind(this)
-        });
-    },
+
   _handleSubmit: function(e) {
       e.preventDefault();
       var reviewObj = {
@@ -29,6 +13,7 @@ var Createareview = React.createClass({
           userId: 1,
           profileId: 2
       }
+
       this.setState({
                 reviewObj:reviewObj
       }) ;

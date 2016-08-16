@@ -1,7 +1,7 @@
 /* global localStorage */
 var React = require('react');
 var Home = require("./Home");
-var LoggedIn = require("./LoggedIn");
+var Loggedin = require("./Loggedin");
 import Auth0Lock from 'auth0-lock';
 
 var Auth = React.createClass({
@@ -11,7 +11,7 @@ var Auth = React.createClass({
     }
   },
   componentWillMount: function() {
-    var lock = new Auth0Lock('u62PeQq50xQ4RgaJr291OGnUwdgrc6cA', 'onset.auth0.com');
+    var lock = new Auth0Lock('pQZynj9aeB6FgPoKihk7HluGGlLYwqWR', 'onset.auth0.com');
     // this.lock = new Auth0Lock('u62PeQq50xQ4RgaJr291OGnUwdgrc6cA', 'https://onsetproject-martimax21.c9users.io/');
     this.setState({
       lock: lock
@@ -51,7 +51,7 @@ var Auth = React.createClass({
   },
   render: function() {
     if (this.state.profile) {
-      return (<LoggedIn profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />);
+      return (<Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />);
     }
     else {
       return (<Home lock={this.state.lock} />);

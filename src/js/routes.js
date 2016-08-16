@@ -4,12 +4,12 @@ var ReactRouter = require('react-router');
 
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
 
 var App = require("./components/App");
 var Auth = require("./components/Auth");
 var Home = require("./components/Home");
-var LoggedIn = require("./components/LoggedIn");
+var Loggedin = require("./components/Loggedin");
+var Createareview = require("./components/createareview");
 
 import Foundation from 'react-foundation';
 
@@ -18,7 +18,8 @@ var routes = (
         <Route path="/" component={App}>
             <Route path="auth" component={Auth}></Route>
             <Route path="home" component={Home}></Route>
-            <Route path="loggedin" component={LoggedIn}></Route>
+            <Route path="loggedin" component={Loggedin}></Route>
+            <Route path="createareview" component={Createareview}></Route>
         </Route>
     </Router>
 );
