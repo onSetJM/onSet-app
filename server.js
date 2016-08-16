@@ -68,13 +68,13 @@ app.post('/createProfile', function(req, res){
   );
 });
 
-app.post('/createReview', function(req, res){
+app.post('/createareview', function(req, res){
     onSetAPI.createReview(
       {
-       text: req.body.text,
-       score: req.body.score,
-       userId: req.body.userId,
-       profileId: req.body.userId
+       text: req.body.reviewObj.text,
+       score: req.body.reviewObj.score,
+       userId: req.body.reviewObj.userId,
+       profileId: req.body.reviewObj.userId
        }
     , function(err, review) {
       if(err){
