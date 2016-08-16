@@ -3,6 +3,7 @@ var React = require('react');
 var Home = require("./Home");
 var LoggedIn = require("./LoggedIn");
 import Auth0Lock from 'auth0-lock';
+var onSetAPI = require("../api/api")
 
 var Auth = React.createClass({
   getInitialState: function() {
@@ -51,6 +52,15 @@ var Auth = React.createClass({
   },
   render: function() {
     if (this.state.profile) {
+      var userObject = {
+        username: this.state.profile.nickname,
+        city: "Montreal",
+        email: "",
+        nickname: this.state.profile.name,
+        profilepic: this.state.profile.picture,
+        typeOfLogin: this.state.profile.identities[0].provider
+      };
+      console.log(userObject)
       return (<LoggedIn profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />);
     }
     else {
