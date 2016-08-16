@@ -15,8 +15,7 @@ var connection = mysql.createConnection({
 
 // var onSetAPI = require('./src/js/api/api')(connection);
 
-app.use(express.static(__dirname + '/public'));
-
+app.use(express.static(__dirname + '/public'))
 /* insert any app.get or app.post you need here */
 
 /*
