@@ -1,7 +1,7 @@
 /* global localStorage */
 var React = require('react');
 var Home = require("./Home");
-var Login = require("./Login");
+var Loggedin = require("./Loggedin");
 import Auth0Lock from 'auth0-lock';
 
 var Auth = React.createClass({
@@ -51,7 +51,7 @@ var Auth = React.createClass({
   },
   render: function() {
     if (this.state.profile) {
-      return (<Login profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />);
+      return (<Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />);
     }
     else {
       return (<Home lock={this.state.lock} />);
