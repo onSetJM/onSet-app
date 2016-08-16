@@ -1,5 +1,5 @@
 var React = require('react');
-import Foundation from 'react-foundation';
+
 var Header = require("./Header");
 var Footer = require("./Footer");
 
