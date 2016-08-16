@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   database: 'onset'
 });
 
-var onSetAPI = require('./src/js/api/api')(connection);
+// var onSetAPI = require('./src/js/api/api')(connection);
 
 app.use(express.static(__dirname + '/public'));
 
