@@ -23,7 +23,11 @@ var routes = (
             <Route path="loggedin" component={Loggedin}></Route>
             <Route path="createareview" component={Createareview}></Route>
             <Route path="createartistprofile" component={Createartistprofile}></Route>
+<<<<<<< HEAD
             <Route path="searh" component={Search} />
+=======
+            <Route path="profile" component={Profile}></Route>
+>>>>>>> 3f96f930248c3ab78a58fc9aab4004126ea2b18e
         </Route>
     </Router>
 );
