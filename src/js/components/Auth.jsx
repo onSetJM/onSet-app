@@ -1,6 +1,6 @@
 /* global localStorage */
 var React = require('react');
-var Home = require("./Home");
+var Header = require("./Header");
 var Loggedin = require("./Loggedin");
 import Auth0Lock from 'auth0-lock';
 
@@ -36,8 +36,6 @@ var Auth = React.createClass({
         localStorage.setItem('profile', JSON.stringify(profile));
       });
     });
-
-    var that = this;
     this.setState({
       idToken: that.getIdToken()
     })
@@ -54,7 +52,7 @@ var Auth = React.createClass({
       return (<Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />);
     }
     else {
-      return (<Home lock={this.state.lock} />);
+      return (<Header lock={this.state.lock} />);
     }
   }
 });

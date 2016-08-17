@@ -1,11 +1,19 @@
 var React = require('react');
-// var img = require("../../public/img/hairphoto.jpeg");
+
+
+
 var Header = React.createClass({
-  render: function() {
+    showLock: function() {
+        this.props.lock.show();
+    },
+    render: function() {
     return (
       <div>
+        <div className="login-box">
+            <button onClick={this.showLock}>Sign In</button>
+        </div>
+        <h1>onSet</h1>
         <img src="/img/hairphoto.jpeg"/>
-        <h1>Header</h1>
       </div>
     );
   }

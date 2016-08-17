@@ -1,20 +1,9 @@
 var React = require('react');
-import {Menu, MenuItem} from 'react-foundation';
-
 //find ouy how to render autho component
 var Footer = React.createClass({
   render: function() {
     return (
-      <div>
-      <div className="menu-vertical-example">
-        <Menu isVertical>
-          <MenuItem><a>One</a></MenuItem>
-          <MenuItem><a>Two</a></MenuItem>
-          <MenuItem><a>Three</a></MenuItem>
-          <MenuItem><a>Four</a></MenuItem>
-        </Menu>
-      </div>
-      <div className="footer">
+      <nav className="footer">
         <div className="footer-profiles">
         <ul>
           <li>Browse Profiles</li>
@@ -34,8 +23,7 @@ var Footer = React.createClass({
           <li>Careers</li>
         </ul>
         </div>
-      </div>
-      </div>
+      </nav>
     );
   }
 });
