@@ -103,6 +103,19 @@ app.post('/searchprofiles', function(req, res){
   );
 });
 
+app.get('/profile', function(req, res){
+    onSetAPI.getSingleProfile(req.body.postId
+    , function(err, profile) {
+      if(err){
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        res.send({success:true, profiles: profile});
+      }
+    }
+  );
+});
+
 app.post('/displayreviews', function(req, res){
     onSetAPI.getReviewsForProfile({},req.body.profileId
     , function(err, reviews) {

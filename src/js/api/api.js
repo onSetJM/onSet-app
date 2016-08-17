@@ -153,6 +153,61 @@ module.exports = function OnsetAPI(conn) {
         }
       );
     },
+    getSingleProfile: function(profileId, callback) {
+      conn.query(`
+        SELECT 
+          u.username AS username, 
+          u.nickname AS nickname, 
+          u.profilePic AS profilePic,
+          u.typeOfLogin as typeOfLogin,
+          u.email as email,
+          p.city AS city,
+          p.category AS category,
+          u.createdAt AS userCreatedAt, 
+          p.id,
+          p.profile_type as profileType,
+          p.profile_data as profileData,
+          p.createdAt AS profileCreatedAt,
+          p.updatedAt AS profileUpdatedAt,
+          AVG(r.score) as profileScore,
+          COUNT(r.id) as totalReviews
+        FROM Profile p
+          LEFT JOIN User u ON p.userId=u.id
+          LEFT JOIN Reviews r ON r.profileId = p.id
+          WHERE p.id = ?
+          GROUP by p.id`, [profileId],
+        function(err, results) {
+          if (err) {
+            console.log(err);
+            callback(err);
+          }
+          else {
+            // console.log(results);
+            var mappedResults = results.map(function(res) {
+              return {
+                profileId: res.id,
+                nickname: res.nickname,
+                profilePic: res.profilePic,
+                profileType: res.profileType,
+                profileData : res.profileData,
+                profileCategory: res.category,
+                city: res.city,
+                createdAt: res.profileCreatedAt,
+                updatedAt: res.profileUpdatedAt,
+                profileScore: res.profileScore,
+                profileReviews: res.totalReviews,
+                userInfo: {
+                  email: res.email,
+                  username: res.username,
+                  typeOfLogin: res.typeOfLogin
+                }
+              };
+            });
+            callback(null, mappedResults);
+          }
+        }
+      );
+    },
     getReviewsForProfile: function(options, profileId, callback) {
       // In case we are called without an options parameter, shift all the parameters manually
       if (!callback) {
