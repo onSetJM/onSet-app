@@ -9,6 +9,7 @@ var Loggedin = React.createClass({
     this.localStorage.removeItem('id_token');
   },
   componentDidMount: function() {
+    if (this.props.profile.identities[0].provider === "instagram") {
       var userObj = {
         username: this.props.profile.nickname,
         email: "" ,
@@ -16,6 +17,15 @@ var Loggedin = React.createClass({
         profilepic: this.props.profile.picture,
         typeOfLogin: this.props.profile.identities[0].provider,
       };
+    } else if (this.props.profile.identities[0].provider === "google-oauth2") {
+      userObj = {
+        username: this.props.profile.nickname,
+        email: this.props.profile.email,
+        nickname: this.props.profile.name,
+        profilepic: this.props.profile.picture,
+        typeOfLogin: this.props.profile.identities[0].provider.slice(0,6)
+      };
+    }
       console.log(userObj);
       $.ajax({           
             url: '/login', 

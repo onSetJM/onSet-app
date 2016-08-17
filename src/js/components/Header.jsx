@@ -1,5 +1,5 @@
 var React = require('react');
-var Search = require("./Search")
+var SearchBar = require("./SearchBar")
 
 
 var Header = React.createClass({
@@ -15,7 +15,7 @@ var Header = React.createClass({
           <div className="header-text">
             <h1>onSet</h1>
             <h2>build your profile. get hired.</h2>
-            <Search className="searchbar" component={Search}/>
+            <SearchBar className="searchbar" component={SearchBar}/>
         </div>
       </div>
     );
