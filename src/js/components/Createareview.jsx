@@ -20,8 +20,8 @@ var Createareview = React.createClass({
             url: '/createareview', 
             data: reviewObj,
             type: 'POST',
-            success: function(resuly) {
-                console.log("This is the resuly" + resuly);
+            success: function(result) {
+                console.log("This is the resuly" + result);
             },
             error: function() {
               console.log('this is the ajax error');      

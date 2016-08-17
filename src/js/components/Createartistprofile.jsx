@@ -11,18 +11,18 @@ var Createartistprofile = React.createClass({
     },
   _handleSubmit: function(e) {
       e.preventDefault();
-      var reviewObj = 
+      var profileObj = 
       {
        userId: 1,
        type: "artist",
-       data: this.refs.speciality.value,
+       data: this.refs.specialities.value,
        city: this.refs.city.value,
-       category: this.refs.text.value
+       category: this.refs.category.value
      };
-      console.log(reviewObj);
+      console.log(profileObj);
       $.ajax({           
-            url: '/createareview', 
-            data: reviewObj,
+            url: '/createartistprofile', 
+            data: profileObj,
             type: 'POST',
             success: function(result) {
                 console.log("This is the result" + result);
@@ -31,7 +31,7 @@ var Createartistprofile = React.createClass({
               console.log('this is the ajax error');      
             }
         });
-//     history.push(`/user/${this.refs.userInput.value}`)
+//     history.push(`/profile/${this.refs.userInput.value}`)
   },
   render: function() {
     return (

@@ -50,7 +50,7 @@ app.post('/login', function(req, res){
   );
 });
 
-app.post('/createArtistProfile', function(req, res){
+app.post('/createartistprofile', function(req, res){
     onSetAPI.createProfile(
       {
        userId: req.body.userId,
@@ -79,7 +79,7 @@ app.post('/createareview', function(req, res){
        userId: req.body.userId,
        profileId: req.body.profileId
        }
-    , function(err, review) {
+    ,function(err, review) {
       if(err){
         res.status(400).send("Whoopsy! Something went wrong!");
       }

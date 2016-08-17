@@ -22,7 +22,7 @@ var routes = (
             <Route path="loggedin" component={Loggedin}></Route>
             <Route path="createareview" component={Createareview}></Route>
             <Route path="createartistprofile" component={Createartistprofile}></Route>
-            <Route path="profile/:username" component={Profile}></Route>
+
         </Route>
     </Router>
 );

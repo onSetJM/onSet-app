@@ -20,8 +20,7 @@ DROP INDEX username
 CREATE TABLE Profile (
   id int(11) NOT NULL AUTO_INCREMENT,
   profile_type ENUM ('artist', 'client') DEFAULT 'client',
-  profile_data varchar(2000) DEFAULT NULL,
-  userId int(11) DEFAULT NULL,
+  userId int(11),
   profile_data text,
   createdAt DATETIME NOT NULL,
   updatedAt DATETIME NOT NULL,
@@ -31,8 +30,6 @@ CREATE TABLE Profile (
 ALTER TABLE Profile ADD COLUMN city VARCHAR(60);
 ALTER TABLE Profile ADD COLUMN category VARCHAR(60);
 
-DELETE FROM User
-WHERE id > 3;
 
 CREATE TABLE Reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
