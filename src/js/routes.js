@@ -13,6 +13,7 @@ var Loggedin = require("./components/Loggedin");
 var Createareview = require("./components/Createareview");
 var Createartistprofile = require("./components/Createartistprofile");
 var Profile = require("./components/Profile");
+var Reviews = require("./components/Reviews");
 
 
 var routes = (
@@ -23,6 +24,7 @@ var routes = (
             <Route path="createareview" component={Createareview}></Route>
             <Route path="createartistprofile" component={Createartistprofile}></Route>
             <Route path="profile" component={Profile}></Route>
+            <Route path="reviews" component={Reviews}></Route>
         </Route>
     </Router>
 );
