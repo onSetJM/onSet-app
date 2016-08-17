@@ -11,6 +11,7 @@ var Createartistprofile = React.createClass({
     },
     componentDidMount: function() {
         var that = this;
+        alert("HI COMPONENT DID MOUNT");
         $.getJSON('/profile', function(res){
           that.setState({
                 profile:res
@@ -18,6 +19,9 @@ var Createartistprofile = React.createClass({
          });
   },
   render: function() {
+    if (!this.state.profile) {
+            return <div>LOADING YOUR PROFILE...</div>;
+    }
     return (
       <div>
             <div> nickname: {this.state.profile.nickname}</div>
