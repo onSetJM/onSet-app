@@ -18,6 +18,7 @@ var onSetAPI = require('./src/js/api/api')(connection);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json({ type: 'application/*+json' }));
 /* insert any app.get or app.post you need here */
 
 /*
@@ -103,26 +104,30 @@ app.post('/searchprofiles', function(req, res){
   );
 });
 
-app.get('/profile', function(req, res){
-    onSetAPI.getSingleProfile(req.body.postId
+app.post('/profile', function(req, res){
+//    console.log("HI FROM APP GET");
+    onSetAPI.getSingleProfile(req.body.profileId
     , function(err, profile) {
       if(err){
+        console.log(err);
         res.status(400).send("Whoopsy! Something went wrong!");
       }
       else {
-        res.send({success:true, profiles: profile});
+        //console.log(profile[0]);
+        res.send({success:true, profile: profile[0]});
       }
     }
   );
 });
 
-app.post('/displayreviews', function(req, res){
+app.post('/reviews', function(req, res){
     onSetAPI.getReviewsForProfile({},req.body.profileId
     , function(err, reviews) {
       if(err){
         res.status(400).send("Whoopsy! Something went wrong!");
       }
       else {
+        console.log(reviews);
         res.send({success:true, reviews: reviews});
       }
     }

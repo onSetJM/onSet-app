@@ -265,7 +265,6 @@ module.exports = function OnsetAPI(conn) {
 //     email: "julian.binder@gmail.com",
 //     nickname: "Julian Binder",
 //     profilepic: "https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-1/p160x160/10646684_10154550151650471_4084064332679043178_n.jpg?oh=ea71897c8f73618cd9fcd65d1d1fc533&oe=5813B257",
-//     city: "Montreal",
 //     typeOfLogin: "Instagram"
 //     }, function(err, user) {
 //     if (err) {

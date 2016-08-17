@@ -5,23 +5,31 @@ var history = require('react-router').browserHistory;
 
 
 
-var Createartistprofile = React.createClass({
+var Profile = React.createClass({
     getInitialState: function() {
         return {};
     },
     componentDidMount: function() {
         var that = this;
-        alert("HI COMPONENT DID MOUNT");
-        $.getJSON('/profile', function(res){
-          that.setState({
-                profile:res
-            });
-         });
+        $.ajax({           
+            url: '/profile', 
+            data: {profileId:1},
+            type: 'POST',
+            success: function(result) {
+                console.log(result);
+                that.setState({
+                 profile:result.profile
+                });
+            },
+            error: function() {
+              console.log('this is the ajax error');      
+            }
+        });
   },
   render: function() {
-    if (!this.state.profile) {
-            return <div>LOADING YOUR PROFILE...</div>;
-    }
+      if (!this.state.profile) {
+            return <div>LOADING FOLLOWERS...</div>;
+        }
     return (
       <div>
             <div> nickname: {this.state.profile.nickname}</div>
@@ -31,10 +39,12 @@ var Createartistprofile = React.createClass({
             <div> specialities: {this.state.profile.profileData} </div>
             <div> city: {this.state.profile.city} </div>
             <div> Member of onSet since: {this.state.profile.createdAt} </div>
+            <div> EMAIL ME FOR A BOOKING </div>
             <img src={this.state.profile.profilePic}/>
       </div>
     );
   }
 });
 
-module.exports = Createartistprofile;
+
+module.exports = Profile;

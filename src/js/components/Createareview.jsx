@@ -21,17 +21,12 @@ var Createareview = React.createClass({
             data: reviewObj,
             type: 'POST',
             success: function(result) {
-                console.log("This is the resuly" + result);
+                console.log("This is the result" + result);
             },
             error: function() {
               console.log('this is the ajax error');      
             }
         });
-  
-    //   $.post('/createareview', {reviewObj: reviewObj}, function(result){
-    //         console.log("success");
-    //         console.log(result);
-    //      })
     },
   render: function() {
     return (
