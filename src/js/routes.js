@@ -10,6 +10,8 @@ var Auth = require("./components/Auth");
 var Home = require("./components/Home");
 var Loggedin = require("./components/Loggedin");
 var Createareview = require("./components/Createareview");
+var Createartistprofile = require("./components/Createartistprofile");
+var Profile = require("./components/Profile");
 
 import Foundation from 'react-foundation';
 
@@ -20,6 +22,8 @@ var routes = (
             <Route path="home" component={Home}></Route>
             <Route path="loggedin" component={Loggedin}></Route>
             <Route path="createareview" component={Createareview}></Route>
+            <Route path="createartistprofile" component={Createartistprofile}></Route>
+            <Route path="profile/:username" component={Profile}></Route>
         </Route>
     </Router>
 );
