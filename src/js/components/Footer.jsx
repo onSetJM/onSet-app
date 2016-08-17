@@ -23,8 +23,15 @@ var Footer = React.createClass({
         <ul>
           <li>Contact Us</li>
           <li>Careers</li>
+          <li>
+            <ul className="socialmediaicons">
+              <li><i className="fa fa-instagram" aria-hidden="true"></i></li>
+              <li><i className="fa fa-github-square" aria-hidden="true"></i></li>
+              <li><i className="fa fa-twitter" aria-hidden="true"></i></li>
+            </ul>
+          </li>
         </ul>
-        </nav>
+      </nav>
       </div>
       <hr />
       </div>

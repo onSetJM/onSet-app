@@ -53,7 +53,6 @@ var App = React.createClass({
   render: function() {
     if (this.state.profile) {
       return (
-      <div>
         <main>
           <Header component={Header} />
           <Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />
@@ -61,24 +60,20 @@ var App = React.createClass({
           <hr/>
           <Footer component={Footer} />
         </main>
-      </div>
       );
     }
     else {
       return (
-      <div>  
-      <Header lock={this.state.lock} />
-      <main>
-        {this.props.children}
-        <Footer component={Footer} />
-      </main>
-      </div>
-      
+        <div>  
+          <Header lock={this.state.lock} />
+          {this.props.children}
+          <Footer component={Footer} />
+        </div>
+
       );
     }
-    
+
   }
 });
 
 module.exports = App;
-

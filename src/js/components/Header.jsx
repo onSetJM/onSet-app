@@ -1,5 +1,5 @@
 var React = require('react');
-
+var Search = require("./Search")
 
 
 var Header = React.createClass({
@@ -9,12 +9,13 @@ var Header = React.createClass({
     render: function() {
     return (
       <div className="header">
-      <div className="header-img">
-        <div className="login-box">
+      <div className="login-box">
             <button className="btn btn-secondary btn-sm" onClick={this.showLock}>Sign In</button>
         </div>
-        <h1>onSet</h1>
-        <h2>build your profile. get hired.</h2>
+          <div className="header-text">
+            <h1>onSet</h1>
+            <h2>build your profile. get hired.</h2>
+            <Search className="searchbar" component={Search}/>
         </div>
       </div>
     );

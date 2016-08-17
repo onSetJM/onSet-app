@@ -11,8 +11,7 @@ CREATE TABLE User (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE User
-DROP INDEX username
+
 
 -- This creates profiles. Each user has a client profile or an artist profile. The userId column references the id column of
 -- users. If a user is deleted, the corresponding posts' userIds will be set NULL.

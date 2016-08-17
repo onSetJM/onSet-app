@@ -30,14 +30,14 @@ app.get('/*', function(request, response) {
 });
 
 app.post('/login', function(req, res){
+    console.log(req.body);
     onSetAPI.createUser(
       {
-      username: req.body.rif,
-      email: req.body.rif,
-      nickname: req.body.rif,
-      profilepic: req.body.rof,
-      city: req.body.rif,
-      typeOfLogin: "Instagram"
+      username: req.body.username,
+      email: req.body.email,
+      nickname: req.body.nickname,
+      profilepic: req.body.profilepic,
+      typeOfLogin: req.body.typeOfLogin
     }
     , function(err, user) {
       if(err){

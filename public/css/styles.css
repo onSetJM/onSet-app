@@ -1,18 +1,6 @@
 
 /* Header*/
 .header {
-    display: flex;
-}
-.header h1 {
-    text-align: center;
-    color: #0d1b30;
-    font-weight: bold;
-}
-.header h2 {
-    text-align: center;
-    color: #152a4c;
-}
-.header-img{
     background-image: url(../img/hairphoto.jpeg);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -21,7 +9,25 @@
 	margin: 0 auto;
 
 	width: 100%;
-	padding-bottom: 36%
+	padding-bottom: 30%
+}
+.header h1 {
+    /*text-align: center;*/
+    color: #0d1b30;
+    font-weight: bold;
+}
+.header h2 {
+    /*text-align: center;*/
+    color: #152a4c;
+}
+.header-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.searchbar {
+    margin-top: 100px;
 }
 /* Home page*/
 .howitworks{
@@ -47,8 +53,29 @@
 .footer li {
     color: #FFF;
 }
+.socialmediaicons {
+    display: flex;
+}
+.socialmediaicons li{
+    margin-right: 20px;
+}
 /*Logged in component*/
 .loggedinimg {
     max-width: 50px;
     border-radius: 25px
+}
+
+.fa{
+    color: #FFF;
+}
+
+/* Search */
+.homepagesearchbar {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: center;
+}
+.eqHeight {
+    height: 39px;
 }
