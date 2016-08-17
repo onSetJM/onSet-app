@@ -8,12 +8,14 @@ var Header = React.createClass({
     },
     render: function() {
     return (
-      <div>
+      <div className="header">
+      <div className="header-img">
         <div className="login-box">
-            <button onClick={this.showLock}>Sign In</button>
+            <button className="btn btn-secondary btn-sm" onClick={this.showLock}>Sign In</button>
         </div>
         <h1>onSet</h1>
-        <img src="/img/hairphoto.jpeg"/>
+        <h2>build your profile. get hired.</h2>
+        </div>
       </div>
     );
   }

@@ -54,9 +54,9 @@ var App = React.createClass({
     if (this.state.profile) {
       return (
       <div>
-        <Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />
         <main>
           <Header component={Header} />
+          <Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />
           {this.props.children}
           <hr/>
           <Footer component={Footer} />
@@ -70,10 +70,8 @@ var App = React.createClass({
       <Header lock={this.state.lock} />
       <main>
         {this.props.children}
-        <hr/>
         <Footer component={Footer} />
       </main>
-      <hr />
       </div>
       
       );

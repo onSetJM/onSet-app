@@ -3,27 +3,31 @@ var React = require('react');
 var Footer = React.createClass({
   render: function() {
     return (
-      <nav className="footer">
-        <div className="footer-profiles">
+      <div className="footer">
+      <hr />
+      <div className="footer-nav">
+        <nav className="footer-profiles">
         <ul>
           <li>Browse Profiles</li>
           <li>Create/View Your Profile</li>
         </ul>
-        </div>
-        <div className="footer-about-us">
+        </nav>
+        <nav className="footer-about-us">
         <ul>
           <li>How It Works</li>
           <li>Our Vision</li>
           <li>FAQ</li>
         </ul>
-        </div>
-        <div className="footer-connect">
+        </nav>
+        <nav className="footer-connect">
         <ul>
           <li>Contact Us</li>
           <li>Careers</li>
         </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
+      <hr />
+      </div>
     );
   }
 });

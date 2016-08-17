@@ -9,10 +9,10 @@ var Loggedin = React.createClass({
   render: function() {
     if (this.props.profile) {
       return (
-        <div>
+        <div className="loggedinelements">
           <button onClick={this.logOut}>Log Out</button>
-            <img src={this.props.profile.picture} />
-            <h2>Welcome {this.props.profile.nickname}</h2>
+            <img className="loggedinimg" src={this.props.profile.picture} />
+            <h4>Welcome {this.props.profile.nickname}</h4>
         </div>
       );
     } else {

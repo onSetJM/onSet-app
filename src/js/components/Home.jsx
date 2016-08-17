@@ -4,20 +4,10 @@ var Home = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>How It Works</h1>
-        <h2>What exactly are the “creative trades”?</h2>
-        <p>When we say creative trades, we mean hairstylists, makeup artists, 
-        personal stylists, costume designers, nail artists, and any other 
-        professionals that do manual, creative work. Or, in other words, the types
-        of professionals you’re likely to have on-set at a photoshoot. </p>
-        <h2>Why onSet?</h2>
-        <p>We noticed that the creative trades weren’t being effectively and 
-        professionally represented on the most common online CV sites and that 
-        many talented professionals end up using Instagram as an online portfolio. 
-        We’ve integrated Instagram so you can take your current online presence 
-        and upgrade it to include all your professional experiences and achievements. 
-        You work hard-- onSet lets you show just how experienced you are.</p>
-        <h2>Get Hired with onSet</h2>
+      <h2>How It Works</h2>
+      <div className="howitworks">
+        <div className="gethired">
+        <h3>Get Hired with onSet</h3>
         <p>onSet is built for professionals in creative trades who are looking for 
         freelance work and to network in their field. Not quite sure how it works? 
         If you’re looking to be hired, start by creating a profile, which will be 
@@ -30,7 +20,9 @@ var Home = React.createClass({
         your best work. We know LinkedIn doesn’t show what you’re capable of, and 
         Instagram isn’t the most professional portfolio on its own. With onSet you 
         get the best of both worlds-- a professional CV and visual portfolio.</p>
-        <h2>Hire Someone with onSet</h2>
+        </div>
+        <div className="hiresomeone">
+        <h3>Hire Someone with onSet</h3>
         <p>It can be tough to find talented, reliable professionals in the 
         creative trades if you don’t know how to get connected or who’s 
         up-and-coming talent. onSet lets you search professionals to see who’s 
@@ -49,6 +41,24 @@ var Home = React.createClass({
         just click the “Connect” button on their profile. You’ll have to sign in 
         with either Google or Instagram but, don’t worry, no other information is 
         needed! </p>
+        </div>
+        </div>
+        <hr />
+        <h2>Our Vision</h2>
+        <div className="ourvision">
+        <h3>What exactly are the “creative trades”?</h3>
+        <p>When we say creative trades, we mean hairstylists, makeup artists, 
+        personal stylists, costume designers, nail artists, and any other 
+        professionals that do manual, creative work. Or, in other words, the types
+        of professionals you’re likely to have on-set at a photoshoot. </p>
+        <h3>Why onSet?</h3>
+        <p>We noticed that the creative trades weren’t being effectively and 
+        professionally represented on the most common online CV sites and that 
+        many talented professionals end up using Instagram as an online portfolio. 
+        We’ve integrated Instagram so you can take your current online presence 
+        and upgrade it to include all your professional experiences and achievements. 
+        You work hard-- onSet lets you show just how experienced you are.</p>
+        </div>
     </div>);
   }
 });
