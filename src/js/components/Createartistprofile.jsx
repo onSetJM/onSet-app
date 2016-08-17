@@ -1,6 +1,8 @@
 var React = require('react');
 var $ = require('jquery');
 
+//var history = require('react-router').browserHistory;
+
 
 
 var Createartistprofile = React.createClass({
@@ -17,29 +19,37 @@ var Createartistprofile = React.createClass({
        city: this.refs.city.value,
        category: this.refs.text.value
      };
+      console.log(reviewObj);
       $.ajax({           
             url: '/createareview', 
-            data: { reviewObj: reviewObj},
+            data: reviewObj,
             type: 'POST',
-            cache: false,           
-            success: function() {
-                this.setState({
-                    dataStatus:"success"
-                }) ;
+            success: function(result) {
+                console.log("This is the result" + result);
             },
             error: function() {
-              console.log('error');      
-            }.bind(this)
+              console.log('this is the ajax error');      
+            }
         });
+//     history.push(`/user/${this.refs.userInput.value}`)
   },
   render: function() {
     return (
       <div>
         <form  id="reviewForm" onSubmit={this._handleSubmit}>
-            <p> Please enter a score out of 10 </p>
-            <input type="text" ref="score" placeholder="Score out of 10" />
+            <p> Pick a category </p>
+            <select ref="category">
+                <option value="hairstylist">Hairstylist </option>
+                <option value="make-up Artist">Make-up Artist</option>
+                <option value="colorist">Colorist</option>
+                <option value="stylist">Stylist</option>
+            </select>
+            <p> Detail your specialities </p>
+            <input ref="specialities" type="text" />
             <p> Enter your city </p>
-            <input ref="city" type="textarea" />
+            <input ref="city" type="text" />
+            <p> Add images of your work to the gallery </p>
+
             <button > Submit your review !</button>
         </form>
       </div>
