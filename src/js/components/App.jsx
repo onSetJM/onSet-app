@@ -14,7 +14,7 @@ var App = React.createClass({
     }
         return (
           <div>
-            <Header />
+            <Header auth={this.props.route.auth}/>
                 {children}
             <Footer />
           </div>

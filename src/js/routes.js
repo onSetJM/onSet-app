@@ -16,8 +16,7 @@ var Createartistprofile = require("./components/Createartistprofile");
 var Profile = require("./components/Profile");
 var Login = require("./components/Login");
 var Logout = require("./components/Logout");
-var Header = require("./components/Header");
-var Footer = require("./components/Footer");
+
 
 
 var SearchBar = require("./components/SearchBar");
@@ -37,24 +36,16 @@ var requireAuth = function(nextState, replace) {
     }
 }
 
+
 var routes = (
     <Router history={ReactRouter.browserHistory}> 
         <Route path="/" component={App} auth={auth}>
-            <IndexRoute component={Home} onEnter={requireAuth}/>
-            <Route component={Header} />
-            <Route component={Footer} />
-            <Route path="login" component={Login} />
-            <Route path="logout" component={Logout} />
-            <Route component={SearchBar}></Route>
-            
+            <IndexRoute component={Home}/>
             <Route path="search" component={SearchResults}></Route>
-
             <Route path="profile/:username" component={Profile}></Route>
-
             <Route path="createareview" component={Createareview} onEnter={requireAuth} ></Route>
-            <Route path="createartistprofile" component={Createartistprofile}></Route>
+            <Route path="createartistprofile" component={Createartistprofile} onEnter={requireAuth}></Route>
             <Route path="profile" component={Profile}></Route>
-
             <Route path="profile/email/:username" component={Email}> </Route>
             <Route path="reviews" component={Reviews}></Route>
             <Route path="profile/photos" component={Gallery}></Route>

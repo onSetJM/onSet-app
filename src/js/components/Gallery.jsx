@@ -35,8 +35,8 @@ var Gallery = React.createClass({
         }
         return (
          <div>
-            <div >
             <h3>Photos</h3>
+            <div className="gallerydisplay">
              <ul>
                  {this.state.photos.map(function(photo){
                      return <Singlegalleryphoto key={photo.id} photo = {photo} />;

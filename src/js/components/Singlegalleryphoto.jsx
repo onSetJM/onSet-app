@@ -9,7 +9,7 @@ var Singlegalleryphoto = React.createClass({
         return (
             <li>
             <div> 
-            <img src={this.props.photo.images.standard_resolution.url} />
+            <img className="singlephoto" src={this.props.photo.images.standard_resolution.url} />
             </div>
             <br/>
             </li>
