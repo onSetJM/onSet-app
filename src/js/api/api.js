@@ -38,17 +38,19 @@ module.exports = function OnsetAPI(conn) {
     },
     createProfile: function(profile, callback) {
         conn.query(
-            'INSERT INTO Profile (userId, profile_type, profile_data, city, category, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?)', 
-            [profile.userId, profile.type, profile.data, profile.city, profile.category, new Date(), new Date()],
+            'INSERT INTO Profile (name, username, token, email, profilepic, city, category, specialities, availability, photosprovided, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
+            [profile.name, profile.username, profile.token, profile.email, profile.profile_pic, profile.city, profile.category, profile.specialities, profile.availability, profile.instagramauthorized, new Date(), new Date()],
             function(err, result) {
               if (err) {
                 callback(err);
+                console.log(err);
               }
               else {
                 conn.query(
-                  'SELECT id, userId, profile_type, profile_data, city, category, createdAt, updatedAt FROM Profile WHERE id = ?', [result.insertId],
+                  'SELECT id, name, username, token, email, profilepic, city, category, specialities, availability, photosprovided, createdAt, updatedAt FROM Profile WHERE id = ?', [result.insertId],
                   function(err, result) {
                     if (err) {
+                      console.log(err);
                       callback(err);
                     }
                     else {
@@ -265,13 +267,97 @@ module.exports = function OnsetAPI(conn) {
         callback('Unexpected response');
         return;
       }
-
+      console.log(data);
       var instagramToken = data.identities[0].access_token;
 
       // This is the final request to the Instagram API, using the /self/ endpoint to retrieve the media based on the token
       var options = {
         method: "GET",
         url: `https://api.instagram.com/v1/users/self/media/recent/?access_token=${instagramToken}`
+      };
+
+      request(options, function(error, response, body) {
+        if (error) {
+          callback(error);
+          return;
+        }
+
+        var data;
+        try {
+          data = JSON.parse(body);
+        }
+        catch(e) {
+          callback('Unexpected response');
+          return;
+        }
+
+        callback(null, data.data);
+      });
+    });
+  });
+},
+      getInstagramProfile: function(userId, callback) {
+  // This first request gets us an access token for the Auth0 Management API
+  var options = {
+    method: "POST",
+    url: "https://onset.auth0.com/oauth/token",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      client_id: "nl1m9ITxdCRGqBS20PnsdkBP5khFjQFJ",
+      client_secret: "5jqDRhZ0oqPT64d-Ecx7Bhr6w9nMP3VpM4rp99F63ncu1r2yrL8ZHkdO5cbwpUP5",
+      audience: "https://onset.auth0.com/api/v2/",
+      grant_type: "client_credentials"
+    })
+  };
+
+  request(options, function (error, response, body) {
+    if (error) {
+      callback(error);
+      return;
+    }
+
+    var data;
+    try {
+      data = JSON.parse(body);
+    }
+    catch(e) {
+      callback(new Error('Unexpected response'));
+      return;
+    }
+
+    // This second requests uses the token from step 1 to retrieve the Instagram access token for the requested user
+    var options = {
+      method: "GET",
+      url: `https://onset.auth0.com/api/v2/users/${userId}`,
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${data.access_token}`
+      }
+    };
+
+    request(options, function(error, response, body) {
+      if (error) {
+        callback(error);
+        return;
+      }
+
+      var data;
+      try {
+        data = JSON.parse(body);
+      }
+      catch(e) {
+        callback('Unexpected response');
+        return;
+      }
+      console.log(data);
+      var instagramToken = data.identities[0].access_token;
+
+      // This is the final request to the Instagram API, using the /self/ endpoint to retrieve the media based on the token
+      var options = {
+        method: "GET",
+        url: `https://api.instagram.com/v1/users/self?access_token=${instagramToken}`
       };
 
       request(options, function(error, response, body) {

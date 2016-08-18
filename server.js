@@ -39,26 +39,38 @@ app.post("/profile/photos", function(req, res) {
   );
 });
 
-app.post('/createartistprofile', authenticate, function(req, res){
-  res.send(req.user);
-  console.log(req.user);
-  //   onSetAPI.createProfile(
-  //     {
-  //     userId: req.body.userId,
-  //     type: req.body.type,
-  //     data: req.body.data,
-  //     city: req.body.city,
-  //     category: req.body.category
-  //   }
-  //   , function(err, profile) {
-  //     if(err){
-  //       res.status(400).send("Whoopsy! Something went wrong!");
-  //     }
-  //     else {
-  //       res.send({success:true, profile: profile});
-  //     }
-  //   }
-  // );
+app.get('/getInstagramProfile', authenticate, function(req, res) {
+  onSetAPI.getInstagramProfile(req.user.sub, function(err, user) {
+    res.send(user);
+  })
+});
+
+app.post('/createprofile', function(req, res){
+  // res.send(req.user);
+  // console.log(req.user);
+    onSetAPI.createProfile(
+      {
+      specialities: req.body.specialities,
+      city: req.body.city,
+      category: req.body.category,
+      token: req.body.token,
+      username: req.body.username,
+      email: req.body.email,
+      name: req.body.name,
+      instagramauthorized: req.body.instagramauthorized,
+      availability: req.body.availability,
+      profile_pic: req.body.profile_pic
+    }
+    , function(err, profile) {
+      if(err){
+        console.log(err);
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        res.send({success:true, profile: profile});
+      }
+    }
+  );
 });
 
 app.post('/createareview', function(req, res){

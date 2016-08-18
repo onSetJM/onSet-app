@@ -12,7 +12,7 @@ import AuthService from './utils/AuthService';
 var App = require("./components/App");
 var Home = require("./components/Home");
 var Createareview = require("./components/Createareview");
-var Createartistprofile = require("./components/Createartistprofile");
+var Createprofile = require("./components/Createprofile");
 var Profile = require("./components/Profile");
 var Login = require("./components/Login");
 var Logout = require("./components/Logout");
@@ -52,12 +52,12 @@ var routes = (
             <Route path="profile/:username" component={Profile}></Route>
 
             <Route path="createareview" component={Createareview} onEnter={requireAuth} ></Route>
-            <Route path="createartistprofile" component={Createartistprofile}></Route>
+            <Route path="createprofile" component={Createprofile}></Route>
             <Route path="profile" component={Profile}></Route>
 
             <Route path="profile/email/:username" component={Email}> </Route>
             <Route path="reviews" component={Reviews}></Route>
-            <Route path="profile/photos" component={Gallery}></Route>
+            <Route path="photos" component={Gallery}></Route>
         </Route>
     </Router>
 );
