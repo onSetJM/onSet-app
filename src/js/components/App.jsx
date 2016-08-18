@@ -1,79 +1,62 @@
-/* global localStorage */
+var Header = require('./Header');
+var Footer = require('./Footer');
 var React = require('react');
-
-var Header = require("./Header");
-var Footer = require("./Footer");
-var Loggedin = require("./Loggedin");
-import Auth0Lock from 'auth0-lock';
-
+var Login = require("./Login");
 
 var App = React.createClass({
-  getInitialState: function() {
-    return {
-      idToken: null
-    };
-  },
-  componentWillMount: function() {
-    var lock = new Auth0Lock('pQZynj9aeB6FgPoKihk7HluGGlLYwqWR', 'onset.auth0.com');
-    // this.lock = new Auth0Lock('u62PeQq50xQ4RgaJr291OGnUwdgrc6cA', 'https://onsetproject-martimax21.c9users.io/');
-    this.setState({
-      lock: lock
-    });
-  },
-  componentDidMount: function() {
-    var that = this;
-    this.state.lock.on("authenticated", function(authResult) {
-      // Use the token in authResult to getProfile() and save it to localStorage
-      that.state.lock.getProfile(authResult.idToken, function(error, profile) {
-
-        that.setState({
-          profile: profile
-        })
-
-        if (error) {
-          console.log(error);
-          return;
-        }
-
-        localStorage.setItem('token', authResult.idToken);
-        localStorage.setItem('profile', JSON.stringify(profile));
-      });
-    });
-    this.setState({
-      idToken: that.getIdToken()
-    })
-  },
-  getIdToken: function() {
-    var idToken = localStorage.getItem('id_token');
-    if (!idToken) {
-      localStorage.setItem('id_token', window.location.hash);
+    render: function() {
+        
+    var children = null;
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, {
+        auth: this.props.route.auth //sends auth instance from route to children
+      })
     }
-    return localStorage.getItem('id_token');
-  },
-  render: function() {
-    if (this.state.profile) {
-      return (
-        <main>
-          <Header component={Header} />
-          <Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />
-          {this.props.children}
-          <hr/>
-          <Footer component={Footer} />
-        </main>
-      );
+        return (
+          <div>
+            <Header />
+                {children}
+            <Footer />
+          </div>
+        );
     }
-    else {
-      return (
-        <div>  
-          <Header lock={this.state.lock} />
-          {this.props.children}
-          <Footer component={Footer} />
-        </div>
-
-      );
-    }
-
-  }
 });
 
 module.exports = App;
+// var React = require('react');
+
+// var Header = require("./Header");
+// var Footer = require("./Footer");
+// var Loggedin = require("./Loggedin");
+// import Auth0Lock from 'auth0-lock';
+
+
+// var App = React.createClass({
+
+//   render: function() {
+//     if (this.state.profile) {
+//       return (
+//         <main>
+//           <Header />
+//           <Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />
+//           {this.props.children}
+//           <hr/>
+//           <Footer/>
+//         </main>
+//       );
+//     }
+//     else {
+//       return (
+//         <div>  
+//           <Header lock={this.state.lock} />
+//           {this.props.children}
+//           <Footer />
+//         </div>
+
+//       );
+//     }
+
+//   }
+// });
+
+// module.exports = App;
