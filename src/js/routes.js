@@ -19,8 +19,12 @@ var Logout = require("./components/Logout");
 var Header = require("./components/Header");
 var Footer = require("./components/Footer");
 
+
 var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
+
+var Email = require("./components/Email");
+
 var Reviews = require("./components/Reviews");
 var Gallery = require("./components/Gallery");
 
@@ -47,6 +51,7 @@ var routes = (
             <Route path="createareview" component={Createareview} onEnter={requireAuth} ></Route>
             <Route path="createartistprofile" component={Createartistprofile}></Route>
             <Route path="profile" component={Profile}></Route>
+            <Route path="profile/email/:username" component={Email}> </Route>
             <Route path="reviews" component={Reviews}></Route>
             <Route path="profile/photos" component={Gallery}></Route>
         </Route>
