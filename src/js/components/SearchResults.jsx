@@ -28,7 +28,7 @@ var SearchResults = React.createClass({
   },
   render: function() {
       if (!this.state.profiles) {
-            return <div>LOADING FOLLOWERS...</div>;
+            return <div>LOADING profiles...</div>;
         }
     return (
       <div>

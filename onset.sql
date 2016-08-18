@@ -28,7 +28,8 @@ CREATE TABLE Profile (
 
 ALTER TABLE Profile ADD COLUMN city VARCHAR(60);
 ALTER TABLE Profile ADD COLUMN category VARCHAR(60);
-
+ALTER TABLE Profile ADD COLUMN username VARCHAR(60);
+ALTER TABLE Profile ADD COLUMN token VARCHAR(255);
 
 CREATE TABLE Reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -42,3 +43,6 @@ CREATE TABLE Reviews (
 /* FOREIGN KEY (userId) REFERENCES user(id),
 FOREIGN KEY (profileId) REFERENCES profile(id) */
 
+UPDATE table_name
+SET column1=value1,column2=value2,...
+WHERE some_column=some_value;

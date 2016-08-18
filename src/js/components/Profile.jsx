@@ -11,9 +11,10 @@ var Profile = React.createClass({
     },
     componentDidMount: function() {
         var that = this;
+        console.log(this.props.params.username)
         $.ajax({           
             url: '/profile', 
-            data: {profileId:1},
+            data: {username:this.props.params.username},
             type: 'POST',
             success: function(result) {
                 console.log(result);

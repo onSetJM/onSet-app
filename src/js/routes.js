@@ -31,7 +31,7 @@ var routes = (
             <Route path="createareview" component={Createareview}></Route>
             <Route path="createartistprofile" component={Createartistprofile}></Route>
             <Route path="search" component={SearchResults}></Route>
-            <Route path="profile" component={Profile}></Route>
+            <Route path="profile/:username" component={Profile}></Route>
             <Route path="profile/email/:username" component={Email}> </Route>
             <Route path="reviews" component={Reviews}></Route>
         </Route>

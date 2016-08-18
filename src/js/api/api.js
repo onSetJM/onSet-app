@@ -100,7 +100,7 @@ module.exports = function OnsetAPI(conn) {
 
       conn.query(`
         SELECT 
-          u.username AS username, 
+          p.username AS username, 
           u.nickname AS nickname, 
           u.profilePic AS profilePic,
           u.typeOfLogin as typeOfLogin,
@@ -131,6 +131,7 @@ module.exports = function OnsetAPI(conn) {
             var mappedResults = results.map(function(res) {
               return {
                 profileId: res.id,
+                username: res.username,
                 nickname: res.nickname,
                 profilePic: res.profilePic,
                 profileType: res.profileType,
@@ -153,10 +154,10 @@ module.exports = function OnsetAPI(conn) {
         }
       );
     },
-    getSingleProfile: function(profileId, callback) {
+    getSingleProfile: function(username, callback) {
       conn.query(`
         SELECT 
-          u.username AS username, 
+          p.username, 
           u.nickname AS nickname, 
           u.profilePic AS profilePic,
           u.typeOfLogin as typeOfLogin,
@@ -174,8 +175,8 @@ module.exports = function OnsetAPI(conn) {
         FROM Profile p
           LEFT JOIN User u ON p.userId=u.id
           LEFT JOIN Reviews r ON r.profileId = p.id
-          WHERE p.id = ?
-          GROUP by p.id`, [profileId],
+          WHERE p.username = ?
+          GROUP by p.id`, [username],
         function(err, results) {
           if (err) {
             console.log(err);
@@ -187,6 +188,7 @@ module.exports = function OnsetAPI(conn) {
               return {
                 profileId: res.id,
                 nickname: res.nickname,
+                username: res.username,
                 profilePic: res.profilePic,
                 profileType: res.profileType,
                 profileData : res.profileData,
@@ -198,7 +200,6 @@ module.exports = function OnsetAPI(conn) {
                 profileReviews: res.totalReviews,
                 userInfo: {
                   email: res.email,
-                  username: res.username,
                   typeOfLogin: res.typeOfLogin
                 }
               };

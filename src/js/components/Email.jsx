@@ -19,7 +19,7 @@ var Email = React.createClass({
             <input ref="ServiceDesc" type="text" />
             <br/>
             <br/>
-            <button > Send an email !</button>
+            <button className = "btn btn-danger" > Send an email !</button>
         </form>
       </div>
     );

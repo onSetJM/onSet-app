@@ -105,8 +105,8 @@ app.post('/searchprofiles', function(req, res){
 });
 
 app.post('/profile', function(req, res){
-//    console.log("HI FROM APP GET");
-    onSetAPI.getSingleProfile(req.body.profileId
+    console.log(req.body.username);
+    onSetAPI.getSingleProfile(req.body.username
     , function(err, profile) {
       if(err){
         console.log(err);
