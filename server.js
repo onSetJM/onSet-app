@@ -134,6 +134,22 @@ app.post('/reviews', function(req, res){
   );
 });
 
+app.post('/searchresults', function(req, res){
+    console.log(req.body);
+    onSetAPI.getAllProfiles({},req.body.category, req.body.city, req.body.sortingMethod
+    , function(err, profiles) {
+      if(err){
+        console.log(err);
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        console.log(profiles);
+        res.send({success:true, profiles: profiles});
+      }
+    }
+  );
+});
+
 app.listen(process.env.PORT || 8080, function() {
   console.log('Server started');
 });

@@ -50,7 +50,7 @@ var Createartistprofile = React.createClass({
             <input ref="city" type="text" />
             <p> Add images of your work to the gallery </p>
 
-            <button > Submit your review !</button>
+            <button > Create your profile !</button>
         </form>
       </div>
     );

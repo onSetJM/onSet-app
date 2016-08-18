@@ -17,7 +17,7 @@ var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
 var Header = require("./components/Header");
 var Footer = require("./components/Footer");
-
+var Email = require("./components/Email");
 var Reviews = require("./components/Reviews");
 
 
@@ -32,6 +32,7 @@ var routes = (
             <Route path="createartistprofile" component={Createartistprofile}></Route>
             <Route path="search" component={SearchResults}></Route>
             <Route path="profile" component={Profile}></Route>
+            <Route path="profile/email/:username" component={Email}> </Route>
             <Route path="reviews" component={Reviews}></Route>
         </Route>
     </Router>
