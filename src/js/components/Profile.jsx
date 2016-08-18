@@ -1,6 +1,6 @@
 var React = require('react');
 var $ = require('jquery');
-var Link = require('react-router').Link;
+
 var history = require('react-router').browserHistory;
 
 
@@ -26,13 +26,9 @@ var Profile = React.createClass({
             }
         });
   },
-  _handleClick: function(e) {
-        e.preventDefault();
-        history.push(`/profile/email/${this.state.profile.nickname}`);
-    },
   render: function() {
       if (!this.state.profile) {
-            return <div>LOADING profile...</div>;
+            return <div>LOADING FOLLOWERS...</div>;
         }
     return (
       <div>
@@ -43,7 +39,7 @@ var Profile = React.createClass({
             <div> specialities: {this.state.profile.profileData} </div>
             <div> city: {this.state.profile.city} </div>
             <div> Member of onSet since: {this.state.profile.createdAt} </div>
-            <div>  <button onClick={this._handleClick}> Email me for a booking</button> </div>
+            <div> EMAIL ME FOR A BOOKING </div>
             <img src={this.state.profile.profilePic}/>
       </div>
     );
