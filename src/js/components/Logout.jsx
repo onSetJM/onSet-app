@@ -4,7 +4,6 @@ import AuthService from '../utils/AuthService'
 
 
 var Logout = React.createClass({
-  
     render: function(){
     var  auth = this.props.auth;
     

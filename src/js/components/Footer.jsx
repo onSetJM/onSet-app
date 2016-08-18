@@ -1,6 +1,9 @@
 var React = require('react');
 //find ouy how to render autho component
 var Footer = React.createClass({
+  gotToProfile: function() {
+
+  },
   render: function() {
     return (
       <div className="footer">
@@ -8,7 +11,7 @@ var Footer = React.createClass({
       <div className="footer-nav">
         <nav className="footer-profiles">
         <ul>
-          <li>Browse Profiles</li>
+          <li onClick={this.goToProfile}>Browse Profiles</li>
           <li>Create/View Your Profile</li>
         </ul>
         </nav>

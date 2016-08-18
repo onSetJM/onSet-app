@@ -11,6 +11,10 @@
 	width: 100%;
 	padding-bottom: 30%
 }
+.loginoutbuttons {
+    display: flex;
+    justify-content: flex-end;
+}
 .header h1 {
     /*text-align: center;*/
     color: #0d1b30;
@@ -78,4 +82,15 @@
 }
 .eqHeight {
     height: 39px;
+}
+
+/* Galley photos*/
+.gallerydisplay {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.singlephoto {
+    max-width: 100px;
+    height: auto;
 }
