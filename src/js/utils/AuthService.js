@@ -13,10 +13,15 @@ export default class AuthService {
     // binds login functions to keep this context
     this.login = this.login.bind(this)
   }
+  
+  //localStorage.instagram_sub
+  // req.body.instagram_sub
 
   _doAuthentication(authResult){
+    console.log(authResult)
     // Saves the user token
-    this.setToken(authResult.idToken)
+    this.setToken(authResult.idToken);
+    localStorage.setItem('instagram_sub', authResult.idTokenPayload.sub);
     browserHistory.push(localStorage.getItem('last_url'));
     localStorage.removeItem('last_url');
     // Async loads the user profile data

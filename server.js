@@ -26,8 +26,8 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 /* insert any app.get or app.post you need here */
 
 app.post("/profile/photos", function(req, res) {
-  console.log(req.body)
-  onSetAPI.getInstagramPhotos('instagram|47513093'
+  console.log(req.body.token);
+  onSetAPI.getInstagramPhotos(req.body.token
     , function(err, photos) {
       if(err){
         res.status(400).send("Whoopsy! Something went wrong!");
@@ -41,23 +41,24 @@ app.post("/profile/photos", function(req, res) {
 
 app.post('/createartistprofile', authenticate, function(req, res){
   res.send(req.user);
-    onSetAPI.createProfile(
-      {
-      userId: req.body.userId,
-      type: req.body.type,
-      data: req.body.data,
-      city: req.body.city,
-      category: req.body.category
-    }
-    , function(err, profile) {
-      if(err){
-        res.status(400).send("Whoopsy! Something went wrong!");
-      }
-      else {
-        res.send({success:true, profile: profile});
-      }
-    }
-  );
+  console.log(req.user);
+  //   onSetAPI.createProfile(
+  //     {
+  //     userId: req.body.userId,
+  //     type: req.body.type,
+  //     data: req.body.data,
+  //     city: req.body.city,
+  //     category: req.body.category
+  //   }
+  //   , function(err, profile) {
+  //     if(err){
+  //       res.status(400).send("Whoopsy! Something went wrong!");
+  //     }
+  //     else {
+  //       res.send({success:true, profile: profile});
+  //     }
+  //   }
+  // );
 });
 
 app.post('/createareview', function(req, res){
@@ -123,11 +124,15 @@ app.post('/reviews', function(req, res){
   );
 });
 
+app.get("./login", authenticate, function (req, res) {
+  
+})
 /*
 This says: for any path NOT served by the middleware above, send the file called index.html instead.
 For example, if the client requests http://server/step-2 the server will send the file index.html, which will start the same React app.
 This will enable us to do url-based routing on the front-end.
 */
+
 app.get('/*', function(request, response) {
   response.sendFile(__dirname + '/public/index.html');
 });
