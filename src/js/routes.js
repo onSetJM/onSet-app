@@ -22,6 +22,7 @@ var Footer = require("./components/Footer");
 var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
 var Reviews = require("./components/Reviews");
+var Gallery = require("./components/Gallery");
 
 var auth = new AuthService('pQZynj9aeB6FgPoKihk7HluGGlLYwqWR', 'onset.auth0.com');
 
@@ -47,6 +48,7 @@ var routes = (
             <Route path="createartistprofile" component={Createartistprofile}></Route>
             <Route path="profile" component={Profile}></Route>
             <Route path="reviews" component={Reviews}></Route>
+            <Route path="profile/photos" component={Gallery}></Route>
         </Route>
     </Router>
 );

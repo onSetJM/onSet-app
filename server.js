@@ -3,9 +3,13 @@ var app = express();
 var mysql = require('mysql');
 var jwt = require('express-jwt');
 var bodyParser = require("body-parser");
+var request = require("request");
 
-var authenticate = jwt({ secret: 'OXT7scbPPikaP_mjFyutSPR2RcGr1GZ8Ew-6F_x4RLLLRwQCbFIX9Ou58CLtas9H',
-  audience: 'onset.auth0.com'})
+
+var authenticate = jwt({
+  secret: new Buffer('OXT7scbPPikaP_mjFyutSPR2RcGr1GZ8Ew-6F_x4RLLLRwQCbFIX9Ou58CLtas9H', 'base64'),
+  audience: 'pQZynj9aeB6FgPoKihk7HluGGlLYwqWR'
+});
   
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -21,45 +25,30 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json({ type: 'application/*+json' }));
 /* insert any app.get or app.post you need here */
 
-/*
-This says: for any path NOT served by the middleware above, send the file called index.html instead.
-For example, if the client requests http://server/step-2 the server will send the file index.html, which will start the same React app.
-This will enable us to do url-based routing on the front-end.
-*/
-app.get('/*', function(request, response) {
-  response.sendFile(__dirname + '/public/index.html');
-});
-
-app.post('/login', function(req, res){
-    console.log(req.body);
-    onSetAPI.createUser(
-      {
-      username: req.body.username,
-      email: req.body.email,
-      nickname: req.body.nickname,
-      profilepic: req.body.profilepic,
-      typeOfLogin: req.body.typeOfLogin
-    }
-    , function(err, user) {
+app.post("/profile/photos", function(req, res) {
+  console.log(req.body)
+  onSetAPI.getInstagramPhotos('instagram|47513093'
+    , function(err, photos) {
       if(err){
         res.status(400).send("Whoopsy! Something went wrong!");
       }
       else {
-        res.send({success:true, user: user});
+        res.send({success:true, photos: photos});
       }
     }
   );
 });
 
-app.post('/createartistprofile', function(req, res){
+app.post('/createartistprofile', authenticate, function(req, res){
+  res.send(req.user);
     onSetAPI.createProfile(
       {
-       userId: req.body.userId,
-       type: req.body.type,
-       data: req.body.data,
-       city: req.body.city,
-       category: req.body.category
-     }
+      userId: req.body.userId,
+      type: req.body.type,
+      data: req.body.data,
+      city: req.body.city,
+      category: req.body.category
+    }
     , function(err, profile) {
       if(err){
         res.status(400).send("Whoopsy! Something went wrong!");
@@ -132,6 +121,15 @@ app.post('/reviews', function(req, res){
       }
     }
   );
+});
+
+/*
+This says: for any path NOT served by the middleware above, send the file called index.html instead.
+For example, if the client requests http://server/step-2 the server will send the file index.html, which will start the same React app.
+This will enable us to do url-based routing on the front-end.
+*/
+app.get('/*', function(request, response) {
+  response.sendFile(__dirname + '/public/index.html');
 });
 
 app.listen(process.env.PORT || 8080, function() {

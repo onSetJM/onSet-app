@@ -9,7 +9,7 @@ export default class AuthService {
     this.lock = new Auth0Lock(clientId, domain, options)
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', this._doAuthentication.bind(this))
-    this.lock.on('authorization_error', this._authorizationError.bind(this))
+    // this.lock.on('authorization_error', this._authorizationError.bind(this))
     // binds login functions to keep this context
     this.login = this.login.bind(this)
   }
@@ -48,18 +48,18 @@ export default class AuthService {
     // Retrieves the user token from localStorage
     return localStorage.getItem('id_token')
   }
-  setProfile(profile){
-    // Saves profile data to localStorage
-    localStorage.setItem('profile', JSON.stringify(profile))
-    // Triggers profile_updated event to update the UI
-    this.emit('profile_updated', profile)
-  }
+  // setProfile(profile){
+  //   // Saves profile data to localStorage
+  //   localStorage.setItem('profile', JSON.stringify(profile))
+  //   // Triggers profile_updated event to update the UI
+  //   this.emit('profile_updated', profile)
+  // }
 
-  getProfile(){
-    // Retrieves the profile data from localStorage
-    const profile = localStorage.getItem('profile')
-    return profile ? JSON.parse(localStorage.profile) : {}
-  }
+  // getProfile(){
+  //   // Retrieves the profile data from localStorage
+  //   const profile = localStorage.getItem('profile')
+  //   return profile ? JSON.parse(localStorage.profile) : {}
+  // }
   logout(){
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
