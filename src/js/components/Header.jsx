@@ -3,30 +3,42 @@ var React = require('react');
 var SearchBar = require("./SearchBar");
 var Login = require("./Login");
 var Logout = require("./Logout");
-import AuthService from './utils/AuthService';
+import AuthService from '../utils/AuthService';
+var SearchButton = require("./navbuttons/SearchButton");
+var HomeButton = require("./navbuttons/HomeButton");
 
 var Header = React.createClass({
   getDefaultProps: function() {
     return {};
   },
-  logInOut: function() {
-    // if (!localStorage.id_token) {
-    //   <Login auth={this.props.auth} />;
-    // } else {
-    //   <Logout auth={this.props.auth} />;
-    // }
+  userEntry: function() {
+    if (this.props.loggedIn) {
+      return (
+        <div className="navbuttons">
+          <HomeButton />
+          <SearchButton />
+          <Logout auth={this.props.auth} />
+        </div>
+      )
+    } else {
+      return (
+        <div className="navbuttons">
+          <HomeButton />
+          <SearchButton />
+          <Login auth={this.props.auth} />
+        </div>
+      )
+    }
   },
     componentWillReceiveProps: function(nextProps) {
     console.log(nextProps);
   },
     render: function() {
-    console.log(localStorage)
+    console.log(localStorage.id_token)
     return (
       <div className="header">
         <div className="loginoutbuttons">
-        <Login auth={this.props.auth} />
-        <Logout auth={this.props.auth} />;
-          {this.logInOut()}
+          {this.userEntry()}
         </div>
           <div className="header-text">
             <h1>onSet</h1>

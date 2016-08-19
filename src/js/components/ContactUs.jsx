@@ -1,13 +1,13 @@
 var React = require("react");
 
-var FAQ = React.createClass({
+var ContactUs = React.createClass({
     render: function() {
         return (
             <div>
-                <p>Add FAQ!</p>
+                <p>do something here</p>
             </div>
             );
     }
 });
 
-module.exports= FAQ;
+module.exports= ContactUs;

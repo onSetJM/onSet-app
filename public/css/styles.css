@@ -33,6 +33,9 @@
 .searchbar {
     margin-top: 100px;
 }
+.navbuttons{
+    display: flex;
+}
 /* Home page*/
 .howitworks{
     display: flex;
@@ -40,43 +43,7 @@
 .hiresomeone, .gethired, .ourvision {
     margin: 20px;
 }
-/* Footer*/
-.footer {
-    background-color: #1b2b46;
-}
-.footer-nav{
-    display: flex;   
-    flex-direction: row;
-    justify-content: space-around;
-    padding-left: 50px;
-    padding-right: 50px;
-}
-.footer ul {
-    list-style-type: none;
-}
-.footer a:link {
-    color: #FFF;
-}
-.footer a:active {
-    color: #FFF;
-}
-.footer a:hover {
-    color: #AEDDF5;
-    text-decoration:none; 
-}
-.footer a:visited {
-    color: #FFF;
-}
-.footer a:hover {
-    color: #AEDDF5;
-    text-decoration:none; 
-}
-.socialmediaicons {
-    display: flex;
-}
-.socialmediaicons li{
-    margin-right: 20px;
-}
+
 
 /*Logged in component*/
 .loggedinimg {
@@ -108,4 +75,43 @@
 .singlephoto {
     max-width: 100px;
     height: auto;
+}
+
+/* Footer*/
+.footer {
+    background-color: #1b2b46;
+}
+.footer-nav{
+    display: flex;   
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: #FFF;
+}
+.footer ul {
+    list-style-type: none;
+}
+.footer a:link {
+    color: #FFF;
+}
+.footer a:active {
+    color: #FFF;
+}
+.footer a:hover {
+    color: #AEDDF5;
+    text-decoration:none; 
+}
+.footer a:visited {
+    color: #FFF;
+}
+.footer a:hover {
+    color: #AEDDF5;
+    text-decoration:none; 
+}
+.socialmediaicons {
+    display: flex;
+}
+.socialmediaicons li{
+    margin-right: 20px;
 }

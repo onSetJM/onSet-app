@@ -1,5 +1,12 @@
 var React = require('react');
-//find ouy how to render autho component
+var BrowseButton = require("./navbuttons/BrowseButton")
+var HomeButton = require("./navbuttons/HomeButton")
+var FAQbutton = require("./navbuttons/FAQbutton")
+var HowItWorksButton = require("./navbuttons/HowItWorksButton")
+var OurVisionButton = require("./navbuttons/OurVisionButton")
+var ContactUsButton = require("./navbuttons/ContactUsButton")
+var CareersButton = require("./navbuttons/CareersButton")
+
 var Footer = React.createClass({
   render: function() {
     return (
@@ -7,22 +14,20 @@ var Footer = React.createClass({
       <hr />
       <div className="footer-nav">
         <nav className="footer-profiles">
-        <ul>
-          <li><a href="/search">Browse Profiles</a></li>
-          <li><a href="/createprofile">Create/View Your Profile</a></li>
-        </ul>
+          <HomeButton className="footerbuttons" />
+          <BrowseButton className="footerbuttons" />
+          <p>Create/View Your Profile</p>
         </nav>
         <nav className="footer-about-us">
-        <ul>
-          <li><a href="/">How It Works</a></li>
-          <li><a href="/">Our Vision</a></li>
-          <li><a href="/FAQ">FAQ</a></li>
-        </ul>
+          <HowItWorksButton className="footerbuttons" />
+          <OurVisionButton className="footerbuttons" />
+          <FAQbutton className="footerbuttons" />
+
         </nav>
         <nav className="footer-connect">
         <ul>
-          <li><a href="/">Contact Us</a></li>
-          <li><a href="/">Careers</a></li>
+          <ContactUsButton className="footerbuttons" />
+          <CareersButton className="footerbuttons" />
           <li>
             <ul className="socialmediaicons">
               <li><a href="https://www.youtube.com/watch?v=-tCTm5M3Cp8"><i className="fa fa-instagram" aria-hidden="true"></i></a></li>

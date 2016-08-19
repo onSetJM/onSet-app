@@ -17,8 +17,8 @@ var Profile = require("./components/Profile");
 var Login = require("./components/Login");
 var Logout = require("./components/Logout");
 var FAQ = require("./components/FAQ");
-
-
+var ContactUs = require("./components/ContactUs");
+var Careers = require("./components/Careers");
 
 var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
@@ -30,11 +30,13 @@ var Gallery = require("./components/Gallery");
 
 var auth = new AuthService('pQZynj9aeB6FgPoKihk7HluGGlLYwqWR', 'onset.auth0.com');
 
-var requireAuth = function(nextState, replace) {
+var requireAuth = function(nextState, replace, next) {
     if (!auth.loggedIn()) {
         localStorage.setItem('last_url', window.location.pathname);
         replace({ pathname: '/' + window.location.hash})
     }
+    
+    next();
 }
 
 
@@ -55,6 +57,8 @@ var routes = (
             <Route path="profiles/:username/createareview" component={Createareview} onEnter={requireAuth}> </Route>
             
             <Route path="photos" component={Gallery}></Route>
+            <Route path="contactus" component={ContactUs}></Route>
+            <Route path="careers" component={Careers}></Route>
         </Route>
     </Router>
 );
