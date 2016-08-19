@@ -6,6 +6,7 @@ var Logout = require("./Logout");
 import AuthService from '../utils/AuthService';
 var SearchButton = require("./navbuttons/SearchButton");
 var HomeButton = require("./navbuttons/HomeButton");
+var CreateYourProfile = require("./navbuttons/CreateYourProfile");
 
 var Header = React.createClass({
   getDefaultProps: function() {
@@ -17,6 +18,7 @@ var Header = React.createClass({
         <div className="navbuttons">
           <HomeButton />
           <SearchButton />
+          <CreateYourProfile /> 
           <Logout auth={this.props.auth} />
         </div>
       )
@@ -25,6 +27,7 @@ var Header = React.createClass({
         <div className="navbuttons">
           <HomeButton />
           <SearchButton />
+          <CreateYourProfile /> 
           <Login auth={this.props.auth} />
         </div>
       )
