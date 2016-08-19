@@ -1,6 +1,6 @@
 var React = require('react');
 var $ = require('jquery');
-
+/* global localStorage */
 
 
 var Createareview = React.createClass({
@@ -12,8 +12,8 @@ var Createareview = React.createClass({
       var reviewObj = {
           score: this.refs.score.value,
           text: this.refs.reviewText.value,
-          userId: 1,
-          profileId: 2
+          token: localStorage.instagram_sub,
+          profileusername: this.props.params.username
       };
       console.log(reviewObj);
       $.ajax({           

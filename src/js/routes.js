@@ -33,7 +33,7 @@ var auth = new AuthService('pQZynj9aeB6FgPoKihk7HluGGlLYwqWR', 'onset.auth0.com'
 var requireAuth = function(nextState, replace) {
     if (!auth.loggedIn()) {
         localStorage.setItem('last_url', window.location.pathname);
-        replace({ pathname: '/login' + window.location.hash})
+        replace({ pathname: '/' + window.location.hash})
     }
 }
 
@@ -42,14 +42,18 @@ var routes = (
     <Router history={ReactRouter.browserHistory}> 
         <Route path="/" component={App} auth={auth}>
             <IndexRoute component={Home}/>
-            <Route path="search" component={SearchResults}></Route>
-            <Route path="profile/:username" component={Profile}></Route>
-            <Route path="createareview" component={Createareview} onEnter={requireAuth} ></Route>
+
             <Route path="faq" component={FAQ} />
+
             <Route path="createprofile" component={Createprofile} onEnter={requireAuth}></Route>
-            <Route path="profile" component={Profile}></Route>
-            <Route path="profile/email/:username" component={Email}> </Route>
-            <Route path="reviews" component={Reviews}></Route>
+            
+            <Route path="profiles" component={SearchResults}></Route>
+            <Route path="profiles/:username" component={Profile}>
+                <Route path="email" component={Email}> </Route>
+            </Route>
+            <Route path="profiles/:username/reviews" component={Reviews}> </Route>
+            <Route path="profiles/:username/createareview" component={Createareview} onEnter={requireAuth}> </Route>
+            
             <Route path="photos" component={Gallery}></Route>
         </Route>
     </Router>

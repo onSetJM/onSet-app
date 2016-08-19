@@ -2,7 +2,8 @@ var React = require('react');
 var $ = require('jquery');
 /* global localStorage */
 
-//var history = require('react-router').browserHistory;
+var history = require('react-router').browserHistory;
+var Link = require("react-router").Link;
 
 
 
@@ -26,18 +27,20 @@ var Createprofile = React.createClass({
          profile_pic: this.state.profile.profile_picture
         };
       console.log(profileObj);
+      var that = this;
       $.ajax({           
             url: '/createprofile', 
             data: profileObj,
             type: 'POST',
             success: function(result) {
                 console.log("This is the result" + result);
+                history.push(`/profiles/${that.refs.username.value}`);
             },
             error: function() {
               console.log('this is the ajax error');      
             }
         });
-//     history.push(`/profile/${this.refs.userInput.value}`)
+     
   },
   componentDidMount: function() {
       var that = this;

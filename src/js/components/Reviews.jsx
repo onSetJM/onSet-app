@@ -12,9 +12,10 @@ var Reviews = React.createClass({
     },
     componentDidMount: function() {
         var that = this;
+        console.log(that.props.params.username);
         $.ajax({           
             url: '/reviews', 
-            data: {profileId:1},
+            data: {profileusername:that.props.params.username},
             type: 'POST',
             success: function(result) {
                 console.log(result.reviews);

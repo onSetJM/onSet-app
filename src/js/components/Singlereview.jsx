@@ -9,9 +9,9 @@ var Singlereview = React.createClass({
         return (
             <li>
             <div> Review Score: {this.props.review.reviewScore}</div>
-            <div> Review Text: {this.props.review.reviewText} </div>
+            <p> Review Text: {this.props.review.reviewText} </p>
             <div> Date :  {this.props.review.reviewCreatedAt}</div>
-            <div> Username: {this.props.review.user.username} </div>
+            <div> Reviewer: {this.props.review.reviewer} </div>
             </li>
         );
     }
