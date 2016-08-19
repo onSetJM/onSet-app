@@ -3,10 +3,13 @@ var React = require('react');
 var SearchBar = require("./SearchBar");
 var Login = require("./Login");
 var Logout = require("./Logout");
+
+
 import AuthService from '../utils/AuthService';
 var SearchButton = require("./navbuttons/SearchButton");
 var HomeButton = require("./navbuttons/HomeButton");
 var CreateYourProfile = require("./navbuttons/CreateYourProfile");
+
 
 var Header = React.createClass({
   getDefaultProps: function() {
