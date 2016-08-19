@@ -8,7 +8,6 @@ import {ButtonToolbar, Button} from 'react-bootstrap';
 var Login = React.createClass({
   
     render: function(){
-
     var  auth = this.props.auth;
     return (
       <div>

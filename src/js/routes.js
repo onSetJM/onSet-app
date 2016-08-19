@@ -16,6 +16,7 @@ var Createprofile = require("./components/Createprofile");
 var Profile = require("./components/Profile");
 var Login = require("./components/Login");
 var Logout = require("./components/Logout");
+var FAQ = require("./components/FAQ");
 
 
 
@@ -44,7 +45,7 @@ var routes = (
             <Route path="search" component={SearchResults}></Route>
             <Route path="profile/:username" component={Profile}></Route>
             <Route path="createareview" component={Createareview} onEnter={requireAuth} ></Route>
-
+            <Route path="faq" component={FAQ} />
             <Route path="createprofile" component={Createprofile} onEnter={requireAuth}></Route>
             <Route path="profile" component={Profile}></Route>
             <Route path="profile/email/:username" component={Email}> </Route>
