@@ -36,24 +36,35 @@
 .navbuttons{
     display: flex;
 }
+
+
+/* BODY SECTIONS */
+
 /* Home page*/
 .howitworks{
     display: flex;
 }
 .hiresomeone, .gethired, .ourvision {
-    margin: 20px;
+    margin: 10px;
+}
+.home-content{
+    margin-left: 10px
+}
+.home-content h2 {
+    font-weight: bold;
 }
 
-
-/*Logged in component*/
-.loggedinimg {
-    max-width: 50px;
-    border-radius: 25px
+/* FAQ */
+.faq p, h3{
+    margin: 10px;
+}
+.faq {
+    margin-left: 10px;
+}
+.faq h2{
+    font-weight: bold;
 }
 
-.fa{
-    color: #FFF;
-}
 
 /* Search */
 .homepagesearchbar {

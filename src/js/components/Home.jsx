@@ -3,7 +3,7 @@ var React = require("react");
 var Home = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="home-content">
       <h2>How It Works</h2>
       <div className="howitworks">
         <div className="gethired">
