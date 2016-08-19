@@ -74,19 +74,20 @@ app.post('/createprofile', function(req, res){
 });
 
 app.post('/createareview', function(req, res){
-    console.log(req.body + "This is req.body");
     onSetAPI.createReview(
       {
        text: req.body.text,
        score: req.body.score,
-       userId: req.body.userId,
-       profileId: req.body.profileId
+       token: req.body.token,
+       profileusername: req.body.profileusername
        }
     ,function(err, review) {
       if(err){
         res.status(400).send("Whoopsy! Something went wrong!");
+        console.log(err);
       }
       else {
+        console.log(review);
         res.send({success:true, review: review});
       }
     }
@@ -123,7 +124,7 @@ app.post('/profile', function(req, res){
 });
 
 app.post('/reviews', function(req, res){
-    onSetAPI.getReviewsForProfile({},req.body.profileId
+    onSetAPI.getReviewsForProfile({},req.body.profileusername
     , function(err, reviews) {
       if(err){
         res.status(400).send("Whoopsy! Something went wrong!");

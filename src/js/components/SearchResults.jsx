@@ -3,6 +3,7 @@ var $ = require('jquery');
 var Singleprofileresult = require('./Singleprofileresult');
 
 var history = require('react-router').browserHistory;
+var Link = require("react-router").Link;
 
 
 var SearchResults = React.createClass({

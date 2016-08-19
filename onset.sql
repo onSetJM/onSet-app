@@ -29,8 +29,8 @@ CREATE TABLE Reviews (
   text TEXT(10000), 
   score DECIMAL(2,1),
   createdAt DATETIME NOT NULL,
-  userId INT,
-  profileId INT
+  token VARCHAR(255),
+  profileusername VARCHAR(60)
 );
 
 /* FOREIGN KEY (userId) REFERENCES user(id),

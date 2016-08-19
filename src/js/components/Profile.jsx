@@ -2,6 +2,7 @@ var React = require('react');
 var $ = require('jquery');
 
 var history = require('react-router').browserHistory;
+var Link = require("react-router").Link;
 
 
 
@@ -27,21 +28,36 @@ var Profile = React.createClass({
             }
         });
   },
+  _handleButton: function() {
+      console.log(this.props.params.username);
+    history.push(`/profiles/${this.props.params.username}/email`);
+  },
+  _handleButtonReview: function() {
+      console.log(this.props.params.username);
+    history.push(`/profiles/${this.props.params.username}/createareview`);
+  },
   render: function() {
       if (!this.state.profile) {
-            return <div>LOADING FOLLOWERS...</div>;
+            return <div>LOADING THE PROFILE...</div>;
         }
+        var url = "/profiles/" + this.props.params.username + "/reviews";
+        console.log(url);
     return (
       <div>
-            <div> nickname: {this.state.profile.nickname}</div>
+            <div> Name: {this.state.profile.name}</div>
+            <img src={this.state.profile.profile_pic}/>
             <div> category: {this.state.profile.profileCategory} </div>
-            <div> Score:  {this.state.profile.profileScore}</div>
-            <div> totalReviews: {this.state.profile.profileReviews} </div>
-            <div> specialities: {this.state.profile.profileData} </div>
+            <div> Score:  {this.state.profile.Score}</div>
+            <Link to={url}>
+                    <p> totalReviews: {this.state.profile.profileReviews}</p>
+            </Link>
+            <div> specialities: {this.state.profile.specialities} </div>
             <div> city: {this.state.profile.city} </div>
             <div> Member of onSet since: {this.state.profile.createdAt} </div>
-            <div> EMAIL ME FOR A BOOKING </div>
-            <img src={this.state.profile.profilePic}/>
+            <button className="btn btn-danger" onClick={this._handleButtonReview}> REVIEW {this.state.profile.name} </button>
+            <button className="btn btn-danger" onClick={this._handleButton}>Email me for BOOKING </button>
+            
+            {this.props.children}
       </div>
     );
   }

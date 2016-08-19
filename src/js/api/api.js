@@ -63,28 +63,23 @@ module.exports = function OnsetAPI(conn) {
           );
     },
     createReview: function(review, callback) {
-      if (!review.userId || !review.profileId) {
-        callback(null, new Error('userId and postId required'));
-        return;
-      }
+      console.log(review);
       conn.query(
-        'INSERT INTO Reviews (text, score, userId, profileId, createdAt) VALUES (?, ?, ?, ?, ?)', [review.text, review.score, review.userId, review.profileId, new Date()],
+        'INSERT INTO Reviews (text, score, token, profileusername, createdAt) VALUES (?, ?, ?, ?, ?)', [review.text, review.score, review.token, review.profileusername, new Date()],
         function(err, result) {
           if (err) {
             callback(err);
           }
           else {
-            /*
-            Post inserted successfully. Let's use the result.insertId to retrieve
-            the post and send it to the caller!
-            */
             conn.query(
-              'SELECT id, text, score, userId, profileId, createdAt FROM Reviews WHERE id = ?', [result.insertId],
+              'SELECT id, text, score, token, profileusername, createdAt FROM Reviews WHERE id = ?', [result.insertId],
               function(err, result) {
                 if (err) {
                   callback(err);
+                  console.log(err);
                 }
                 else {
+                  console.log(result[0]);
                   callback(null, result[0]);
                 }
               });
@@ -104,23 +99,22 @@ module.exports = function OnsetAPI(conn) {
       conn.query(`
         SELECT 
           p.username AS username, 
-          u.nickname AS nickname, 
-          u.profilePic AS profilePic,
-          u.typeOfLogin as typeOfLogin,
-          u.email as email,
+          p.name AS name, 
+          p.profilepic AS profilepic,
+          p.email as email,
           p.city AS city,
           p.category AS category,
-          u.createdAt AS userCreatedAt, 
           p.id,
-          p.profile_type as profileType,
-          p.profile_data as profileData,
+          p.specialities as specialities,
+          p.availability as availability,
           p.createdAt AS profileCreatedAt,
           p.updatedAt AS profileUpdatedAt,
+          p.token as profileToken,
+          p.photosprovided as photosprovided,
           AVG(r.score) as profileScore,
           COUNT(r.id) as totalReviews
         FROM Profile p
-          LEFT JOIN User u ON p.userId=u.id
-          LEFT JOIN Reviews r ON r.profileId = p.id
+          LEFT JOIN Reviews r ON r.profileusername = p.username
           WHERE city = ? and category = ?
           GROUP by p.id
             ORDER BY ? DESC LIMIT ? OFFSET ?`, [city, category, sortingMethod, limit, offset],
@@ -135,21 +129,19 @@ module.exports = function OnsetAPI(conn) {
               return {
                 profileId: res.id,
                 username: res.username,
-                nickname: res.nickname,
-                profilePic: res.profilePic,
-                profileType: res.profileType,
-                profileData : res.profileData,
+                token: res.token,
+                photosprovided: res.photosprovided,
+                name: res.name,
+                profile_pic: res.profilepic,
+                specialities: res.specialities,
+                category : res.profileData,
                 profileCategory: res.category,
+                availability: res.availability,
                 city: res.city,
                 createdAt: res.profileCreatedAt,
                 updatedAt: res.profileUpdatedAt,
                 profileScore: res.profileScore,
-                profileReviews: res.totalReviews,
-                userInfo: {
-                  email: res.email,
-                  username: res.username,
-                  typeOfLogin: res.typeOfLogin
-                }
+                profileReviews: res.totalReviews
               };
             });
             callback(null, mappedResults);
@@ -160,24 +152,23 @@ module.exports = function OnsetAPI(conn) {
     getSingleProfile: function(username, callback) {
       conn.query(`
         SELECT 
-          p.username, 
-          u.nickname AS nickname, 
-          u.profilePic AS profilePic,
-          u.typeOfLogin as typeOfLogin,
-          u.email as email,
+          p.username AS username, 
+          p.name AS name, 
+          p.profilepic AS profilepic,
+          p.email as email,
           p.city AS city,
           p.category AS category,
-          u.createdAt AS userCreatedAt, 
           p.id,
-          p.profile_type as profileType,
-          p.profile_data as profileData,
+          p.specialities as specialities,
+          p.availability as availability,
           p.createdAt AS profileCreatedAt,
           p.updatedAt AS profileUpdatedAt,
+          p.token as profileToken,
+          p.photosprovided as photosprovided,
           AVG(r.score) as profileScore,
           COUNT(r.id) as totalReviews
         FROM Profile p
-          LEFT JOIN User u ON p.userId=u.id
-          LEFT JOIN Reviews r ON r.profileId = p.id
+          LEFT JOIN Reviews r ON r.profileusername = p.username
           WHERE p.username = ?
           GROUP by p.id`, [username],
         function(err, results) {
@@ -190,21 +181,20 @@ module.exports = function OnsetAPI(conn) {
             var mappedResults = results.map(function(res) {
               return {
                 profileId: res.id,
-                nickname: res.nickname,
                 username: res.username,
-                profilePic: res.profilePic,
-                profileType: res.profileType,
-                profileData : res.profileData,
+                token: res.token,
+                photosprovided: res.photosprovided,
+                name: res.name,
+                profile_pic: res.profilepic,
+                specialities: res.specialities,
+                category : res.profileData,
                 profileCategory: res.category,
+                availability: res.availability,
                 city: res.city,
                 createdAt: res.profileCreatedAt,
                 updatedAt: res.profileUpdatedAt,
                 profileScore: res.profileScore,
-                profileReviews: res.totalReviews,
-                userInfo: {
-                  email: res.email,
-                  typeOfLogin: res.typeOfLogin
-                }
+                profileReviews: res.totalReviews
               };
             });
             callback(null, mappedResults);
@@ -380,7 +370,7 @@ module.exports = function OnsetAPI(conn) {
     });
   });
 },
-    getReviewsForProfile: function(options, profileId, callback) {
+    getReviewsForProfile: function(options, profileusername, callback) {
       // In case we are called without an options parameter, shift all the parameters manually
       if (!callback) {
         callback = options;
@@ -392,17 +382,14 @@ module.exports = function OnsetAPI(conn) {
       conn.query(`
         SELECT 
           r.id AS id, 
-          r.text AS reviewText, 
+          r.text AS text, 
           r.score AS score,
           r.createdAt AS reviewCreatedAt, 
-          r.userId as userId,
-          u.username as username,
-          r.profileID as profileId
+          r.token as reviewtoken,
+          r.profileusername as profileusername
         FROM Reviews r
-          LEFT JOIN User u ON userId=u.id
-          LEFT JOIN Profile p ON p.id=profileId
-          WHERE profileId = ?
-        ORDER BY reviewCreatedAt DESC LIMIT ? OFFSET ?`, [profileId, limit, offset],
+          WHERE profileusername = ?
+        ORDER BY reviewCreatedAt DESC LIMIT ? OFFSET ?`, [profileusername, limit, offset],
         function(err, results) {
           if (err) {
             console.log(err);
@@ -410,16 +397,13 @@ module.exports = function OnsetAPI(conn) {
           }
           else {
             var mappedResults = results.map(function(res) {
+              console.log(res);
               return {
                 reviewId: res.id,
                 reviewText: res.reviewText,
                 reviewScore: res.score,
                 reviewCreatedAt: res.reviewCreatedAt,
-                profileID : res.profileId,
-                user: {
-                  username: res.username,
-                  id: res.userId
-                }
+                reviewedusername : res.profileusername
               }
             })
             callback(null, mappedResults);
