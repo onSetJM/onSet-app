@@ -1,4 +1,3 @@
-/* global localStorage*/
 
 import React, { PropTypes as T } from 'react';
 import {ButtonToolbar, Button} from 'react-bootstrap';

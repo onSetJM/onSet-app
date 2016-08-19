@@ -4,6 +4,23 @@ var React = require('react');
 var Login = require("./Login");
 
 var App = React.createClass({
+    getInitialState: function() {
+      return {
+        loggedIn: this.props.route.auth.loggedIn()
+      };
+    },
+    componentDidMount: function() {
+      this.props.route.auth.onAuthChanged(this._handleAuthChanged);
+    },
+    _handleAuthChanged: function() {
+      console.log('handle auth changed');
+      this.setState({
+        loggedIn: this.props.route.auth.loggedIn()
+      })
+    },
+    componentWillUnmount: function() {
+      this.props.route.auth.offAuthChanged(this._handleAuthChanged);
+    },
     render: function() {
         
     var children = null;
@@ -14,7 +31,7 @@ var App = React.createClass({
     }
         return (
           <div>
-            <Header auth={this.props.route.auth}/>
+            <Header auth={this.props.route.auth} loggedIn={this.state.loggedIn} />
                 {children}
             <Footer />
           </div>
@@ -23,40 +40,5 @@ var App = React.createClass({
 });
 
 module.exports = App;
-// var React = require('react');
-
-// var Header = require("./Header");
-// var Footer = require("./Footer");
-// var Loggedin = require("./Loggedin");
-// import Auth0Lock from 'auth0-lock';
 
 
-// var App = React.createClass({
-
-//   render: function() {
-//     if (this.state.profile) {
-//       return (
-//         <main>
-//           <Header />
-//           <Loggedin profile={this.state.profile} lock={this.state.lock} idToken={this.state.idToken} />
-//           {this.props.children}
-//           <hr/>
-//           <Footer/>
-//         </main>
-//       );
-//     }
-//     else {
-//       return (
-//         <div>  
-//           <Header lock={this.state.lock} />
-//           {this.props.children}
-//           <Footer />
-//         </div>
-
-//       );
-//     }
-
-//   }
-// });
-
-// module.exports = App;

@@ -2,6 +2,7 @@
 /* ===== ./src/utils/AuthService.js ===== */
 import Auth0Lock from 'auth0-lock'
 import {browserHistory} from 'react-router';
+import EventEmitter from 'events';
 
 export default class AuthService {
   constructor(clientId, domain, options) {
@@ -12,6 +13,8 @@ export default class AuthService {
     // this.lock.on('authorization_error', this._authorizationError.bind(this))
     // binds login functions to keep this context
     this.login = this.login.bind(this)
+    
+    this.emitter = new EventEmitter();
   }
   
   //localStorage.instagram_sub
@@ -22,16 +25,34 @@ export default class AuthService {
     // Saves the user token
     this.setToken(authResult.idToken);
     localStorage.setItem('instagram_sub', authResult.idTokenPayload.sub);
-    browserHistory.push(localStorage.getItem('last_url'));
+    
+    var lastUrl = localStorage.getItem('last_url');
+    if (lastUrl) {
+      try {
+        browserHistory.push(lastUrl);
+      }
+      catch(e) {/* ignore the error if we can't push */}
+    }
+    
     localStorage.removeItem('last_url');
     // Async loads the user profile data
-    this.lock.getProfile(authResult.idToken, (error, profile) => {
-      if (error) {
-        console.log('Error loading the Profile', error);
-      } else {
-        this.setProfile(profile);
-      }
-    });
+    // this.lock.getProfile(authResult.idToken, (error, profile) => {
+    //   if (error) {
+    //     console.log('Error loading the Profile', error);
+    //   } else {
+    //     this.setProfile(profile);
+    //   }
+    // });
+    
+    this.emitter.emit('auth_changed');
+  }
+  
+  onAuthChanged(callback) {
+    this.emitter.addListener('auth_changed', callback);
+  }
+  
+  offAuthChanged(callback) {
+    this.emitter.removeListener('auth_changed', callback);
   }
 
   login() {
@@ -69,6 +90,8 @@ export default class AuthService {
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
+    
+    this.emitter.emit('auth_changed');
   }
   
 }

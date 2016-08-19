@@ -1,13 +1,13 @@
 var React = require("react");
 
-var FAQ = React.createClass({
+var Careers = React.createClass({
     render: function() {
         return (
             <div>
-                <p>Add FAQ!</p>
+                <p>We can't hired you because this isn't a real company</p>
             </div>
             );
     }
 });
 
-module.exports= FAQ;
+module.exports= Careers;
