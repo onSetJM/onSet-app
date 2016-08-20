@@ -4,7 +4,8 @@ var mysql = require('mysql');
 var jwt = require('express-jwt');
 var bodyParser = require("body-parser");
 var request = require("request");
-
+var nodemailer = require("nodemailer");
+var smtpTransport = require('nodemailer-smtp-transport');
 
 var authenticate = jwt({
   secret: new Buffer('OXT7scbPPikaP_mjFyutSPR2RcGr1GZ8Ew-6F_x4RLLLRwQCbFIX9Ou58CLtas9H', 'base64'),
@@ -23,7 +24,70 @@ var onSetAPI = require('./src/js/api/api')(connection);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json({ type: 'application/*+json' }));
-/* insert any app.get or app.post you need here */
+
+
+// onSetAPI.getEmail("instagram|1526590778", function(err, email) {
+//   if(err) {
+//     console.log(err);
+//   }
+//   else{
+//     console.log(email[0].email, "res!");
+//   }
+// });
+
+app.post("/email", function(req, res) {
+  
+  onSetAPI.getEmail(req.body.profileUsername, function(err, email) {
+      if (err) {
+        res.status(400).send("Whoopsy! Something went wrong!");
+      } 
+      else {
+        console.log(email[0].email);
+        console.log("REQ", req.body);
+       var transporter = nodemailer.createTransport(smtpTransport({
+        service: 'Gmail',
+        auth: {
+          user: 'onsetwebsite@gmail.com',
+          pass: 'onset123'
+        }
+      }));
+      var mailOptions = {
+        from: `${req.body.Name} <${req.body.Email}>`,
+        to: email[0].email,
+        subject: 'You have been contacted through onSet!',
+        text: `You have been contacted by someone through onSet`,
+        html: `
+              <p>
+                <p>YOU JUST GOT AN EMAIL FROM ONSET!!!! WOOWOWOWOOOWOOOWOOO!!!</p>
+                <ul>
+                  <li>Contact Date: ${req.body.ContactDate}</li> 
+                  <li>Name: ${req.body.Name}</li>
+                  <li>City: ${req.body.ContacterCity}</li>
+                  <li>Email: ${req.body.Email}</li>
+                  <li>Phone Number: ${req.body.PhoneNumber}</li>
+                  <li>Message: ${req.body.Message}</li>
+                </ul>
+              </p>`
+      };
+      transporter.sendMail(mailOptions, function(err, info) {
+        if (err) {
+          console.log("ERRORRRRRRRR", err);
+        }
+        else {
+          console.log(`Message Sent: ${info.response}`);
+        }
+      });
+    }
+  }); 
+});
+
+// {ContactDate: this.refs.date.value, 
+//               Name: this.refs.name.value,
+//               ContacterCity: this.refs.city.value,
+//               Email: this.refs.email.value,
+//               PhoneNumber: this.refs.phonenumber.value,
+//               Message: this.refs.msg.value
+//             };
 
 app.post("/profile/photos", function(req, res) {
   console.log(req.body.token);
@@ -118,6 +182,22 @@ app.post('/profile', function(req, res){
       else {
         //console.log(profile[0]);
         res.send({success:true, profile: profile[0]});
+      }
+    }
+  );
+});
+
+app.post('/myprofile', function(req, res){
+    console.log(req.body.username);
+    onSetAPI.getMyProfile(req.body.token
+    , function(err, username) {
+      if(err){
+        console.log(err);
+        res.status(400).send("Whoopsy! Something went wrong!");
+      }
+      else {
+        console.log(username[0]);
+        res.send({success:true, username: username[0].username});
       }
     }
   );

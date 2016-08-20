@@ -4,15 +4,13 @@ var $ = require('jquery');
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
 
-
-
 var Profile = React.createClass({
     getInitialState: function() {
         return {};
     },
     componentDidMount: function() {
         var that = this;
-        console.log(this.props.params.username)
+        console.log(this.props.params.username);
         $.ajax({           
             url: '/profile', 
             data: {username:this.props.params.username},
@@ -43,6 +41,7 @@ var Profile = React.createClass({
         var url = "/profiles/" + this.props.params.username + "/reviews";
         console.log(url);
     return (
+        
       <div>
             <div> Name: {this.state.profile.name}</div>
             <img src={this.state.profile.profile_pic}/>

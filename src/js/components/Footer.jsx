@@ -6,6 +6,7 @@ var HowItWorksButton = require("./navbuttons/HowItWorksButton")
 var OurVisionButton = require("./navbuttons/OurVisionButton")
 var ContactUsButton = require("./navbuttons/ContactUsButton")
 var CareersButton = require("./navbuttons/CareersButton")
+var ViewYourProfile = require("./navbuttons/ViewYourProfile")
 
 var Footer = React.createClass({
   render: function() {
@@ -16,7 +17,7 @@ var Footer = React.createClass({
         <nav className="footer-profiles">
           <HomeButton className="footerbuttons" />
           <BrowseButton className="footerbuttons" />
-          <p>Create/View Your Profile</p>
+          <ViewYourProfile className="footerbuttons" />
         </nav>
         <nav className="footer-about-us">
           <HowItWorksButton className="footerbuttons" />

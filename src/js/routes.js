@@ -27,6 +27,7 @@ var Email = require("./components/Email");
 
 var Reviews = require("./components/Reviews");
 var Gallery = require("./components/Gallery");
+var PleaseLogIn = require("./components/PleaseLogIn");
 
 var auth = new AuthService('pQZynj9aeB6FgPoKihk7HluGGlLYwqWR', 'onset.auth0.com');
 
@@ -55,7 +56,7 @@ var routes = (
             </Route>
             <Route path="profiles/:username/reviews" component={Reviews}> </Route>
             <Route path="profiles/:username/createareview" component={Createareview} onEnter={requireAuth}> </Route>
-            
+            <Route path="pleaselogin" component={PleaseLogIn}></Route>
             <Route path="photos" component={Gallery}></Route>
             <Route path="contactus" component={ContactUs}></Route>
             <Route path="careers" component={Careers}></Route>

@@ -149,6 +149,40 @@ module.exports = function OnsetAPI(conn) {
         }
       );
     },
+    getEmail: function(username, callback) {
+      console.log(username);
+      conn.query(`
+        SELECT
+          email
+        FROM Profile
+          WHERE username = ?`, [username], 
+        function(err, email) {
+          if (err) {
+            console.log(err, "this is an error");
+          } else {
+            console.log(email, "this is an email!")
+          return callback(null, email);
+          }
+        }
+      );
+    },
+    getMyProfile: function(token, callback) {
+      console.log(token);
+      conn.query(`
+        SELECT
+          username
+        FROM Profile
+          WHERE token = ?`, [token], 
+        function(err, username) {
+          if (err) {
+            console.log(err, "this is an error");
+          } else {
+            console.log(username, "this is an email!")
+          return callback(null, username);
+          }
+        }
+      );
+    },
     getSingleProfile: function(username, callback) {
       conn.query(`
         SELECT 
@@ -202,7 +236,7 @@ module.exports = function OnsetAPI(conn) {
         }
       );
     },
-      getInstagramPhotos: function(userId, callback) {
+  getInstagramPhotos: function(userId, callback) {
   // This first request gets us an access token for the Auth0 Management API
   var options = {
     method: "POST",
@@ -414,7 +448,7 @@ module.exports = function OnsetAPI(conn) {
   }
 }
 
-// var onSetAPI = OnsetAPI(connection);
+
 
 // onSetAPI.createUser({
 //     username: "Jules",
