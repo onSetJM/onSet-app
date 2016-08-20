@@ -26,15 +26,24 @@ var Createprofile = React.createClass({
          availability: this.refs.availability.value,
          profile_pic: this.state.profile.profile_picture
         };
-      console.log(profileObj);
       var that = this;
+        $.ajax({           
+            url: '/profile/photos', 
+            data: {token: localStorage.instagram_sub},
+            type: 'POST',
+            success: function(result) {
+                console.log(result.photos, "THIS IS THE PHOTO ARRAY");
+            },
+            error: function() {
+              console.log('this is the ajax error');      
+            }
+        });
       $.ajax({           
             url: '/createprofile', 
             data: profileObj,
             type: 'POST',
             success: function(result) {
-                console.log("This is the result" + result);
-                history.push(`/profiles/${that.refs.username.value}`);
+                history.push(`/profile/${that.refs.username.value}`);
             },
             error: function() {
               console.log('this is the ajax error');      
@@ -51,7 +60,7 @@ var Createprofile = React.createClass({
           }
       }).then(
           function(response) {
-              that.setState({profile: response})
+              that.setState({profile: response});
           }
         )
   },
@@ -62,7 +71,6 @@ var Createprofile = React.createClass({
       }
       
       var profile = this.state.profile;
-      console.log(profile);
     return (
       <div>
         <form  id="reviewForm" onSubmit={this._handleSubmit}>

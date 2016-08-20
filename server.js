@@ -5,38 +5,60 @@ var jwt = require('express-jwt');
 var bodyParser = require("body-parser");
 var request = require("request");
 
+function insertPhotos(arr, index, token) {
+  if (index >= 0) {
+    onSetAPI.createPhoto(arr[index].images.standard_resolution.url, token, function(err, result) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      else {
+        insertPhotos(arr, index - 1, token);
+      }
+    });
+  }
+  return;
+}
 
 var authenticate = jwt({
   secret: new Buffer('OXT7scbPPikaP_mjFyutSPR2RcGr1GZ8Ew-6F_x4RLLLRwQCbFIX9Ou58CLtas9H', 'base64'),
   audience: 'pQZynj9aeB6FgPoKihk7HluGGlLYwqWR'
 });
-  
+
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root', 
-  password : '',
+  host: 'localhost',
+  user: 'root',
+  password: '',
   database: 'onset'
 });
 
 var onSetAPI = require('./src/js/api/api')(connection);
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json({ type: 'application/*+json' }));
+app.use(bodyParser.json({
+  type: 'application/*+json'
+}));
 /* insert any app.get or app.post you need here */
 
 app.post("/profile/photos", function(req, res) {
-  console.log(req.body.token);
-  onSetAPI.getInstagramPhotos(req.body.token
-    , function(err, photos) {
-      if(err){
-        res.status(400).send("Whoopsy! Something went wrong!");
-      }
-      else {
-        res.send({success:true, photos: photos});
-      }
+  // console.log(req.body.token);
+  onSetAPI.getInstagramPhotos(req.body.token, function(err, photos) {
+    if (err) {
+      res.status(400).send("Whoopsy! Something went wrong!");
+      console.log(err);
     }
-  );
+    else {
+      console.log(photos, "THIS IS THE PHOTOS ARRAY");
+      insertPhotos(photos, photos.length - 1, req.body.token);
+      res.send({
+        success: true,
+        photos: photos
+      });
+    }
+  });
 });
 
 app.get('/getInstagramProfile', authenticate, function(req, res) {
@@ -45,96 +67,116 @@ app.get('/getInstagramProfile', authenticate, function(req, res) {
   })
 });
 
-app.post('/createprofile', function(req, res){
+app.post('/createprofile', function(req, res) {
   // res.send(req.user);
   // console.log(req.user);
-    onSetAPI.createProfile(
-      {
-      specialities: req.body.specialities,
-      city: req.body.city,
-      category: req.body.category,
-      token: req.body.token,
-      username: req.body.username,
-      email: req.body.email,
-      name: req.body.name,
-      instagramauthorized: req.body.instagramauthorized,
-      availability: req.body.availability,
-      profile_pic: req.body.profile_pic
+  onSetAPI.createProfile({
+    specialities: req.body.specialities,
+    city: req.body.city,
+    category: req.body.category,
+    token: req.body.token,
+    username: req.body.username,
+    email: req.body.email,
+    name: req.body.name,
+    instagramauthorized: req.body.instagramauthorized,
+    availability: req.body.availability,
+    profile_pic: req.body.profile_pic
+  }, function(err, profile) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
     }
-    , function(err, profile) {
-      if(err){
-        console.log(err);
-        res.status(400).send("Whoopsy! Something went wrong!");
-      }
-      else {
-        res.send({success:true, profile: profile});
-      }
+    else {
+      res.send({
+        success: true,
+        profile: profile
+      });
     }
-  );
+  });
 });
 
-app.post('/createareview', function(req, res){
-    onSetAPI.createReview(
-      {
-       text: req.body.text,
-       score: req.body.score,
-       token: req.body.token,
-       profileusername: req.body.profileusername
-       }
-    ,function(err, review) {
-      if(err){
-        res.status(400).send("Whoopsy! Something went wrong!");
-        console.log(err);
-      }
-      else {
-        console.log(review);
-        res.send({success:true, review: review});
-      }
+app.post('/createareview', function(req, res) {
+  onSetAPI.createReview({
+    text: req.body.text,
+    score: req.body.score,
+    token: req.body.token,
+    profileusername: req.body.profileusername
+  }, function(err, review) {
+    if (err) {
+      res.status(400).send("Whoopsy! Something went wrong!");
+      console.log(err);
     }
-  );
+    else {
+      console.log(review);
+      res.send({
+        success: true,
+        review: review
+      });
+    }
+  });
 });
 
-app.post('/searchprofiles', function(req, res){
-    onSetAPI.getAllProfiles({},req.body.category, req.body.city, req.body.createdAt
-    , function(err, profiles) {
-      if(err){
-        res.status(400).send("Whoopsy! Something went wrong!");
-      }
-      else {
-        res.send({success:true, profiles: profiles});
-      }
+app.post('/searchprofiles', function(req, res) {
+  onSetAPI.getAllProfiles({}, req.body.category, req.body.city, req.body.sortingMethod, function(err, profiles) {
+    if (err) {
+      res.status(400).send("Whoopsy! Something went wrong!");
     }
-  );
+    else {
+      res.send({
+        success: true,
+        profiles: profiles
+      });
+    }
+  });
 });
 
-app.post('/profile', function(req, res){
-    console.log(req.body.username);
-    onSetAPI.getSingleProfile(req.body.username
-    , function(err, profile) {
-      if(err){
-        console.log(err);
-        res.status(400).send("Whoopsy! Something went wrong!");
-      }
-      else {
-        //console.log(profile[0]);
-        res.send({success:true, profile: profile[0]});
-      }
+app.post('/profile', function(req, res) {
+  console.log(req.body.username);
+  onSetAPI.getSingleProfile(req.body.username, function(err, profile) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
     }
-  );
+    else {
+      console.log(profile[0]);
+      console.log(profile[0].token);
+      res.send({
+        success: true,
+        profile: profile[0]
+      });
+    }
+  });
+});
+app.post('/profilephotos', function(req, res) {
+  console.log(req.body.token);
+  onSetAPI.getallPhotosForProfile(req.body.token, function(err, photos) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
+    }
+    else {
+      //console.log(profile[0]);
+      res.send({
+        success: true,
+        photos: photos
+      });
+    }
+  });
 });
 
-app.post('/reviews', function(req, res){
-    onSetAPI.getReviewsForProfile({},req.body.profileusername
-    , function(err, reviews) {
-      if(err){
-        res.status(400).send("Whoopsy! Something went wrong!");
-      }
-      else {
-        console.log(reviews);
-        res.send({success:true, reviews: reviews});
-      }
+app.post('/reviews', function(req, res) {
+  onSetAPI.getReviewsForProfile({}, req.body.profileusername, function(err, reviews) {
+    if (err) {
+      res.status(400).send("Whoopsy! Something went wrong!");
     }
-  );
+    else {
+      console.log(reviews);
+      res.send({
+        success: true,
+        reviews: reviews
+      });
+    }
+  });
 });
 
 
@@ -149,20 +191,21 @@ app.get('/*', function(request, response) {
   response.sendFile(__dirname + '/public/index.html');
 });
 
-app.post('/searchresults', function(req, res){
-    console.log(req.body);
-    onSetAPI.getAllProfiles({},req.body.category, req.body.city, req.body.sortingMethod
-    , function(err, profiles) {
-      if(err){
-        console.log(err);
-        res.status(400).send("Whoopsy! Something went wrong!");
-      }
-      else {
-        console.log(profiles);
-        res.send({success:true, profiles: profiles});
-      }
+app.post('/searchresults', function(req, res) {
+  console.log(req.body);
+  onSetAPI.getAllProfiles({}, req.body.category, req.body.city, req.body.sortingMethod, function(err, profiles) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
     }
-  );
+    else {
+      console.log(profiles);
+      res.send({
+        success: true,
+        profiles: profiles
+      });
+    }
+  });
 
 });
 
