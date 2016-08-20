@@ -76,7 +76,7 @@ var Profile = React.createClass({
             <div> Member of onSet since: {this.state.profile.createdAt} </div>
             <button className="btn btn-danger" onClick={this._handleButtonReview}> REVIEW {this.state.profile.name} </button>
             <button className="btn btn-danger" onClick={this._handleButton}>Email me for BOOKING </button>
-            
+            <br/>
             <div>
             <h3>Photos</h3>
             <div className="gallerydisplay">
