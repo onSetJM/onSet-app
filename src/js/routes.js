@@ -25,7 +25,7 @@ var SearchResults = require("./components/SearchResults");
 var SearchForm = require("./components/SearchForm");
 
 var Email = require("./components/Email");
-
+var Modalbox = require("./components/Modalbox");
 var Reviews = require("./components/Reviews");
 var Gallery = require("./components/Gallery");
 var PleaseLogIn = require("./components/PleaseLogIn");
@@ -67,6 +67,7 @@ var routes = (
             <Route path="photos" component={Gallery}></Route>
             <Route path="contactus" component={ContactUs}></Route>
             <Route path="careers" component={Careers}></Route>
+            <Route path="modalbox" component={Modalbox}></Route>
         </Route>
     </Router>
 );
