@@ -46,7 +46,7 @@ var Profile = React.createClass({
         });
   },
   _handleButton: function() {
-      console.log(this.props.params.username);
+     console.log(this.props.params.username);
     history.push(`/profile/${this.props.params.username}/email`);
   },
   _handleButtonReview: function() {
