@@ -40,6 +40,7 @@
     "react-dom": "^15.3.0",
     "react-foundation": "^0.6.8",
     "react-router": "^2.6.1",
+    "react-slick": "^0.13.1",
     "reactify": "^1.1.1",
     "webpack": "^1.13.1"
   }

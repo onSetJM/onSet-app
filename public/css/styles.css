@@ -64,7 +64,12 @@
 .faq h2{
     font-weight: bold;
 }
-
+ /* SEARCH RESULTS */
+ .singleprofilecontainer {
+     display: flex;
+     max-width: 150px;
+     flex-direction: column;
+ }
 
 /* Search */
 .homepagesearchbar {

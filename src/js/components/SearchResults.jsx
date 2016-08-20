@@ -43,11 +43,11 @@ var SearchResults = React.createClass({
       <div>
             <div >
             <h3>Profiles</h3>
-             <ul>
+             <div>
                  {this.state.profiles.map(function(profile){
                      return <Singleprofileresult key={profile.profileId} profile = {profile} />;
                  })}
-             </ul>
+             </div>
             </div>
       </div>
     );
