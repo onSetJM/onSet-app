@@ -33,6 +33,12 @@ CREATE TABLE Reviews (
   profileusername VARCHAR(60)
 );
 
+CREATE TABLE Photos (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  photourl TEXT(10000), 
+  token VARCHAR(255)
+);
+
 /* FOREIGN KEY (userId) REFERENCES user(id),
 FOREIGN KEY (profileId) REFERENCES profile(id) */
 

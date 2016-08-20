@@ -87,6 +87,30 @@ module.exports = function OnsetAPI(conn) {
         }
       );
     },
+    createPhoto: function(photo, token, callback) {
+      conn.query(
+        'INSERT INTO Photos (photourl, token) VALUES (?, ?)', [photo, token],
+        function(err, result) {
+          if (err) {
+            callback(err);
+          }
+          else {
+            conn.query(
+              'SELECT id, photourl, token FROM Photos WHERE id = ?', [result.insertId],
+              function(err, result) {
+                if (err) {
+                  callback(err);
+                  console.log(err);
+                }
+                else {
+                  console.log(result[0]);
+                  callback(null, result[0]);
+                }
+              });
+          }
+        }
+      );
+    },
     getAllProfiles: function(options, category, city, sortingMethod, callback) {
       // In case we are called without an options parameter, shift all the parameters manually
       if (!callback) {
@@ -216,7 +240,7 @@ module.exports = function OnsetAPI(conn) {
               return {
                 profileId: res.id,
                 username: res.username,
-                token: res.token,
+                token: res.profileToken,
                 photosprovided: res.photosprovided,
                 name: res.name,
                 profile_pic: res.profilepic,
@@ -404,6 +428,30 @@ module.exports = function OnsetAPI(conn) {
     });
   });
 },
+      getallPhotosForProfile: function(token, callback) {
+
+      conn.query(`
+        SELECT 
+          p.id as id,
+          p.photourl as url
+        FROM Photos p
+          WHERE token = ?`, [token],
+        function(err, results) {
+          if (err) {
+            callback(err);
+          }
+          else {
+            var mappedResults = results.map(function(res) {
+              return {
+                url: res.url,
+                id: res.id
+                };
+            })
+            callback(null, mappedResults);
+          }
+        }
+      );
+    },
     getReviewsForProfile: function(options, profileusername, callback) {
       // In case we are called without an options parameter, shift all the parameters manually
       if (!callback) {

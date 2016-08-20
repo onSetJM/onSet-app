@@ -7,8 +7,8 @@ var history = require('react-router').browserHistory;
 var SearchButton = React.createClass({
     redirect: function () {
       return (
-        history.push("/profiles")
-        )
+        history.push("search/hairstylist")
+        );
     },
     render: function(){
     return (

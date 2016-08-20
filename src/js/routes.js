@@ -22,6 +22,7 @@ var Careers = require("./components/Careers");
 
 var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
+var SearchForm = require("./components/SearchForm");
 
 var Email = require("./components/Email");
 
@@ -50,13 +51,21 @@ var routes = (
 
             <Route path="createprofile" component={Createprofile} onEnter={requireAuth}></Route>
             
-            <Route path="profiles" component={SearchResults}></Route>
-            <Route path="profiles/:username" component={Profile}>
+
+            <Route path="search/:category" component={SearchForm}>
+                <Route path="searchresults" component={SearchResults} />
+            </Route>
+            <Route path="profile/:username" component={Profile}>
                 <Route path="email" component={Email}> </Route>
             </Route>
+
             <Route path="profiles/:username/reviews" component={Reviews}> </Route>
             <Route path="profiles/:username/createareview" component={Createareview} onEnter={requireAuth}> </Route>
             <Route path="pleaselogin" component={PleaseLogIn}></Route>
+
+            <Route path="profile/:username/reviews" component={Reviews}> </Route>
+            <Route path="profile/:username/createareview" component={Createareview} onEnter={requireAuth}> </Route>
+            
             <Route path="photos" component={Gallery}></Route>
             <Route path="contactus" component={ContactUs}></Route>
             <Route path="careers" component={Careers}></Route>

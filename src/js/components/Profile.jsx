@@ -4,6 +4,9 @@ var $ = require('jquery');
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
 
+var Singlegalleryphoto = require('./Singlegalleryphoto');
+
+
 var Profile = React.createClass({
     getInitialState: function() {
         return {};
@@ -16,10 +19,25 @@ var Profile = React.createClass({
             data: {username:this.props.params.username},
             type: 'POST',
             success: function(result) {
-                console.log(result);
+                console.log(result, "this is the result of profile AJAX");
                 that.setState({
                  profile:result.profile
                 });
+                console.log(result.profile.token, "this is profile token");
+                $.ajax({           
+                 url: '/profilephotos', 
+                 data: {token:result.profile.token},
+                 type: 'POST',
+                 success: function(result) {
+                        console.log(result,"this is photo result");
+                        that.setState({
+                          photos:result.photos
+                        });
+                     },
+            error: function() {
+              console.log('this is the ajax error');      
+            }
+        });
             },
             error: function() {
               console.log('this is the ajax error');      
@@ -28,18 +46,21 @@ var Profile = React.createClass({
   },
   _handleButton: function() {
       console.log(this.props.params.username);
-    history.push(`/profiles/${this.props.params.username}/email`);
+    history.push(`/profile/${this.props.params.username}/email`);
   },
   _handleButtonReview: function() {
       console.log(this.props.params.username);
-    history.push(`/profiles/${this.props.params.username}/createareview`);
+    history.push(`/profile/${this.props.params.username}/createareview`);
   },
   render: function() {
       if (!this.state.profile) {
             return <div>LOADING THE PROFILE...</div>;
         }
-        var url = "/profiles/" + this.props.params.username + "/reviews";
-        console.log(url);
+      if (!this.state.photos) {
+            return <div>LOADING THE PROFILE...</div>;
+        }
+        var url = "/profile/" + this.props.params.username + "/reviews";
+        console.log(this.state, "THIS IS THE FINAL STATE");
     return (
         
       <div>
@@ -55,6 +76,17 @@ var Profile = React.createClass({
             <div> Member of onSet since: {this.state.profile.createdAt} </div>
             <button className="btn btn-danger" onClick={this._handleButtonReview}> REVIEW {this.state.profile.name} </button>
             <button className="btn btn-danger" onClick={this._handleButton}>Email me for BOOKING </button>
+            
+            <div>
+            <h3>Photos</h3>
+            <div className="gallerydisplay">
+             <ul>
+                 {this.state.photos.map(function(photo){
+                     return <Singlegalleryphoto key={photo.id} photo = {photo} />;
+                 })}
+             </ul>
+            </div>
+         </div>
             
             {this.props.children}
       </div>

@@ -10,14 +10,13 @@ var SearchResults = React.createClass({
     getInitialState: function() {
         return {};
     },
-    componentDidMount: function() {
+    fetchData: function(props){
         var that = this;
         $.ajax({           
             url: '/searchresults', 
-            data: {category: "Make-up Artist", city: "Montreal", sortingMethod: "profileCreatedAt"},
+            data: props ? props.searchObj : this.props.searchObj,
             type: 'POST',
             success: function(result) {
-                console.log(result.profiles);
                 that.setState({
                  profiles:result.profiles
                 });
@@ -26,9 +25,18 @@ var SearchResults = React.createClass({
               console.log('this is the ajax error');      
             }
         });
-  },
+    },
+    componentDidMount: function() {
+        this.fetchData()
+    },
+    componentWillReceiveProps: function(nextProps) {
+        this.fetchData(nextProps)
+    },
   render: function() {
-      if (!this.state.profiles) {
+      if (!this.props.searchObj) {
+            return <div>LOADING searchObj...</div>;
+        }
+        if (!this.state.profiles) {
             return <div>LOADING profiles...</div>;
         }
     return (
