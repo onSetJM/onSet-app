@@ -75,7 +75,7 @@ app.post("/email", function(req, res) {
         text: `You have been contacted by someone through onSet`,
         html: `
               <p>
-                <p>YOU JUST GOT AN EMAIL FROM ONSET!!!! WOOWOWOWOOOWOOOWOOO!!!</p>
+                <p>You just got an email from ${req.body.Name} through onSet! Here are the details: </p>
                 <ul>
                   <li>Contact Date: ${req.body.ContactDate}</li> 
                   <li>Name: ${req.body.Name}</li>
@@ -96,6 +96,39 @@ app.post("/email", function(req, res) {
       });
     }
   }); 
+});
+
+app.post("/contactus", function(req, res) {
+     var transporter = nodemailer.createTransport(smtpTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'onsetwebsite@gmail.com',
+        pass: 'onset123'
+      }
+    }));
+    var mailOptions = {
+      from: `${req.body.Name} <${req.body.Email}>`,
+      to: "onsetwebsite@gmail.com",
+      subject: 'You have been contacted through onSet!',
+      text: `You have been contacted by someone through onSet`,
+      html: `
+            <p>
+              <p>You just got an email from ${req.body.Name} through onSet! Here are the details: </p>
+              <ul>
+                <li>Name: ${req.body.Name}</li>
+                <li>Email: ${req.body.Email}</li>
+                <li>Message: ${req.body.Message}</li>
+              </ul>
+            </p>`
+    };
+    transporter.sendMail(mailOptions, function(err, info) {
+      if (err) {
+        console.log("ERRORRRRRRRR", err);
+      }
+      else {
+        console.log(`Message Sent: ${info.response}`);
+      }
+    });
 });
 
 // {ContactDate: this.refs.date.value, 
