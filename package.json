@@ -39,6 +39,7 @@
     "react-bootstrap": "^0.30.2",
     "react-dom": "^15.3.0",
     "react-foundation": "^0.6.8",
+    "react-modal": "^1.4.0",
     "react-router": "^2.6.1",
     "reactify": "^1.1.1",
     "webpack": "^1.13.1"

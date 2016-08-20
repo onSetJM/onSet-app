@@ -129,8 +129,11 @@
 
 .container {
   margin: 0 auto;
-  padding: 40px;
-  width: 80%;
+  width: 100%;
   color: #333;
-  background: #419be0;
+  background: #a3aab5;
+}
+.gallery {
+  display:flex;
+  background: #a3aab5;
 }

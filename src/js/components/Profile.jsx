@@ -6,6 +6,7 @@ var Link = require("react-router").Link;
 
 var Singlegalleryphoto = require('./Singlegalleryphoto');
 var Galleryslider = require('./Galleryslider');
+var Modalbox = require('./Modalbox');
 
 
 var Profile = React.createClass({
@@ -75,9 +76,12 @@ var Profile = React.createClass({
             <div> specialities: {this.state.profile.specialities} </div>
             <div> city: {this.state.profile.city} </div>
             <div> Member of onSet since: {this.state.profile.createdAt} </div>
-            <Galleryslider key="galleryslider" photos={this.state.photos} />
-            <button className="btn btn-danger" onClick={this._handleButtonReview}> REVIEW {this.state.profile.name} </button>
+            <div className="gallery">
+                <Galleryslider key="galleryslider" photos={this.state.photos} />
+            </div>
+            
             <button className="btn btn-danger" onClick={this._handleButton}>Email me for BOOKING </button>
+            <Modalbox username={this.props.params.username} />
             <br/>
             <div>
             
