@@ -5,6 +5,7 @@ var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
 
 var Singlegalleryphoto = require('./Singlegalleryphoto');
+var Galleryslider = require('./Galleryslider');
 
 
 var Profile = React.createClass({
@@ -74,18 +75,12 @@ var Profile = React.createClass({
             <div> specialities: {this.state.profile.specialities} </div>
             <div> city: {this.state.profile.city} </div>
             <div> Member of onSet since: {this.state.profile.createdAt} </div>
+            <Galleryslider key="galleryslider" photos={this.state.photos} />
             <button className="btn btn-danger" onClick={this._handleButtonReview}> REVIEW {this.state.profile.name} </button>
             <button className="btn btn-danger" onClick={this._handleButton}>Email me for BOOKING </button>
             <br/>
             <div>
-            <h3>Photos</h3>
-            <div className="gallerydisplay">
-             <ul>
-                 {this.state.photos.map(function(photo){
-                     return <Singlegalleryphoto key={photo.id} photo = {photo} />;
-                 })}
-             </ul>
-            </div>
+            
          </div>
             
             {this.props.children}
@@ -96,3 +91,13 @@ var Profile = React.createClass({
 
 
 module.exports = Profile;
+/*
+<h3>Photos</h3>
+            <div className="gallerydisplay">
+             <ul>
+                 {this.state.photos.map(function(photo){
+                     return <Singlegalleryphoto key={photo.id} photo = {photo} />;
+                 })}
+             </ul>
+            </div>
+            */

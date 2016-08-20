@@ -7,12 +7,11 @@ var Link = require("react-router").Link;
 var Singlegalleryphoto = React.createClass({
     render: function() {
         return (
-            <li>
+            
             <div> 
             <img className="singlephoto" src={this.props.photo.url} />
             </div>
-            <br/>
-            </li>
+
         );
     }
 });
