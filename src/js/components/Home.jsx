@@ -45,7 +45,7 @@ var Home = React.createClass({
         </div>
         <hr />
         <h2>Our Vision</h2>
-        <div className="ourvision">
+        <div className="ourvision" id="unique-identifier">
         <h3>What exactly are the “creative trades”?</h3>
         <p>When we say creative trades, we mean hairstylists, makeup artists, 
         personal stylists, costume designers, nail artists, and any other 
@@ -58,6 +58,7 @@ var Home = React.createClass({
         We’ve integrated Instagram so you can take your current online presence 
         and upgrade it to include all your professional experiences and achievements. 
         You work hard-- onSet lets you show just how experienced you are.</p>
+        
         </div>
     </div>);
   }

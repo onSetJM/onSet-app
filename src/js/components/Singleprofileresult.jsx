@@ -9,16 +9,20 @@ var Singleprofileresult = React.createClass({
         var url = "/profile/" + this.props.profile.username;
         return (
             <div className="singleprofilecontainer">
-                <div> 
-                    <Link to={url}>
-                        <p className="profile-nickname">{this.props.profile.name}</p>
-                    </Link>
+                <img className="searchresultimg" src={this.props.profile.profile_pic}/>
+                <div className="singleprofiletext">
+                    <div className="profilename">
+                        <Link to={url}>
+                            <p className="profile-nickname">{this.props.profile.name}</p>
+                        </Link>
+                    </div>
+                    <div className="profile-details">
+                        <div><strong>Category:</strong> {this.props.profile.profileCategory} </div>
+                        <div><strong>Total reviews:</strong> {this.props.profile.totalReviews} </div>
+                        <div><strong>Score:</strong> {this.props.profile.profileScore}</div>
+                        <div><strong>Speciality:</strong> {this.props.profile.specialities} </div>
+                    </div>
                 </div>
-                <img src={this.props.profile.profile_pic}/>
-                <p> Score :  {this.props.profile.profileScore}</p>
-                <p> Total reviews: {this.props.profile.totalReviews} </p>
-                <p> Category: {this.props.profile.profileCategory} </p>
-                <p> Speciality: {this.props.profile.specialities} </p>
             </div>
         );
     }

@@ -47,7 +47,7 @@ var SearchForm = React.createClass({
                 <option value="totalReviews">Total number of reviews</option>
                 <option value="profileCreateAt"> Latest profiles </option>
             </select>
-            <button > SEARCH!</button>
+            <button >Search</button>
         </form>
         {children}
       </div>

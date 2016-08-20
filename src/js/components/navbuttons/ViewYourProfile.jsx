@@ -33,7 +33,7 @@ var ViewYourProfile = React.createClass({
     return (
       <div>
         <ButtonToolbar>
-             <Button onClick={this.redirect}>View Your Profile</Button>
+             <Button onClick={this.redirect} href="#viewprofile">View Your Profile</Button>
         </ButtonToolbar>
       </div>
     );
