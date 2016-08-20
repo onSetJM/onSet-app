@@ -1,9 +1,13 @@
 var React = require("react");
 var SearchResults = require("./SearchResults");
+/* global localStorage */
+
+var history = require('react-router').browserHistory;
+var Link = require("react-router").Link;
 
 var SearchBar = React.createClass({
     _handleSearch: function () {
-        console.log(this.refs.search.value);
+        history.push(`/search/${this.refs.search.value}`);
     },
     render: function(){
         return (

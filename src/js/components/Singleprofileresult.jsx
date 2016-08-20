@@ -6,7 +6,7 @@ var Link = require("react-router").Link;
 
 var Singleprofileresult = React.createClass({
     render: function() {
-        var url = "/profiles/" + this.props.profile.username;
+        var url = "/profile/" + this.props.profile.username;
         return (
             <li>
             <div> 

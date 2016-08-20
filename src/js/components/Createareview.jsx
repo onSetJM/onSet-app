@@ -3,6 +3,10 @@ var $ = require('jquery');
 /* global localStorage */
 
 
+var history = require('react-router').browserHistory;
+var Link = require("react-router").Link;
+
+
 var Createareview = React.createClass({
     getInitialState: function() {
         return {};
@@ -16,12 +20,14 @@ var Createareview = React.createClass({
           profileusername: this.props.params.username
       };
       console.log(reviewObj);
+      var that = this;
       $.ajax({           
             url: '/createareview', 
             data: reviewObj,
             type: 'POST',
             success: function(result) {
                 console.log("This is the result" + result);
+                history.push(`/profile/${that.props.params.username}`);
             },
             error: function() {
               console.log('this is the ajax error');      

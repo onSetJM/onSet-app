@@ -9,12 +9,12 @@ var Singlegalleryphoto = React.createClass({
         return (
             <li>
             <div> 
-            <img className="singlephoto" src={this.props.photo.images.standard_resolution.url} />
+            <img className="singlephoto" src={this.props.photo.url} />
             </div>
             <br/>
             </li>
         );
     }
 });
-
+//src={this.props.photo.images.standard_resolution.url}
 module.exports = Singlegalleryphoto;
