@@ -19,7 +19,7 @@ var ViewYourProfile = React.createClass({
             success: function(result) {
                 console.log(result);
                 return (
-                    history.push(`/profiles/${result.username}`)
+                    history.push(`/profile/${result.username}`)
                  );
                 },
             error: function() {

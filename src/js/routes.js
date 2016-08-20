@@ -59,8 +59,6 @@ var routes = (
                 <Route path="email" component={Email}> </Route>
             </Route>
 
-            <Route path="profiles/:username/reviews" component={Reviews}> </Route>
-            <Route path="profiles/:username/createareview" component={Createareview} onEnter={requireAuth}> </Route>
             <Route path="pleaselogin" component={PleaseLogIn}></Route>
 
             <Route path="profile/:username/reviews" component={Reviews}> </Route>

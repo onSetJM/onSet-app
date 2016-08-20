@@ -33,7 +33,7 @@ var Email = React.createClass({
     _handleSubmit: function(e) {
         e.preventDefault();
         this._sendData();
-        history.push(`/profiles/${this.props.params.username}`);
+        history.push(`/profile/${this.props.params.username}`);
     },
     render: function() {
     return (
