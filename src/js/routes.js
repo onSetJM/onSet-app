@@ -23,7 +23,7 @@ var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
 var SearchForm = require("./components/SearchForm");
 
-var Email = require("./components/Email");
+
 var Reviews = require("./components/Reviews");
 var Gallery = require("./components/Gallery");
 var PleaseLogIn = require("./components/PleaseLogIn");
@@ -54,7 +54,6 @@ var routes = (
                 <Route path="searchresults" component={SearchResults} />
             </Route>
             <Route path="profile/:username" component={Profile}>
-                <Route path="email" component={Email}> </Route>
             </Route>
 
             <Route path="pleaselogin" component={PleaseLogIn}></Route>

@@ -160,6 +160,8 @@
     margin-right: 20px;
 }
 
+
+/* Footer*/
 .container {
   margin: 0 auto;
   width: 100%;
@@ -170,3 +172,24 @@
   display:flex;
   background: #a3aab5;
 }
+
+/* Profile Page*/
+
+.profilebox{
+     display: flex;   
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+ }
+ 
+.box {
+     display: flex;
+     width: 100%;
+     flex-direction: column;
+     margin: 10px;
+     justify-content: space-around;
+     padding-top: 50px;
+     padding-bottom: 50px;
+     align-items: center;
+     border-radius: 8px;
+ }

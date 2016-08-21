@@ -219,7 +219,7 @@ module.exports = function OnsetAPI(conn) {
           p.id,
           p.specialities as specialities,
           p.availability as availability,
-          p.createdAt AS profileCreatedAt,
+          DATE_FORMAT(p.createdAt,'%d/%m/%Y') as profileCreatedAt,
           p.updatedAt AS profileUpdatedAt,
           p.token as profileToken,
           p.photosprovided as photosprovided,

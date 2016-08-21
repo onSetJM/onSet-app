@@ -1,6 +1,7 @@
 var React = require('react');
 var $ = require('jquery');
 /*global localStorage */
+/*global dateFormat */
 
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
@@ -8,6 +9,7 @@ var Link = require("react-router").Link;
 var Singlegalleryphoto = require('./Singlegalleryphoto');
 var Galleryslider = require('./Galleryslider');
 var Modalcreatereview = require('./Modalcreatereview');
+var Email = require("./Email");
 
 
 var Profile = React.createClass({
@@ -51,10 +53,6 @@ var Profile = React.createClass({
      console.log(this.props.params.username);
     history.push(`/profile/${this.props.params.username}/email`);
   },
-  _handleButtonReview: function() {
-      console.log(this.props.params.username);
-    history.push(`/profile/${this.props.params.username}/createareview`);
-  },
   render: function() {
       if (!this.state.profile) {
             return <div>LOADING THE PROFILE...</div>;
@@ -66,43 +64,40 @@ var Profile = React.createClass({
         console.log(this.state, "THIS IS THE FINAL STATE");
     return (
         
-      <div>
-            <div> Name: {this.state.profile.name}</div>
-            <img src={this.state.profile.profile_pic}/>
-            <div> category: {this.state.profile.profileCategory} </div>
-            <div> Score:  {this.state.profile.Score}</div>
-            <Link to={url}>
-                    <p> totalReviews: {this.state.profile.profileReviews}</p>
-            </Link>
-            <div> specialities: {this.state.profile.specialities} </div>
-            <div> city: {this.state.profile.city} </div>
-            <div> Member of onSet since: {this.state.profile.createdAt} </div>
-            <div className="gallery">
-                <Galleryslider key="galleryslider" photos={this.state.photos} />
-            </div>
-            
-            <button className="btn btn-danger" onClick={this._handleButton}>Email me for BOOKING </button>
-            <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />
-            <br/>
             <div>
-            
-         </div>
-            
-            {this.props.children}
-      </div>
+                <div className="profilebox">
+                    <div className="box profilepic">
+                        <img src={this.state.profile.profile_pic}/>
+                    </div>
+                    <div className="box maininfo">
+                        <div className="h2"> {this.state.profile.name}</div>
+                        <div className="h4"> {this.state.profile.profileCategory} </div>
+                        <div className="h4"> city: {this.state.profile.city} </div>
+                        <div> Member of onSet since: {this.state.profile.createdAt} </div>
+                    </div>
+                    <div className="box buttons">
+                         <Link to={url}>
+                            <button className="btn btn-primary"> 
+                            Score:  {this.state.profile.profileScore} <br/>
+                            on totalReviews: {this.state.profile.profileReviews}</button>
+                         </Link>
+                        <Email username={this.props.params.username} name={this.state.profile.name} />
+                        <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />
+                    </div>
+                </div>
+                <div className="specialities"> 
+                    <div className="h3"> Specialities: </div>
+                    <p> {this.state.profile.specialities} </p>
+                </div>
+                <div className="gallery">
+                <Galleryslider key="galleryslider" photos={this.state.photos} />
+                </div>
+                {this.props.children}
+            </div>
     );
   }
 });
 
 
 module.exports = Profile;
-/*
-<h3>Photos</h3>
-            <div className="gallerydisplay">
-             <ul>
-                 {this.state.photos.map(function(photo){
-                     return <Singlegalleryphoto key={photo.id} photo = {photo} />;
-                 })}
-             </ul>
-            </div>
-            */
+

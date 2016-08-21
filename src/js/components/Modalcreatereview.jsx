@@ -25,7 +25,7 @@ const customStyles = {
     top                   : '50%',
     left                  : '50%',
     right                 : 'auto',
-    padding               : '60px',
+    padding               : '40px',
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
@@ -86,7 +86,7 @@ var Modalcreatereview = React.createClass({
     var rating  = this.state.rating;
     return (
       <div >
-        <button className="btn btn-danger" onClick={this.openModal}> REVIEW {this.props.name} </button>
+        <button className="btn btn-primary" onClick={this.openModal}> REVIEW {this.props.name} </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -97,18 +97,19 @@ var Modalcreatereview = React.createClass({
           
           <form id="reviewForm" onSubmit={this._handleSubmit}>
             <div className="form-group">
-                <label for="score"> Please enter a score out of 10 </label>
+                <label htmlFor="score"> Please enter a score out of 10 </label>
                  <input type="number" className="form-control" ref="score" id="exampleInputPassword1" placeholder="Score out of 10" />
              </div>
             <div className="form-group">
-                <label for="exampleInputPassword1"> Review headline: </label>
-                 <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="Score out of 10" />
+                <label htmlFor="exampleInputPassword1"> Review headline: </label>
+                 <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="headline" />
              </div>
-            <div class="form-group">
-                <label for="comments"> Write your review : </label>
-                 <textarea class="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
+            <div className="form-group">
+                <label htmlFor="comments"> Write your review : </label>
+                 <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
             </div>
             <button className="btn btn-primary"> Submit your review !</button>
+
           </form>
           </div>
         </Modal>

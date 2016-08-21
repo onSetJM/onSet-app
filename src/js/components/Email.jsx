@@ -1,61 +1,114 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
+var Modal = require('react-modal');
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
-var $ = require ("jquery");
+var $ = require("jquery");
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    padding: '25px',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    minHeight: '10rem',
+    minWidth: '15rem',
+    width: '65%',
+    maxWidth: '35rem',
+    maxHeight: '90%'
+  }
+};
 
 
 var Email = React.createClass({
-  getInitialState: function(){
-        return {};
+  getInitialState: function() {
+    return {
+      modalIsOpen: false
+    };
   },
-    _sendData : function () {
-      var formInfo = {
-              ContactDate: this.refs.date.value, 
-              Name: this.refs.name.value,
-              ContacterCity: this.refs.city.value,
-              Email: this.refs.email.value,
-              PhoneNumber: this.refs.phonenumber.value,
-              Message: this.refs.msg.value,
-              profileUsername: this.props.params.username
-            };
-        $.ajax({           
-            url: '/email', 
-            data: formInfo,
-            type: 'POST',
-            success: function(result) {
-                console.log("This is the email result" + result);
-            },
-            error: function() {
-              console.log('this is the ajax error');      
-            }
-        });
-    },
-    _handleSubmit: function(e) {
-        e.preventDefault();
-        this._sendData();
-        history.push(`/profile/${this.props.params.username}`);
-    },
-    render: function() {
+  _sendData: function() {
+    var formInfo = {
+      ContactDate: this.refs.date.value,
+      Name: this.refs.name.value,
+      ContacterCity: this.refs.city.value,
+      Email: this.refs.email.value,
+      PhoneNumber: this.refs.phonenumber.value,
+      Message: this.refs.msg.value,
+      profileUsername: this.props.username
+    };
+    $.ajax({
+      url: '/email',
+      data: formInfo,
+      type: 'POST',
+      success: function(result) {
+        console.log("This is the email result" + result);
+      },
+      error: function() {
+        console.log('this is the ajax error');
+      }
+    });
+  },
+  _handleSubmit: function(e) {
+    e.preventDefault();
+    this._sendData();
+    this.setState({
+      modalIsOpen: false
+    });
+  },
+  openModal: function() {
+    this.setState({
+      modalIsOpen: true
+    });
+  },
+
+  closeModal: function() {
+    this.setState({
+      modalIsOpen: false
+    });
+  },
+  render: function() {
     return (
       <div>
-        <form  id="emailForm">
-            <p> Contract Date </p>
-              <input type="date" ref="date" placeholder="Data" />
-            <p> Name </p>
-              <input ref="name" type="text" />
-            <p> City </p>
-              <input ref="city" type="text" />
-            <p> Email</p>
-              <input ref="email" type="text" />
-            <p> Phone Number </p>
-              <input ref="phonenumber" type="text" />
-            <p> Describe the services that you need </p>
-              <input ref="msg" type="text" />
-            <br/>
-            <br/>
-            <button className="btn btn-danger" onClick={this._handleSubmit}> Send an email !</button>
-        </form>
-      </div>
+     <button className="btn btn-primary" onClick={this.openModal}> Email {this.props.name} for a booking </button>
+     <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles}>
+       <div className="modalreview">
+         <p className="h4">Send an email to hire {this.props.name}</p>
+   
+         <form id="reviewForm emailForm" onSubmit={this._handleSubmit}>
+           <div className="form-group">
+             <label htmlFor="date"> Contract date  </label>
+             <input type="date" className="form-control" ref="date" id="date" placeholder="Contract date" />
+           </div>
+           <div className="form-group">
+             <label htmlFor="name"> Name </label>
+             <input type="text" className="form-control" ref="name" id="name" placeholder="Name" />
+           </div>
+   
+           <div className="form-group">
+          <label htmlFor="example-email-input">Email</label>
+           <input className="form-control" type="email" ref="email" placeholder="Email" id="example-email-input"/>
+          </div>
+           <div className="form-group">
+             <label htmlFor="city"> City </label>
+             <input type="text" className="form-control" ref="city" id="city" placeholder="City" />
+           </div>
+           <div className="form-group">
+           <label htmlFor="example-tel-input">Phone Number</label>
+    
+             <input className="form-control" type="tel" ref="phonenumber" placeholder="Phone Number" id="example-tel-input" />
+          </div>
+           <div className="form-group">
+             <label htmlFor="emailtext"> Describe the services that you need  </label>
+             <textarea className="form-control" ref="msg" id="exampleTextarea" rows="3"></textarea>
+           </div>
+           <button className="btn btn-primary" onClick={this._handleSubmit}> Send an email !</button>
+         </form>
+       </div>
+     </Modal>
+   </div>
     );
   }
 });
