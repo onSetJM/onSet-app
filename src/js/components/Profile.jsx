@@ -10,6 +10,7 @@ var Singlegalleryphoto = require('./Singlegalleryphoto');
 var Galleryslider = require('./Galleryslider');
 var Modalcreatereview = require('./Modalcreatereview');
 var Email = require("./Email");
+var Reviews = require("./Reviews");
 
 
 var Profile = React.createClass({
@@ -76,11 +77,7 @@ var Profile = React.createClass({
                         <div> Member of onSet since: {this.state.profile.createdAt} </div>
                     </div>
                     <div className="box buttons">
-                         <Link to={url}>
-                            <button className="btn btn-primary"> 
-                            Score:  {this.state.profile.profileScore} <br/>
-                            on totalReviews: {this.state.profile.profileReviews}</button>
-                         </Link>
+                        <Reviews profile = {this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
                         <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />
                     </div>

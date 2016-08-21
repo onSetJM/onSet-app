@@ -135,7 +135,7 @@ module.exports = function OnsetAPI(conn) {
           p.updatedAt AS profileUpdatedAt,
           p.token as profileToken,
           p.photosprovided as photosprovided,
-          AVG(r.score) as profileScore,
+          ROUND(AVG(r.score), 1) as profileScore,
           COUNT(r.id) as totalReviews
         FROM Profile p
           LEFT JOIN Reviews r ON r.profileusername = p.username
@@ -223,7 +223,7 @@ module.exports = function OnsetAPI(conn) {
           p.updatedAt AS profileUpdatedAt,
           p.token as profileToken,
           p.photosprovided as photosprovided,
-          AVG(r.score) as profileScore,
+          ROUND(AVG(r.score), 1) as profileScore,
           COUNT(r.id) as totalReviews
         FROM Profile p
           LEFT JOIN Reviews r ON r.profileusername = p.username
@@ -466,7 +466,7 @@ module.exports = function OnsetAPI(conn) {
           r.id AS id, 
           r.text AS text, 
           r.score AS score,
-          r.createdAt AS reviewCreatedAt, 
+          DATE_FORMAT(r.createdAt,'%d/%m/%Y') AS reviewCreatedAt, 
           r.token as reviewtoken,
           r.profileusername as profileusername
         FROM Reviews r
@@ -482,11 +482,12 @@ module.exports = function OnsetAPI(conn) {
               console.log(res);
               return {
                 reviewId: res.id,
-                reviewText: res.reviewText,
+                reviewText: res.text,
                 reviewScore: res.score,
                 reviewCreatedAt: res.reviewCreatedAt,
-                reviewedusername : res.profileusername
-              }
+                reviewedusername : res.profileusername,
+                reviewtoken: res.reviewtoken
+              };
             })
             callback(null, mappedResults);
           }

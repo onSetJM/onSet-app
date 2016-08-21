@@ -1,6 +1,7 @@
 var React = require('react');
 var $ = require('jquery');
 var Singlereview = require('./Singlereview');
+var Modaldisplayreviews = require('./Modaldisplayreviews');
 
 var history = require('react-router').browserHistory;
 
@@ -12,13 +13,13 @@ var Reviews = React.createClass({
     },
     componentDidMount: function() {
         var that = this;
-        console.log(that.props.params.username);
+        console.log(that.props.profile.username);
         $.ajax({           
             url: '/reviews', 
-            data: {profileusername:that.props.params.username},
+            data: {profileusername:that.props.profile.username},
             type: 'POST',
             success: function(result) {
-                console.log(result.reviews);
+                console.log(result.reviews, "this is the review object");
                 that.setState({
                  reviews:result.reviews
                 });
@@ -34,14 +35,7 @@ var Reviews = React.createClass({
         }
     return (
       <div>
-            <div >
-            <h3>Reviews</h3>
-             <ul>
-                 {this.state.reviews.map(function(review){
-                     return <Singlereview key={review.reviewId} review = {review} />;
-                 })}
-             </ul>
-            </div>
+            <Modaldisplayreviews reviews= {this.state.reviews} profile={this.props.profile} />
       </div>
     );
 
