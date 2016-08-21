@@ -31,7 +31,7 @@ const customStyles = {
 };
 
 
-var Modalbox = React.createClass({
+var Modalcreatereview = React.createClass({
 
   getInitialState: function() {
     return { modalIsOpen: false };
@@ -77,7 +77,7 @@ var Modalbox = React.createClass({
   render: function() {
     return (
       <div>
-        <button className="btn btn-danger" onClick={this.openModal}> REVIEW {this.props.username} </button>
+        <button className="btn btn-danger" onClick={this.openModal}> REVIEW {this.props.name} </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -85,7 +85,7 @@ var Modalbox = React.createClass({
           style={customStyles} >
 
           <h2 ref="subtitle">Hello</h2>
-          <div>Review {this.props.username}</div>
+          <div>Review {this.props.name}</div>
           <form id="reviewForm" onSubmit={this._handleSubmit}>
             <p> Please enter a score out of 10 </p>
             <input type="number" ref="score" placeholder="Score out of 10" />
@@ -100,4 +100,4 @@ var Modalbox = React.createClass({
   }
 });
 
-module.exports = Modalbox;
+module.exports = Modalcreatereview;

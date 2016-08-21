@@ -1,12 +1,13 @@
 var React = require('react');
 var $ = require('jquery');
+/*global localStorage */
 
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
 
 var Singlegalleryphoto = require('./Singlegalleryphoto');
 var Galleryslider = require('./Galleryslider');
-var Modalbox = require('./Modalbox');
+var Modalcreatereview = require('./Modalcreatereview');
 
 
 var Profile = React.createClass({
@@ -81,7 +82,7 @@ var Profile = React.createClass({
             </div>
             
             <button className="btn btn-danger" onClick={this._handleButton}>Email me for BOOKING </button>
-            <Modalbox username={this.props.params.username} />
+            <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />
             <br/>
             <div>
             

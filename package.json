@@ -35,13 +35,15 @@
     "nodemailer-smtp-transport": "^2.6.0",
     "nodemon": "^1.10.0",
     "passport": "^0.3.2",
-    "react": "^15.3.0",
+    "react": "^15.3.1",
     "react-bootstrap": "^0.30.2",
     "react-dom": "^15.3.0",
     "react-foundation": "^0.6.8",
     "react-modal": "^1.4.0",
     "react-router": "^2.6.1",
     "react-slick": "^0.13.1",
+    "react-star-rating": "^1.4.2",
+    "react-star-rating-component": "^1.0.0",
     "reactify": "^1.1.1",
     "webpack": "^1.13.1"
   }
