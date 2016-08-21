@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var StarRatingComponent = require('react-star-rating-component');
 var Modal = require('react-modal');
 var $ = require('jquery');
 /* global localStorage */
@@ -24,9 +25,14 @@ const customStyles = {
     top                   : '50%',
     left                  : '50%',
     right                 : 'auto',
+    padding               : '60px',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    minHeight: '10rem',
+    minWidth: '15rem',
+    width: '65%',
+    maxWidth: '35rem'
   }
 };
 
@@ -34,9 +40,11 @@ const customStyles = {
 var Modalcreatereview = React.createClass({
 
   getInitialState: function() {
-    return { modalIsOpen: false };
+    return { modalIsOpen: false, rating:1 };
   },
-
+  onStarClick: function(name, nextValue) {
+        this.setState({rating: nextValue});
+    },
   openModal: function() {
     this.setState({modalIsOpen: true});
   },
@@ -75,29 +83,51 @@ var Modalcreatereview = React.createClass({
     },
 
   render: function() {
+    var rating  = this.state.rating;
     return (
-      <div>
+      <div >
         <button className="btn btn-danger" onClick={this.openModal}> REVIEW {this.props.name} </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles} >
-
-          <h2 ref="subtitle">Hello</h2>
-          <div>Review {this.props.name}</div>
+          <div className="modalreview">
+          <p className="h2">Review {this.props.name}</p>
+          
           <form id="reviewForm" onSubmit={this._handleSubmit}>
-            <p> Please enter a score out of 10 </p>
-            <input type="number" ref="score" placeholder="Score out of 10" />
-            <p> Please enter your comments </p>
-            <input ref="reviewText" type="textarea" />
-            <br/>
-            <button className="btn btn-danger"> Submit your review !</button>
+            <div className="form-group">
+                <label for="score"> Please enter a score out of 10 </label>
+                 <input type="number" className="form-control" ref="score" id="exampleInputPassword1" placeholder="Score out of 10" />
+             </div>
+            <div className="form-group">
+                <label for="exampleInputPassword1"> Review headline: </label>
+                 <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="Score out of 10" />
+             </div>
+            <div class="form-group">
+                <label for="comments"> Write your review : </label>
+                 <textarea class="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
+            </div>
+            <button className="btn btn-primary"> Submit your review !</button>
           </form>
+          </div>
         </Modal>
       </div>
+      
     );
   }
 });
+
+/*
+<div> Star score to debug
+                <h2>Rating from state: {rating}</h2>
+                <StarRatingComponent 
+                    name="rate1" 
+                    starCount={10}
+                    value={rating}
+                    onStarClick={this.onStarClick}
+                />
+            </div>
+            */
 
 module.exports = Modalcreatereview;

@@ -44,6 +44,7 @@
     "react-slick": "^0.13.1",
     "react-star-rating": "^1.4.2",
     "react-star-rating-component": "^1.0.0",
+    "react-stars": "^2.1.0",
     "reactify": "^1.1.1",
     "webpack": "^1.13.1"
   }
