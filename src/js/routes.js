@@ -24,7 +24,7 @@ var SearchResults = require("./components/SearchResults");
 var SearchForm = require("./components/SearchForm");
 
 
-var Reviews = require("./components/Reviews");
+var Createreviewmodal = require("./components/Createreviewmodal");
 var Gallery = require("./components/Gallery");
 var PleaseLogIn = require("./components/PleaseLogIn");
 
@@ -50,12 +50,11 @@ var routes = (
 
             <Route path="createprofile" component={Createprofile} onEnter={requireAuth}></Route>
             
-            <Route path="search/(:category)/(:city)" component={SearchForm}>
-                <Route path="searchresults" component={SearchResults} />
+            <Route path="search/(:category)/(:city)/(:filter)" component={SearchResults}>
             </Route>
             
             <Route path="profile/:username" component={Profile} />
-            <Route path="profile/:username/reviews" component={Reviews} onEnter={requireAuth} /> 
+            <Route path="profile/:username/reviews" component={Createreviewmodal} onEnter={requireAuth} /> 
 
             
             <Route path="faq" component={FAQ} />

@@ -14,7 +14,15 @@ var SearchResults = React.createClass({
         var that = this;
         $.ajax({           
             url: '/searchresults', 
-            data: props ? props.searchObj : this.props.searchObj,
+            data: props ? {
+                 category: props.params.category,
+                 city: props.params.city,
+                 sortingMethod: props.params.filter
+            } : {
+                 category: this.props.params.category,
+                 city: this.props.params.city,
+                 sortingMethod: this.props.params.filter
+            },
             type: 'POST',
             success: function(result) {
                 that.setState({
@@ -40,7 +48,7 @@ var SearchResults = React.createClass({
     return (
       <div>
             
-            
+            <h3 className="searchresulttitle">Profiles</h3>
              <div className="all-search-results">
                  {this.state.profiles.map(function(profile){
                      return <Singleprofileresult key={profile.profileId} profile = {profile} />;

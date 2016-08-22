@@ -48,6 +48,9 @@ var Createreviewmodal = React.createClass({
     },
   openModal: function() {
     this.setState({modalIsOpen: true});
+    if(!localStorage.instagram_sub) {
+      history.push(`/pleaselogin`);
+    };
   },
 
   closeModal: function() {
@@ -70,7 +73,6 @@ var Createreviewmodal = React.createClass({
             type: 'POST',
             success: function(result) {
                 console.log("This is the result" + result);
-                history.push(`/profile/martimax21`);
             },
             error: function() {
               console.log('this is the ajax error');      
