@@ -65,14 +65,14 @@ module.exports = function OnsetAPI(conn) {
     createReview: function(review, callback) {
       console.log(review);
       conn.query(
-        'INSERT INTO Reviews (text, score, token, profileusername, createdAt) VALUES (?, ?, ?, ?, ?)', [review.text, review.score, review.token, review.profileusername, new Date()],
+        'INSERT INTO Reviews (text, score, reviewertoken, reviewerusername, profileusername, createdAt) VALUES (?, ?, ?, ?, ?, ?)', [review.text, review.score, review.token, review.reviewerusername, review.profileusername, new Date()],
         function(err, result) {
           if (err) {
             callback(err);
           }
           else {
             conn.query(
-              'SELECT id, text, score, token, profileusername, createdAt FROM Reviews WHERE id = ?', [result.insertId],
+              'SELECT id, text, score, reviewertoken, reviewerusername, profileusername, createdAt FROM Reviews WHERE id = ?', [result.insertId],
               function(err, result) {
                 if (err) {
                   callback(err);
@@ -136,8 +136,8 @@ module.exports = function OnsetAPI(conn) {
           p.token as profileToken,
           p.photosprovided as photosprovided,
           p.education as education,
-          p.employment as employment
-          AVG(r.score) as profileScore,
+          p.employment as employment,
+          ROUND(AVG(r.score), 1) as profileScore,
           COUNT(r.id) as totalReviews
         FROM Profile p
           LEFT JOIN Reviews r ON r.profileusername = p.username
@@ -229,7 +229,7 @@ module.exports = function OnsetAPI(conn) {
           p.updatedAt AS profileUpdatedAt,
           p.token as profileToken,
           p.photosprovided as photosprovided,
-          AVG(r.score) as profileScore,
+          ROUND(AVG(r.score), 1) as profileScore,
           COUNT(r.id) as totalReviews
         FROM Profile p
           LEFT JOIN Reviews r ON r.profileusername = p.username
@@ -474,8 +474,9 @@ module.exports = function OnsetAPI(conn) {
           r.id AS id, 
           r.text AS text, 
           r.score AS score,
-          r.createdAt AS reviewCreatedAt, 
-          r.token as reviewtoken,
+          DATE_FORMAT(r.createdAt,'%d/%m/%Y') AS reviewCreatedAt, 
+          r.reviewertoken as reviewertoken,
+          r.reviewerusername as reviewerusername,
           r.profileusername as profileusername
         FROM Reviews r
           WHERE profileusername = ?
@@ -490,11 +491,13 @@ module.exports = function OnsetAPI(conn) {
               console.log(res);
               return {
                 reviewId: res.id,
-                reviewText: res.reviewText,
+                reviewText: res.text,
                 reviewScore: res.score,
                 reviewCreatedAt: res.reviewCreatedAt,
-                reviewedusername : res.profileusername
-              }
+                profileusername : res.profileusername,
+                reviewertoken: res.reviewertoken,
+                reviewerusername: res.reviewerusername
+              };
             })
             callback(null, mappedResults);
           }

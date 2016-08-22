@@ -11,6 +11,7 @@ var Singlegalleryphoto = require('./Singlegalleryphoto');
 var Galleryslider = require('./Galleryslider');
 var Modalcreatereview = require('./Modalcreatereview');
 var Email = require("./Email");
+var Reviews = require("./Reviews");
 
 
 var Profile = React.createClass({
@@ -79,16 +80,13 @@ var Profile = React.createClass({
                             <span className="profile-headers">   Total Reviews:</span> {this.state.profile.profileReviews}</div>
                     </div>
                     
-                    <div className="box-buttons col-md-4">
-                         <Link to={url}>
-                            <button className="btn btn-default profilebtn">
-                                View Reviews
-                            </button>
-                         </Link>
+                    
+                    
+                        <Reviews profile = {this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
                         <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />
-                    </div>
-                </div>
+                  
+                
                 <br />
                 <br />
                 <div className="profile-content">
@@ -109,6 +107,7 @@ var Profile = React.createClass({
                     </div>
                     {this.props.children}
                 </div>
+            </div>
             </div>
     );
   }

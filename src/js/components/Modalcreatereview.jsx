@@ -49,11 +49,6 @@ var Modalcreatereview = React.createClass({
     this.setState({modalIsOpen: true});
   },
 
-  afterOpenModal: function() {
-    // references are now sync'd and can be accessed.
-    this.refs.subtitle.style.color = '#f00';
-  },
-
   closeModal: function() {
     this.setState({modalIsOpen: false});
   },
@@ -62,8 +57,9 @@ var Modalcreatereview = React.createClass({
       var reviewObj = {
           score: this.refs.score.value,
           text: this.refs.reviewText.value,
-          token: localStorage.instagram_sub,
-          profileusername: this.props.username
+          reviewertoken: localStorage.instagram_sub,
+          profileusername: this.props.username,
+          reviewerusername: this.state.profile.username
       };
       console.log(reviewObj);
       var that = this;
@@ -81,7 +77,20 @@ var Modalcreatereview = React.createClass({
         });
         this.setState({modalIsOpen: false})
     },
-
+    componentDidMount: function() {
+      var that = this;
+      $.ajax({
+          url: '/getInstagramProfile',
+          headers: {
+              authorization: 'Bearer ' + localStorage.getItem('id_token')
+          }
+      }).then(
+          function(response) {
+            console.log(response, "this is my profile sunday night")
+              that.setState({profile: response});
+          }
+        )
+  },
   render: function() {
     var rating  = this.state.rating;
     return (

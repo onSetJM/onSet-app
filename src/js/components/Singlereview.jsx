@@ -7,12 +7,15 @@ var Link = require("react-router").Link;
 var Singlereview = React.createClass({
     render: function() {
         return (
-            <li>
-            <div> Review Score: {this.props.review.reviewScore}</div>
-            <p> Review Text: {this.props.review.reviewText} </p>
-            <div> Date :  {this.props.review.reviewCreatedAt}</div>
-            <div> Reviewer: {this.props.review.reviewer} </div>
-            </li>
+            <div className="singleReview" key={this.props.review.reviewId}>
+                <div className="reviewText">
+                    <b className="reviewerUsername"> Reviewer : {this.props.review.reviewerusername} </b>
+                    <p className="reviewScore"> Review Score: {this.props.review.reviewScore}</p><br/>
+                    
+                    <p className="reviewpText"> Review Text: {this.props.review.reviewText} </p>
+                </div>
+                <div> Date :  {this.props.review.reviewCreatedAt}</div>
+            </div>
         );
     }
 });

@@ -33,6 +33,7 @@
 .searchbar {
     margin-top: 100px;
 }
+
 .navbuttons{
     display: flex;
 }
@@ -278,3 +279,34 @@
 /*  background: #a3aab5;*/
 /*}*/
 
+
+ 
+ /*Reviews display */
+ 
+ .displayReviews{
+    display: flex;  
+    flex-wrap: wrap;
+    justify-content: space-around;
+ }
+ 
+.singleReview {
+     display: flex;
+     margin: 10px;
+     justify-content: space-around;
+     background-color: #F4F4F4;
+     padding-top: 50px;
+     padding-bottom: 50px;
+     align-items: center;
+     border-radius: 8px;
+ }
+ .reviewText {
+     display: flex;  
+     flex-wrap: wrap;
+ }
+ .reviewpText {
+     width: 100%;
+ }
+ .reviewScore {
+     width: 100%;
+ }
+>>>>>>> backend

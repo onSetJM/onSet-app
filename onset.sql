@@ -36,6 +36,14 @@ CREATE TABLE Reviews (
   profileusername VARCHAR(60)
 );
 
+ALTER TABLE Reviews
+ADD reviewerusername VARCHAR(100)
+
+ALTER TABLE Reviews CHANGE token reviewertoken VARCHAR(100)
+
+UPDATE Reviews
+SET reviewertoken='instagram|1526590778' ;
+
 CREATE TABLE Photos (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   photourl TEXT(10000), 

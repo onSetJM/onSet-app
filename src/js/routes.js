@@ -50,7 +50,7 @@ var routes = (
             <Route path="createprofile" component={Createprofile} onEnter={requireAuth}></Route>
             
 
-            <Route path="search/:category" component={SearchForm}>
+            <Route path="search/(:category)/(:city)" component={SearchForm}>
                 <Route path="searchresults" component={SearchResults} />
             </Route>
             <Route path="profile/:username" component={Profile}>

@@ -163,7 +163,25 @@ app.post("/profile/photos", function(req, res) {
 
 app.get('/getInstagramProfile', authenticate, function(req, res) {
   onSetAPI.getInstagramProfile(req.user.sub, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
+    }
+    else {
     res.send(user);
+    }
+  })
+});
+app.get('/getInstagramProfileForReviews', function(req, res) {
+  console.log(req.body);
+  onSetAPI.getInstagramProfile(req.body.token, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
+    }
+    else {
+      res.send(user);
+    }
   })
 });
 
@@ -201,7 +219,8 @@ app.post('/createareview', function(req, res) {
   onSetAPI.createReview({
     text: req.body.text,
     score: req.body.score,
-    token: req.body.token,
+    reviewertoken: req.body.reviewertoken,
+    reviewerusername: req.body.reviewerusername,
     profileusername: req.body.profileusername
   }, function(err, review) {
     if (err) {
