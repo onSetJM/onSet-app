@@ -70,29 +70,37 @@
     font-weight: bold;
 }
  /* SEARCH RESULTS */
+ 
+ .searchresulttitle{
+     text-align: center;
+ }
 
  .all-search-results{
      display: flex;
      flex-wrap: wrap;
+     padding-left:50px;
+     padding-right:50px;
+     align-items:center;
  }
  .singleprofilecontainer {
      display: flex;
-     width: 180px;
+     width: 220px;
      flex-direction: column;
      background-color: #F4F4F4;
      margin: 10px;
      align-items: center;
      border-radius: 8px;
+     padding:10px;
  }
 .searchresultimg {
-     width: 180px;
+     width: 220px;
      height: auto;
      border-radius: 8px 8px 5px 5px;
 }
 .profile-nickname {
     font-weight: bold;
     background-color: #d9d9dd;
-    width: 180px;
+    width: 220px;
     height: 50px;
     text-align: center;
     border-radius: 0px 0px 5px 5px;
@@ -114,6 +122,7 @@
 .eqHeight {
     height: 39px;
 }
+
 
 /* Galley photos*/
 .gallerydisplay {
