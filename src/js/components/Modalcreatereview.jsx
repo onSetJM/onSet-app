@@ -86,13 +86,10 @@ var Modalcreatereview = React.createClass({
           }
       }).then(
           function(response) {
+            console.log(response, "this is my profile sunday night")
               that.setState({profile: response});
           }
         )
-  },
-  componentDidUpdate: function(riff) {
-    console.log(riff);
-    this.onStarClick();
   },
   render: function() {
     var rating  = this.state.rating;
@@ -112,15 +109,6 @@ var Modalcreatereview = React.createClass({
                 <label htmlFor="score"> Please enter a score out of 10 </label>
                  <input type="number" className="form-control" ref="score" id="exampleInputPassword1" placeholder="Score out of 10" />
              </div>
-             <div> Star score to debug
-                <h2>Rating from state: {rating}</h2>
-                <StarRatingComponent 
-                    name="rate1" 
-                    starCount={10}
-                    value={rating}
-                    onStarClick={this.onStarClick}
-                />
-            </div>
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1"> Review headline: </label>
                  <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="headline" />
