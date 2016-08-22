@@ -30,10 +30,10 @@ var Profile = React.createClass({
                 that.setState({
                  profile: result.profile
                 });
-                // console.log(result.profile.token, "this is profile token");
+                console.log(result.profile, "this is profile token");
                 $.ajax({           
                  url: '/profilephotos', 
-                 data: {token:result.profile.token},
+                 data: {token: result.profile.token},
                  type: 'POST',
                  success: function(result) {
                         // console.log(result,"this is photo result");

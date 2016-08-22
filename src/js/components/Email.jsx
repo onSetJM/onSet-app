@@ -79,20 +79,20 @@ var Email = React.createClass({
        
              <form id="reviewForm emailForm" onSubmit={this._handleSubmit}>
                <div className="form-group">
-                 <label htmlFor="date"> Contract date  </label>
+                 <label htmlFor="date">Contract date  </label>
                  <input type="date" className="form-control" ref="date" id="date" placeholder="Contract date" />
                </div>
                <div className="form-group">
-                 <label htmlFor="name"> Name </label>
+                 <label htmlFor="name">Name </label>
                  <input type="text" className="form-control" ref="name" id="name" placeholder="Name" />
                </div>
        
-               <div className="form-group">
-              <label htmlFor="example-email-input">Email</label>
-               <input className="form-control" type="email" ref="email" placeholder="Email" id="example-email-input"/>
+              <div className="form-group">
+                <label htmlFor="example-email-input">Email</label>
+                <input className="form-control" type="email" ref="email" placeholder="Email" id="example-email-input"/>
               </div>
                <div className="form-group">
-                 <label htmlFor="city"> City </label>
+                 <label htmlFor="city">City </label>
                  <input type="text" className="form-control" ref="city" id="city" placeholder="City" />
                </div>
                <div className="form-group">
@@ -101,7 +101,7 @@ var Email = React.createClass({
                  <input className="form-control" type="tel" ref="phonenumber" placeholder="Phone Number" id="example-tel-input" />
               </div>
                <div className="form-group">
-                 <label htmlFor="emailtext"> Describe the services that you need  </label>
+                 <label htmlFor="emailtext">Describe the services that you need  </label>
                  <textarea className="form-control" ref="msg" id="exampleTextarea" rows="3"></textarea>
                </div>
                <button  className="btn btn-default btn-sm profilebtn" onClick={this._handleSubmit}> Send an email !</button>

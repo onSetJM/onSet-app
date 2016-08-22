@@ -283,30 +283,25 @@
  
  /*Reviews display */
  
- .displayReviews{
-    display: flex;  
-    flex-wrap: wrap;
-    justify-content: space-around;
- }
- 
 .singleReview {
      display: flex;
-     margin: 10px;
-     justify-content: space-around;
+     flex-direction: column;
      background-color: #F4F4F4;
-     padding-top: 50px;
-     padding-bottom: 50px;
-     align-items: center;
+     margin-bottom: 20px;
+     padding: 20px;
      border-radius: 8px;
- }
- .reviewText {
-     display: flex;  
-     flex-wrap: wrap;
- }
- .reviewpText {
-     width: 100%;
- }
- .reviewScore {
-     width: 100%;
- }
->>>>>>> backend
+     width: 90%;
+}
+.reviewerUsername{
+    font-weight: bold;
+    color: #1b2b46;
+}
+
+.review-var{
+    color: #4a71bc;
+}
+.modalreview h3, h5 {
+    color: #1b2b46;
+}
+
+/* CONTACT US */

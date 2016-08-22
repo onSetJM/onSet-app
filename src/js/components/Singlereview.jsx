@@ -8,13 +8,10 @@ var Singlereview = React.createClass({
     render: function() {
         return (
             <div className="singleReview" key={this.props.review.reviewId}>
-                <div className="reviewText">
-                    <b className="reviewerUsername"> Reviewer : {this.props.review.reviewerusername} </b>
-                    <p className="reviewScore"> Review Score: {this.props.review.reviewScore}</p><br/>
-                    
-                    <p className="reviewpText"> Review Text: {this.props.review.reviewText} </p>
-                </div>
-                <div> Date :  {this.props.review.reviewCreatedAt}</div>
+                    <div className="reviewerUsername">Reviewer: <span className="review-var">{this.props.review.reviewerusername}</span></div>
+                    <div className="reviewScore">Score: <span className="review-var">{this.props.review.reviewScore}</span></div>
+                    <div className="reviewText">Review: <span className="review-var">{this.props.review.reviewText}</span></div>
+                    <div className="reviewpText">Date: <span className="review-var">{this.props.review.reviewCreatedAt}</span></div>
             </div>
         );
     }

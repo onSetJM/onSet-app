@@ -33,7 +33,7 @@ var auth = new AuthService('pQZynj9aeB6FgPoKihk7HluGGlLYwqWR', 'onset.auth0.com'
 var requireAuth = function(nextState, replace, next) {
     if (!auth.loggedIn()) {
         localStorage.setItem('last_url', window.location.pathname);
-        replace({ pathname: '/' + window.location.hash})
+        replace({ pathname: '/pleaselogin' + window.location.hash})
     }
     
     next();
@@ -58,7 +58,7 @@ var routes = (
 
             <Route path="pleaselogin" component={PleaseLogIn}></Route>
 
-            <Route path="profile/:username/reviews" component={Reviews}> </Route>
+            <Route path="profile/:username/reviews" component={Reviews} onEnter={requireAuth}> </Route>
             
             <Route path="photos" component={Gallery}></Route>
             <Route path="contactus" component={ContactUs}></Route>

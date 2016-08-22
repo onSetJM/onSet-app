@@ -67,14 +67,12 @@ var Modaldisplayreviews = React.createClass({
           onRequestClose={this.closeModal}
           style={customStyles} >
           <div className="modalreview">
-          <div >
             <h3>{this.props.profile.name} </h3>
             <h5> {this.props.profile.profileScore}/10 for {this.props.profile.profileReviews} reviews </h5>
                  <div className="displayReviews">
                  {this.props.reviews.map(function(review){
                      return <Singlereview key={review.reviewId} review = {review} />;
                  })}
-                </div>
             </div>
           </div>
         </Modal>

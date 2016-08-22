@@ -106,18 +106,18 @@ var Modalcreatereview = React.createClass({
           
           <form id="reviewForm" onSubmit={this._handleSubmit}>
             <div className="form-group">
-                <label htmlFor="score"> Please enter a score out of 10 </label>
+                 <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="Review Title" />
+            </div>
+            <div className="form-group">
+                <label htmlFor="score">Rate Your Experience with {this.props.name}</label>
                  <input type="number" className="form-control" ref="score" id="exampleInputPassword1" placeholder="Score out of 10" />
              </div>
+            
             <div className="form-group">
-                <label htmlFor="exampleInputPassword1"> Review headline: </label>
-                 <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="headline" />
-             </div>
-            <div className="form-group">
-                <label htmlFor="comments"> Write your review : </label>
-                 <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
+                <label htmlFor="comments">Review Message: </label>
+                <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
             </div>
-            <button className="btn btn-default btn-sm profilebtn"> Submit your review !</button>
+            <button className="btn btn-default btn-sm profilebtn">Submit your review!</button>
 
           </form>
           </div>
