@@ -105,14 +105,14 @@ var Createreviewmodal = React.createClass({
           onRequestClose={this.closeModal}
           style={customStyles} >
           <div className="modalreview">
-          <p className="h2">Review {this.props.name}</p>
+          <p className="h2">Rate {this.props.name}</p>
           
           <form id="reviewForm" onSubmit={this._handleSubmit}>
             <div>
               <h2>
                 <StarRatingComponent 
                     name="rate1" 
-                    starCount={5}
+                    starCount={10}
                     value={rating}
                     onStarClick={this.onStarClick}
                     size={50}
@@ -126,8 +126,7 @@ var Createreviewmodal = React.createClass({
              
             
             <div className="form-group">
-                <label htmlFor="comments">Review Message: </label>
-                <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
+                <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3" placeholder="Review message"></textarea>
             </div>
             <button className="btn btn-default btn-sm profilebtn">Submit your review!</button>
 
