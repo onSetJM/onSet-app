@@ -9,6 +9,7 @@ var Singlereview = React.createClass({
         return (
             <div className="singleReview" key={this.props.review.reviewId}>
                 <div className="reviewText">
+                    <b className="reviewerUsername"> Reviewer : {this.props.review.reviewerusername} </b>
                     <p className="reviewScore"> Review Score: {this.props.review.reviewScore}</p><br/>
                     
                     <p className="reviewpText"> Review Text: {this.props.review.reviewText} </p>

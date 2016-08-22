@@ -65,14 +65,14 @@ module.exports = function OnsetAPI(conn) {
     createReview: function(review, callback) {
       console.log(review);
       conn.query(
-        'INSERT INTO Reviews (text, score, token, profileusername, createdAt) VALUES (?, ?, ?, ?, ?)', [review.text, review.score, review.token, review.profileusername, new Date()],
+        'INSERT INTO Reviews (text, score, reviewertoken, reviewerusername, profileusername, createdAt) VALUES (?, ?, ?, ?, ?, ?)', [review.text, review.score, review.token, review.reviewerusername, review.profileusername, new Date()],
         function(err, result) {
           if (err) {
             callback(err);
           }
           else {
             conn.query(
-              'SELECT id, text, score, token, profileusername, createdAt FROM Reviews WHERE id = ?', [result.insertId],
+              'SELECT id, text, score, reviewertoken, reviewerusername, profileusername, createdAt FROM Reviews WHERE id = ?', [result.insertId],
               function(err, result) {
                 if (err) {
                   callback(err);
@@ -467,7 +467,8 @@ module.exports = function OnsetAPI(conn) {
           r.text AS text, 
           r.score AS score,
           DATE_FORMAT(r.createdAt,'%d/%m/%Y') AS reviewCreatedAt, 
-          r.token as reviewtoken,
+          r.reviewertoken as reviewertoken,
+          r.reviewerusername as reviewerusername,
           r.profileusername as profileusername
         FROM Reviews r
           WHERE profileusername = ?
@@ -485,8 +486,9 @@ module.exports = function OnsetAPI(conn) {
                 reviewText: res.text,
                 reviewScore: res.score,
                 reviewCreatedAt: res.reviewCreatedAt,
-                reviewedusername : res.profileusername,
-                reviewtoken: res.reviewtoken
+                profileusername : res.profileusername,
+                reviewertoken: res.reviewertoken,
+                reviewerusername: res.reviewerusername
               };
             })
             callback(null, mappedResults);

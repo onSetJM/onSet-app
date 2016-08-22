@@ -33,22 +33,19 @@ var SearchResults = React.createClass({
         this.fetchData(nextProps)
     },
   render: function() {
-      if (!this.props.searchObj) {
-            return <div>LOADING searchObj...</div>;
-        }
+
         if (!this.state.profiles) {
             return <div>LOADING profiles...</div>;
         }
     return (
       <div>
-            <div >
-            <h3>Profiles</h3>
+            
+            
              <div className="all-search-results">
                  {this.state.profiles.map(function(profile){
                      return <Singleprofileresult key={profile.profileId} profile = {profile} />;
                  })}
              </div>
-            </div>
       </div>
     );
 
