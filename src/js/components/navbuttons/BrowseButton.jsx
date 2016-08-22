@@ -14,7 +14,7 @@ var BrowseButton = React.createClass({
     return (
       <div>
         <ButtonToolbar>
-             <Button onClick={this.redirect}>Browse Profiles</Button>
+             <Button onClick={this.redirect} className="footer-title">Browse Profiles</Button>
         </ButtonToolbar>
       </div>
     );

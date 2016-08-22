@@ -87,30 +87,41 @@ var Createprofile = React.createClass({
                         <img className="create-profile-img" src={profile.profile_picture} />
                     </div>
                     <div className="profile-row2">
-                        <p>Your username </p>
-                        <input type='text' ref='username' className="form-input" defaultValue={profile.username}/>
-                        <p>Your Name</p>
-                        <input type='text' ref='name' className="form-input" defaultValue={profile.full_name}/>
+                        <div className="profile-form-input">
+                            <p>Your username </p>
+                            <input type='text' ref='username' className="form-input" defaultValue={profile.username}/>
+                        </div>
+                        <div className="profile-form-input">
+                            <p>Your Name</p>
+                            <input type='text' ref='name' className="form-input" defaultValue={profile.full_name}/>
+                        </div>
                     </div>
                     <div className="profile-row3">
-                        <p>Your Email </p>
-                        <input ref="email" type="text" className="form-input" />
-                        <p> Enter your city </p>
-                        <input ref="city" type="text" className="form-input" />
+                        <div className="profile-form-input">
+                            <p>Your Email </p>
+                            <input ref="email" type="text" className="form-input" />
+                        </div>
+                        <div className="profile-form-input">
+                            <p> Enter your city </p>
+                            <input ref="city" type="text" className="form-input" />
+                        </div>
                     </div>
                     <div className="profile-row4">
-                        <p>Typical Availability During the Week</p>
-                        <input ref="availability" type="text" className="form-input" />
-                        <p>Your Area of Work</p>
-                        <select ref="category">
-                            <option value="hairstylist">Hairstylist </option>
-                            <option value="make-up Artist">Make-up Artist</option>
-                            <option value="colorist">Colorist</option>
-                            <option value="stylist">Stylist</option>
-                            <option value="dualist">Dualist</option>
-                            <option value="nailartist">Nail Artist</option>
-                        </select>
-                        
+                        <div className="profile-form-input">
+                            <p>Typical Availability During the Week</p>
+                            <input ref="availability" type="text" className="form-input" />
+                        </div>
+                        <div className="profile-form-input">
+                            <p>Your Area of Work</p>
+                            <select ref="category" >
+                                <option value="hairstylist">Hairstylist </option>
+                                <option value="make-up Artist">Make-up Artist</option>
+                                <option value="colorist">Colorist</option>
+                                <option value="stylist">Stylist</option>
+                                <option value="dualist">Dualist</option>
+                                <option value="nailartist">Nail Artist</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <br />
@@ -122,11 +133,13 @@ var Createprofile = React.createClass({
                 <input ref="employment" type="text"/>
                 <p>Education</p>
                 <input ref="education" type="text"/>
-                <p>Please check the box below to authorize adding your Instagram photos to your account.</p>
-                <input ref="instagramauthorized" type="radio"/>
+                <div className="authorize-div">
+                    <input className="auth-radio" ref="instagramauthorized" type="radio"/>
+                    <p className="auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>
+                </div>
                 
                 <br />
-                <button > Create your profile !</button>
+                <button className="btn btn-default active">Create your profile !</button>
             </form>
         </div>
       </div>

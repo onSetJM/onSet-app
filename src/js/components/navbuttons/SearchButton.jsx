@@ -14,7 +14,7 @@ var SearchButton = React.createClass({
     return (
       <div>
         <ButtonToolbar>
-             <Button onClick={this.redirect}>Search</Button>
+             <Button onClick={this.redirect} className="footer-title">Search</Button>
         </ButtonToolbar>
       </div>
     );
