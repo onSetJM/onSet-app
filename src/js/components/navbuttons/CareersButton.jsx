@@ -14,7 +14,7 @@ var CareersButton = React.createClass({
     return (
       <div>
         <ButtonToolbar>
-             <Button onClick={this.redirect}>Join Our Team!</Button>
+             <Button onClick={this.redirect} className="footer-title">Join Our Team!</Button>
         </ButtonToolbar>
       </div>
     );

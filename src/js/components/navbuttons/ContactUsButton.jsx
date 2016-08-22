@@ -14,7 +14,7 @@ var ContactUsButton = React.createClass({
     return (
       <div>
         <ButtonToolbar>
-             <Button onClick={this.redirect}>Contact Us</Button>
+             <Button onClick={this.redirect} className="footer-title">Contact Us</Button>
         </ButtonToolbar>
       </div>
     );

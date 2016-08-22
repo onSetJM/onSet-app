@@ -32,17 +32,14 @@ var ContactUs = React.createClass({
     },
     render: function() {
     return (
-      <div>
-      <h2>Contact Us</h2> 
-      <h3>Have some thoughts you'd like to share with us? We'd love to hear them! 
+      <div className="contact-us-container">
+      <h2 className="contactus-title">Contact Us</h2> 
+      <h3 className="contactus-subtitle">Have some thoughts you'd like to share with us? We'd love to hear them! 
       We'll get back to you at the email you provide as soon as possible.</h3>
-        <form  id="emailForm">
-            <p> Name </p>
-              <input ref="name" type="text" />
-            <p> Email</p>
-              <input ref="email" type="text" />
-            <p> Message </p>
-              <input ref="msg" type="text" />
+        <form  className="contactusform" id="emailForm">
+              <input ref="name" type="text" placeholder="Name" />
+              <input ref="email" type="text" placeholder="Your Email"/>
+              <textarea ref="msg" type="text" placeholder="Share your thoughts here!" />
             <br/>
             <br/>
             <button className="btn btn-danger" onClick={this._handleSubmit}> Send away!</button>

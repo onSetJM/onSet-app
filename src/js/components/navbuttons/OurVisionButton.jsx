@@ -14,7 +14,7 @@ var OurVisionButton = React.createClass({
     return (
       <div>
         <ButtonToolbar>
-             <Button onClick={this.redirect}>Our Vision</Button>
+             <Button onClick={this.redirect} className="footer-title">Our Vision</Button>
         </ButtonToolbar>
       </div>
     );

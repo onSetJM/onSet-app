@@ -14,7 +14,7 @@ var HowItWorksButton = React.createClass({
     return (
       <div>
         <ButtonToolbar>
-             <Button onClick={this.redirect}>How It Works</Button>
+             <Button onClick={this.redirect} className="footer-title">How It Works</Button>
         </ButtonToolbar>
       </div>
     );

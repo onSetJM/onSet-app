@@ -4,7 +4,7 @@ var Careers = React.createClass({
     render: function() {
         return (
             <div>
-                <p>We can't hired you because this isn't a real company</p>
+                <p>Interested in joining our team? Send us an email about yourself!</p>
             </div>
             );
     }

@@ -3,7 +3,7 @@ var React = require('react');
 var SearchBar = require("./SearchBar");
 var Login = require("./Login");
 var Logout = require("./Logout");
-
+var HeaderTitle = require("./navbuttons/HeaderTitle")
 
 import AuthService from '../utils/AuthService';
 var SearchButton = require("./navbuttons/SearchButton");
@@ -47,7 +47,7 @@ var Header = React.createClass({
           {this.userEntry()}
         </div>
           <div className="header-text">
-            <h1>onSet</h1>
+            <HeaderTitle />
             <h2>build your profile. get hired.</h2>
             <SearchBar className="searchbar"/>
         </div>
