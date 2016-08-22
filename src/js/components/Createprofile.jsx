@@ -76,7 +76,7 @@ var Createprofile = React.createClass({
     return (
       <div className="createyourprofile-container">
       <h2>Create your profile!</h2>
-      <h4>Make sure to brag about all the skills you want employers to know you have.</h4>
+      <h4>Make sure to brag about all the skills you want employers to know about.</h4>
       <hr />
       <h4>The Basics</h4>
         <div className="create-profile-form">
