@@ -95,7 +95,7 @@ var Modalcreatereview = React.createClass({
     var rating  = this.state.rating;
     return (
       <div >
-        <button className="btn btn-default profilebtn" onClick={this.openModal}>Review {this.props.name}</button>
+        <button className="btn btn-default btn-sm profilebtn" onClick={this.openModal}>Review {this.props.name}</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}

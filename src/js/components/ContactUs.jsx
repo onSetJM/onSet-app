@@ -42,7 +42,7 @@ var ContactUs = React.createClass({
               <textarea ref="msg" type="text" placeholder="Share your thoughts here!" />
             <br/>
             <br/>
-            <button className="btn btn-danger" onClick={this._handleSubmit}> Send away!</button>
+            <button className="btn btn-default  btn-blue" onClick={this._handleSubmit}> Send away!</button>
         </form>
       </div>
     )}

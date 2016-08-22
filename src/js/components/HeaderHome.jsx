@@ -3,12 +3,9 @@ var React = require('react');
 var SearchBar = require("./SearchBar");
 var Login = require("./Login");
 var Logout = require("./Logout");
-var HeaderTitle = require("./navbuttons/HeaderTitle")
+var Link = require("react-router").Link;
 
 import AuthService from '../utils/AuthService';
-var SearchButton = require("./navbuttons/SearchButton");
-var HomeButton = require("./navbuttons/HomeButton");
-var CreateYourProfile = require("./navbuttons/CreateYourProfile");
 
 
 var Header = React.createClass({
@@ -19,18 +16,18 @@ var Header = React.createClass({
     if (this.props.loggedIn) {
       return (
         <div className="navbuttons">
-          <HomeButton />
-          <SearchButton />
-          <CreateYourProfile /> 
+          <Link to={"/"} className="footerbuttons">Home</Link>
+          <Link to={"search/hairstylist"} className="footerbuttons">Search</Link>
+          <Link to={"/createprofile"} className="footerbuttons">Create Your Profile</Link>
           <Logout auth={this.props.auth} />
         </div>
       )
     } else {
       return (
         <div className="navbuttons">
-          <HomeButton />
-          <SearchButton />
-          <CreateYourProfile /> 
+          <Link to={"/"} className="footerbuttons">Home</Link>
+          <Link to={"search/hairstylist"} className="footerbuttons">Search</Link>
+          <Link to={"/createprofile"} className="footerbuttons">Create Your Profile</Link>
           <Login auth={this.props.auth} />
         </div>
       )
@@ -47,7 +44,7 @@ var Header = React.createClass({
           {this.userEntry()}
         </div>
           <div className="header-text">
-            <HeaderTitle />
+            <Link to={"/"}>onSet</Link>
             <h2>build your profile. get hired.</h2>
             <SearchBar className="searchbar"/>
         </div>

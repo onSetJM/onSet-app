@@ -1,9 +1,15 @@
+body {
+    margin: 0;
+    font-family: "helvetica neue", helvetica, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
 
 /* Header*/
 .header {
     background-image: url(../img/hairphoto.jpeg);
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: cover;
 	background-position: center;
 	margin: 0 auto;
 	width: 100%;
@@ -136,6 +142,7 @@
      flex-wrap: wrap;
      background-color: #F4F4F4;
      border-top: 3px solid #aac8db;
+     justify-content: space-around;
  }
 .profile-headers{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -153,27 +160,56 @@
 }
 .profile-name {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: bold;
     color: #1b2b46;
 }
 .profile-category{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #4a71b2;
 }
-.profile-city, .profile-membersince, review-info{
+.profile-city{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4a71b2;
-    font-size: 1rem;
+    font-size: 1.3rem;
+}
+.profile-head-city{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1b2b46;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.profile-header{
+    color: #1b2b46;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.profile-membersince, .review-avg, .review-total{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #4a71b2;
+    font-size: 1.2rem;
 }
 .profilebtn{
     background-color: #FFF;
     margin-bottom: 5px;
     color: #4a71b2;
 }
-
+.profile-reviewinfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.box-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.prof{
+    padding: 10px;
+}
 /*.profile-cv{*/
 /*    margin-left: 50px;*/
 /*    margin-right: 50px;*/
@@ -181,11 +217,7 @@
 .profile-cv hr {
     max-width: 100rem;
 }
-.profile-header{
-    color: #4a71b2;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
+
 .profile-para{
     font-size: 1rem;
     color: #1b2b46;
@@ -334,5 +366,9 @@
 .contactus-subtitle{
     color: #1b2b46; 
     font-size: 1.5rem;
-    
+}
+
+.btn-blue{
+    background-color: #c4dee1;
+    color: #1b2b46;
 }

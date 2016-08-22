@@ -1,12 +1,5 @@
 var React = require('react');
-var BrowseButton = require("./navbuttons/BrowseButton")
-var HomeButton = require("./navbuttons/HomeButton")
-var FAQbutton = require("./navbuttons/FAQbutton")
-var HowItWorksButton = require("./navbuttons/HowItWorksButton")
-var OurVisionButton = require("./navbuttons/OurVisionButton")
-var ContactUsButton = require("./navbuttons/ContactUsButton")
-var CareersButton = require("./navbuttons/CareersButton")
-var ViewYourProfile = require("./navbuttons/ViewYourProfile")
+var Link = require("react-router").Link;
 
 var Footer = React.createClass({
   render: function() {
@@ -15,29 +8,25 @@ var Footer = React.createClass({
       <hr />
       <div className="footer-nav">
         <nav className="footer-profiles">
-          <HomeButton className="footerbuttons" />
-          <BrowseButton className="footerbuttons" />
-          <ViewYourProfile className="footerbuttons" />
+          <Link to={"/"} className="footerbuttons">Home</Link>
+          <Link to={"/search/hairstylist"} className="footerbuttons">Browse Profiles</Link>
+          <Link to={"/profile"} className="footerbuttons">View Your Profile</Link>
         </nav>
         <nav className="footer-about-us">
-          <HowItWorksButton className="footerbuttons" />
-          <OurVisionButton className="footerbuttons" />
-          <FAQbutton className="footerbuttons" />
+          <Link to={"/"} className="footerbuttons">How It Works</Link>
+          <Link to={"/"} className="footerbuttons">Our Vision</Link>
+          <Link to={"/faq"} className="footerbuttons">FAQ</Link>
 
         </nav>
         <nav className="footer-connect">
-        <ul>
-          <ContactUsButton className="footerbuttons" />
-          <CareersButton className="footerbuttons" />
-          <li>
+          <Link to={"/contactus"} className="footerbuttons">Contact Us</Link>
+          <Link to={"/careers"} className="footerbuttons">Careers</Link>
             <ul className="socialmediaicons">
               <li><a href="https://www.youtube.com/watch?v=-tCTm5M3Cp8"><i className="fa fa-instagram" aria-hidden="true"></i></a></li>
               <li><a href="https://www.youtube.com/watch?v=-tCTm5M3Cp8"><i className="fa fa-github-square" aria-hidden="true"></i></a></li>
               <li><a href="https://www.youtube.com/watch?v=-tCTm5M3Cp8"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
             </ul>
-          </li>
-        </ul>
-      </nav>
+        </nav>
       </div>
       <hr />
       </div>

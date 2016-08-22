@@ -68,18 +68,22 @@ var Profile = React.createClass({
         
             <div className="profile-container">
                 <div className="profile-info" >
-                    <div className="profile-img-container col-md-2">
+                    <div className="profile-img-container prof">
                         <img className="profile-img" src={this.state.profile.profile_pic}/>
                     </div>
-                    <div className="profile-maininfo col-md-6">
+                    <div className="profile-maininfo prof">
                         <div className="profile-name"> {this.state.profile.name}</div>
                         <div className="profile-category"> {(this.state.profile.profileCategory).toUpperCase()} </div>
-                        <div className="profile-city"><span className="profile-headers">City:</span> {this.state.profile.city} </div>
-                        <div className="profile-membersince"><span className="profile-headers">Member of onSet since:</span> {this.state.profile.createdAt} </div>
-                        <div className="review-info"><span className="profile-headers">Average Rating:</span> {this.state.profile.profileScore}   
-                            <span className="profile-headers">   Total Reviews:</span> {this.state.profile.profileReviews}</div>
+                        <div className="profile-city"><span className="profile-head-city">City:</span> {this.state.profile.city} </div>
+                        
                     </div>
-                    <div className="box-buttons col-md-4">
+                    <div className="profile-reviewinfo prof">
+                        <div className="profile-membersince"><span className="profile-header">Member Since:</span> {this.state.profile.createdAt} </div>
+                        <div className="review-avg"><span className="profile-header">Average Rating:</span> {this.state.profile.profileScore} </div>  
+                        <div className="review-total"><span className="profile-header">Total Reviews:</span> {this.state.profile.profileReviews}</div>
+                    
+                    </div>
+                    <div className="box-buttons prof">
                         <Reviews profile = {this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
                         <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />

@@ -17,7 +17,7 @@ var ViewYourProfile = React.createClass({
             data: {token: token},
             type: 'POST',
             success: function(result) {
-                console.log(result);
+                console.log(result, "result!!");
                 return (
                     history.push(`/profile/${result.username}`)
                  );
@@ -32,9 +32,8 @@ var ViewYourProfile = React.createClass({
     render: function(){
     return (
       <div>
-        <ButtonToolbar>
-             <Button onClick={this.redirect} href="#viewprofile" className="footer-title">View Your Profile</Button>
-        </ButtonToolbar>
+             <Button onClick={this.redirect} className="footer-title">View Your Profile</Button>
+
       </div>
     );
     }
