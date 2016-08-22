@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var StarRatingComponent = require('react-star-rating-component');
 var Modal = require('react-modal');
 var $ = require('jquery');
-var Singlereview = require('./Singlereview');
+var ReviewsSingledisplay = require('./ReviewsSingledisplay');
 /* global localStorage */
 
 
@@ -39,7 +39,7 @@ const customStyles = {
 };
 
 
-var Modaldisplayreviews = React.createClass({
+var Reviewsmodaldisplay = React.createClass({
 
   getInitialState: function() {
     return { modalIsOpen: false};
@@ -71,7 +71,7 @@ var Modaldisplayreviews = React.createClass({
             <h5> {this.props.profile.profileScore}/10 for {this.props.profile.profileReviews} reviews </h5>
                  <div className="displayReviews">
                  {this.props.reviews.map(function(review){
-                     return <Singlereview key={review.reviewId} review = {review} />;
+                     return <ReviewsSingledisplay key={review.reviewId} review = {review} />;
                  })}
             </div>
           </div>
@@ -84,4 +84,4 @@ var Modaldisplayreviews = React.createClass({
 
 
 
-module.exports = Modaldisplayreviews;
+module.exports = Reviewsmodaldisplay;

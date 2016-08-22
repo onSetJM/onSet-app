@@ -9,48 +9,12 @@ var $ = require('jquery');
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
 
-/*
-By default the modal is anchored to document.body. All of the following overrides are available.
-
-* element
-Modal.setAppElement(appElement);
-
-* query selector - uses the first element found if you pass in a class.
-Modal.setAppElement('#your-app-element');
-
-*/
-
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    padding               : '40px',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    minHeight: '10rem',
-    minWidth: '15rem',
-    width: '65%',
-    maxWidth: '35rem'
-  }
-};
 
 
-var Modalcreatereview = React.createClass({
 
+var Createreviewform = React.createClass({
   getInitialState: function() {
-    return { modalIsOpen: false, rating:1 };
-  },
-  onStarClick: function(name, nextValue) {
-        this.setState({rating: nextValue});
-    },
-  openModal: function() {
-    this.setState({modalIsOpen: true});
-  },
-
-  closeModal: function() {
-    this.setState({modalIsOpen: false});
+    return { rating: 1 };
   },
   _handleSubmit: function(e) {
       e.preventDefault();
@@ -95,16 +59,10 @@ var Modalcreatereview = React.createClass({
     var rating  = this.state.rating;
     return (
       <div >
-        <button className="btn btn-default profilebtn" onClick={this.openModal}>Review {this.props.name}</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles} >
-          <div className="modalreview">
+        
           <p className="h2">Review {this.props.name}</p>
           
-          <form id="reviewForm" onSubmit={this._handleSubmit}>
+          
             <div className="form-group">
                  <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="Review Title" />
             </div>
@@ -117,11 +75,8 @@ var Modalcreatereview = React.createClass({
                 <label htmlFor="comments">Review Message: </label>
                 <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
             </div>
-            <button className="btn btn-default btn-sm profilebtn">Submit your review!</button>
-
-          </form>
-          </div>
-        </Modal>
+            
+          
       </div>
       
     );
@@ -140,4 +95,4 @@ var Modalcreatereview = React.createClass({
             </div>
             */
 
-module.exports = Modalcreatereview;
+module.exports = Createreviewform;

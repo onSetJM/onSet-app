@@ -4,7 +4,7 @@ var Link = require("react-router").Link;
 
 
 
-var Singlereview = React.createClass({
+var ReviewsSingledisplay = React.createClass({
     render: function() {
         return (
             <div className="singleReview" key={this.props.review.reviewId}>
@@ -17,4 +17,4 @@ var Singlereview = React.createClass({
     }
 });
 
-module.exports = Singlereview;
+module.exports = ReviewsSingledisplay;
