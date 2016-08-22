@@ -11,9 +11,7 @@ var Home = React.createClass({
         <p>onSet is built for professionals in creative trades who are looking for 
         freelance work and to network in their field. Not quite sure how it works? 
         If you’re looking to be hired, start by creating a profile, which will be 
-        linked to your Instagram account. (Make sure to use your professional 
-        Instagram account if you have a personal one too, and make it public so 
-        any interested employers can see). Personalize your account as much as you 
+        linked to your Instagram account. Personalize your account as much as you 
         like and you’re good to go! It’s as simple as that. 
   
         onSet is all about having an intuitive, easy-to-use platform for you to show 
@@ -24,16 +22,13 @@ var Home = React.createClass({
         <div className="hiresomeone">
         <h3>Hire Someone with onSet</h3>
         <p>It can be tough to find talented, reliable professionals in the 
-        creative trades if you don’t know how to get connected or who’s 
-        up-and-coming talent. onSet lets you search professionals to see who’s 
+        creative trades. onSet lets you search professionals to see who’s 
         available for extra work in your city and excelling in their field. See 
         what each user has accomplished with their visual portfolio and full CV, 
         and feel confident you’re hiring one of the best!
   
-        Not sure you can trust everyone is as good as they say they are? We know 
-        that feeling of needing a really good recommendation for a hairstylist or 
-        makeup artist but not knowing where to look or whom to ask. Well, look no 
-        further; onSet has set up a review system on each user’s profile so you 
+        Not sure you can trust everyone is as good as they say they are? onSet 
+        has set up a review system on each user’s profile so you 
         can not only see their portfolio but also how others have found working 
         with them. 
   
