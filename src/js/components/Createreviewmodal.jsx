@@ -37,12 +37,13 @@ const customStyles = {
 };
 
 
-var Modalcreatereview = React.createClass({
+var Createreviewmodal = React.createClass({
 
   getInitialState: function() {
-    return { modalIsOpen: false, rating:1 };
+    return { modalIsOpen: false, rating:5 };
   },
-  onStarClick: function(name, nextValue) {
+  onStarClick: function(nextValue, prevValue, name) {
+        console.log(nextValue, "NEXT VALUE")
         this.setState({rating: nextValue});
     },
   openModal: function() {
@@ -55,7 +56,7 @@ var Modalcreatereview = React.createClass({
   _handleSubmit: function(e) {
       e.preventDefault();
       var reviewObj = {
-          score: this.refs.score.value,
+          score: this.state.rating,
           text: this.refs.reviewText.value,
           reviewertoken: localStorage.instagram_sub,
           profileusername: this.props.username,
@@ -76,6 +77,7 @@ var Modalcreatereview = React.createClass({
             }
         });
         this.setState({modalIsOpen: false})
+        this.props.onReviewSubmit();
     },
     componentDidMount: function() {
       var that = this;
@@ -92,6 +94,7 @@ var Modalcreatereview = React.createClass({
         )
   },
   render: function() {
+    console.log(this.state.rating, "THE RATING")
     var rating  = this.state.rating;
     return (
       <div >
@@ -102,20 +105,28 @@ var Modalcreatereview = React.createClass({
           onRequestClose={this.closeModal}
           style={customStyles} >
           <div className="modalreview">
-          <p className="h2">Review {this.props.name}</p>
+          <p className="h2">Rate {this.props.name}</p>
           
           <form id="reviewForm" onSubmit={this._handleSubmit}>
+            <div>
+              <h2>
+                <StarRatingComponent 
+                    name="rate1" 
+                    starCount={10}
+                    value={rating}
+                    onStarClick={this.onStarClick}
+                    size={50}
+                />
+                </h2>
+            </div>
             <div className="form-group">
                  <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="Review Title" />
             </div>
-            <div className="form-group">
-                <label htmlFor="score">Rate Your Experience with {this.props.name}</label>
-                 <input type="number" className="form-control" ref="score" id="exampleInputPassword1" placeholder="Score out of 10" />
-             </div>
+
+             
             
             <div className="form-group">
-                <label htmlFor="comments">Review Message: </label>
-                <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
+                <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3" placeholder="Review message"></textarea>
             </div>
             <button className="btn btn-default btn-sm profilebtn">Submit your review!</button>
 
@@ -140,4 +151,4 @@ var Modalcreatereview = React.createClass({
             </div>
             */
 
-module.exports = Modalcreatereview;
+module.exports = Createreviewmodal;

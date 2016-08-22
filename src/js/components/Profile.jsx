@@ -9,7 +9,7 @@ var Link = require("react-router").Link;
 
 var Singlegalleryphoto = require('./Singlegalleryphoto');
 var Galleryslider = require('./Galleryslider');
-var Modalcreatereview = require('./Modalcreatereview');
+var Createreviewmodal = require('./Createreviewmodal');
 var Email = require("./Email");
 var Reviews = require("./Reviews");
 
@@ -18,7 +18,7 @@ var Profile = React.createClass({
     getInitialState: function() {
         return {};
     },
-    componentDidMount: function() {
+    fetchData: function() {
         var that = this;
         console.log(this.props.params.username);
         $.ajax({           
@@ -50,6 +50,12 @@ var Profile = React.createClass({
               console.log('this is the ajax error');      
             }
         });
+  },
+  componentDidMount:function(){
+      this.fetchData();
+  },
+  _reviewSubmitted:function(){
+      this.fetchData();
   },
   _handleButton: function() {
      console.log(this.props.params.username);
@@ -86,7 +92,7 @@ var Profile = React.createClass({
                     <div className="box-buttons prof">
                         <Reviews profile = {this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
-                        <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />
+                        <Createreviewmodal name={this.state.profile.name} onReviewSubmit={this._reviewSubmitted} username={this.props.params.username} />
                     </div>
                 </div>
                 <br />

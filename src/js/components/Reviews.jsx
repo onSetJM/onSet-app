@@ -1,7 +1,6 @@
 var React = require('react');
 var $ = require('jquery');
-var Singlereview = require('./Singlereview');
-var Modaldisplayreviews = require('./Modaldisplayreviews');
+var Reviewsmodaldisplay = require('./Reviewsmodaldisplay');
 
 var history = require('react-router').browserHistory;
 
@@ -35,7 +34,7 @@ var Reviews = React.createClass({
         }
     return (
       <div>
-            <Modaldisplayreviews reviews= {this.state.reviews} profile={this.props.profile} />
+            <Reviewsmodaldisplay reviews= {this.state.reviews} profile={this.props.profile} />
       </div>
     );
 

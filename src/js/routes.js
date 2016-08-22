@@ -43,24 +43,22 @@ var requireAuth = function(nextState, replace, next) {
 var routes = (
     <Router history={ReactRouter.browserHistory}> 
         <Route path="/" component={App} auth={auth}>
+            
             <IndexRoute component={Home}/>
-
-            <Route path="faq" component={FAQ} />
+            <Route path="pleaselogin" component={PleaseLogIn}></Route>
+            
 
             <Route path="createprofile" component={Createprofile} onEnter={requireAuth}></Route>
             
-
             <Route path="search/(:category)/(:city)" component={SearchForm}>
                 <Route path="searchresults" component={SearchResults} />
             </Route>
-            <Route path="profile/:username" component={Profile}>
-            </Route>
-
-            <Route path="pleaselogin" component={PleaseLogIn}></Route>
-
-            <Route path="profile/:username/reviews" component={Reviews} onEnter={requireAuth}> </Route>
             
-            <Route path="photos" component={Gallery}></Route>
+            <Route path="profile/:username" component={Profile} />
+            <Route path="profile/:username/reviews" component={Reviews} onEnter={requireAuth} /> 
+
+            
+            <Route path="faq" component={FAQ} />
             <Route path="contactus" component={ContactUs}></Route>
             <Route path="careers" component={Careers}></Route>
         </Route>
