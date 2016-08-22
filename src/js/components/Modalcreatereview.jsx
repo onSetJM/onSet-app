@@ -86,7 +86,7 @@ var Modalcreatereview = React.createClass({
     var rating  = this.state.rating;
     return (
       <div >
-        <button className="btn btn-primary" onClick={this.openModal}> REVIEW {this.props.name} </button>
+        <button className="btn btn-default profilebtn" onClick={this.openModal}>Review {this.props.name}</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -108,7 +108,7 @@ var Modalcreatereview = React.createClass({
                 <label htmlFor="comments"> Write your review : </label>
                  <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3"></textarea>
             </div>
-            <button className="btn btn-primary"> Submit your review !</button>
+            <button className="btn btn-default btn-sm profilebtn"> Submit your review !</button>
 
           </form>
           </div>

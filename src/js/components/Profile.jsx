@@ -2,6 +2,7 @@ var React = require('react');
 var $ = require('jquery');
 /*global localStorage */
 /*global dateFormat */
+import {ButtonToolbar, Button} from 'react-bootstrap';
 
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
@@ -26,17 +27,17 @@ var Profile = React.createClass({
             success: function(result) {
                 console.log(result, "this is the result of profile AJAX");
                 that.setState({
-                 profile:result.profile
+                 profile: result.profile
                 });
-                console.log(result.profile.token, "this is profile token");
+                // console.log(result.profile.token, "this is profile token");
                 $.ajax({           
                  url: '/profilephotos', 
                  data: {token:result.profile.token},
                  type: 'POST',
                  success: function(result) {
-                        console.log(result,"this is photo result");
+                        // console.log(result,"this is photo result");
                         that.setState({
-                          photos:result.photos
+                          photos: result.photos
                         });
                      },
             error: function() {
@@ -55,44 +56,59 @@ var Profile = React.createClass({
   },
   render: function() {
       if (!this.state.profile) {
-            return <div>LOADING THE PROFILE...</div>;
+            return <div>Loading...</div>;
         }
       if (!this.state.photos) {
-            return <div>LOADING THE PROFILE...</div>;
+            return <div>Loading...</div>;
         }
         var url = "/profile/" + this.props.params.username + "/reviews";
         console.log(this.state, "THIS IS THE FINAL STATE");
     return (
         
-            <div>
-                <div className="profilebox">
-                    <div className="box profilepic">
-                        <img src={this.state.profile.profile_pic}/>
+            <div className="profile-container">
+                <div className="profile-info" >
+                    <div className="profile-img-container col-md-2">
+                        <img className="profile-img" src={this.state.profile.profile_pic}/>
                     </div>
-                    <div className="box maininfo">
-                        <div className="h2"> {this.state.profile.name}</div>
-                        <div className="h4"> {this.state.profile.profileCategory} </div>
-                        <div className="h4"> city: {this.state.profile.city} </div>
-                        <div> Member of onSet since: {this.state.profile.createdAt} </div>
+                    <div className="profile-maininfo col-md-6">
+                        <div className="profile-name"> {this.state.profile.name}</div>
+                        <div className="profile-category"> {(this.state.profile.profileCategory).toUpperCase()} </div>
+                        <div className="profile-city"><span className="profile-headers">City:</span> {this.state.profile.city} </div>
+                        <div className="profile-membersince"><span className="profile-headers">Member of onSet since:</span> {this.state.profile.createdAt} </div>
+                        <div className="review-info"><span className="profile-headers">Average Rating:</span> {this.state.profile.profileScore}   
+                            <span className="profile-headers">   Total Reviews:</span> {this.state.profile.profileReviews}</div>
                     </div>
-                    <div className="box buttons">
+                    
+                    <div className="box-buttons col-md-4">
                          <Link to={url}>
-                            <button className="btn btn-primary"> 
-                            Score:  {this.state.profile.profileScore} <br/>
-                            on totalReviews: {this.state.profile.profileReviews}</button>
+                            <button className="btn btn-default profilebtn">
+                                View Reviews
+                            </button>
                          </Link>
                         <Email username={this.props.params.username} name={this.state.profile.name} />
                         <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />
                     </div>
                 </div>
-                <div className="specialities"> 
-                    <div className="h3"> Specialities: </div>
-                    <p> {this.state.profile.specialities} </p>
+                <br />
+                <br />
+                <div className="profile-content">
+                
+                    <Galleryslider key="galleryslider" photos={this.state.photos} />
+                
+                    <div className="profile-cv"> 
+                        <hr />
+                        <h2 className="profile-title">Relevant Experience</h2>
+                        <div className="cv-info">
+                            <h3 className="profile-header">Specialities: </h3>
+                            <p className="profile-para"> {this.state.profile.specialities} </p>
+                            <h3 className="profile-header">Previous Employment:</h3>
+                            <p className="profile-para">{this.state.profile.employment}</p>
+                            <h3 className="profile-header">Education:</h3>
+                            <p className="profile-para">{this.state.profile.education}</p>
+                        </div>
+                    </div>
+                    {this.props.children}
                 </div>
-                <div className="gallery">
-                <Galleryslider key="galleryslider" photos={this.state.photos} />
-                </div>
-                {this.props.children}
             </div>
     );
   }

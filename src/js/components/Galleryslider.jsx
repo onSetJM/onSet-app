@@ -13,7 +13,7 @@ var Galleryslider = React.createClass({
 
     render: function() {
         var settings = {
-            dots: true,
+            dots: false,
             infinite: false,
             speed: 500,
             slidesToShow: 3,

@@ -22,8 +22,11 @@ CREATE TABLE Profile (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE Profile ADD employment TEXT;
+ALTER TABLE Profile ADD education VARCHAR(255);
 
 
+UPDATE Profile SET employment="Aveda Salon", education="Aveda Institute";
 CREATE TABLE Reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   text TEXT(10000), 

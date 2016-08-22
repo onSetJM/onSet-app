@@ -180,7 +180,9 @@ app.post('/createprofile', function(req, res) {
     name: req.body.name,
     instagramauthorized: req.body.instagramauthorized,
     availability: req.body.availability,
-    profile_pic: req.body.profile_pic
+    profile_pic: req.body.profile_pic,
+    employment: req.body.employment,
+    education: req.body.education
   }, function(err, profile) {
     if (err) {
       console.log(err);
@@ -239,7 +241,6 @@ app.post('/profile', function(req, res) {
     }
     else {
       console.log(profile[0]);
-      console.log(profile[0].token);
       res.send({
         success: true,
         profile: profile[0]
@@ -293,18 +294,6 @@ app.post('/reviews', function(req, res){
   });
 });
 
-
-
-/*
-This says: for any path NOT served by the middleware above, send the file called index.html instead.
-For example, if the client requests http://server/step-2 the server will send the file index.html, which will start the same React app.
-This will enable us to do url-based routing on the front-end.
-*/
-
-app.get('/*', function(request, response) {
-  response.sendFile(__dirname + '/public/index.html');
-});
-
 app.post('/searchresults', function(req, res) {
   console.log(req.body);
   onSetAPI.getAllProfiles({}, req.body.category, req.body.city, req.body.sortingMethod, function(err, profiles) {
@@ -322,6 +311,18 @@ app.post('/searchresults', function(req, res) {
   });
 
 });
+
+/*
+This says: for any path NOT served by the middleware above, send the file called index.html instead.
+For example, if the client requests http://server/step-2 the server will send the file index.html, which will start the same React app.
+This will enable us to do url-based routing on the front-end.
+*/
+
+app.get('/*', function(request, response) {
+  response.sendFile(__dirname + '/public/index.html');
+});
+
+
 
 app.listen(process.env.PORT || 8080, function() {
   console.log('Server started');

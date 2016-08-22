@@ -121,6 +121,110 @@
     height: auto;
 }
 
+/* Profile Page*/
+
+ 
+.profile-info{
+     display: flex;
+     /*justify-content: space-around;*/
+     padding-top: 50px;
+     padding-bottom: 50px;
+     /*align-items: center;*/
+     flex-wrap: wrap;
+     background-color: #F4F4F4;
+     border-top: 3px solid #aac8db;
+ }
+.profile-headers{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1b2b46;
+}
+.profile-img {
+    margin-left: 20px;
+    margin-top: 10px;
+    max-width: 140px;
+    height: auto;
+    border-radius: 30px;
+    border: 4px solid #1b2b46;
+}
+.profile-name {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1b2b46;
+}
+.profile-category{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4a71b2;
+}
+.profile-city, .profile-membersince, review-info{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #4a71b2;
+    font-size: 1rem;
+}
+.profilebtn{
+    background-color: #FFF;
+    margin-bottom: 5px;
+    color: #4a71b2;
+}
+
+/*.profile-cv{*/
+/*    margin-left: 50px;*/
+/*    margin-right: 50px;*/
+/*}*/
+.profile-cv hr {
+    max-width: 100rem;
+}
+.profile-header{
+    color: #4a71b2;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.profile-para{
+    font-size: 1rem;
+    color: #1b2b46;
+}
+.profile-title{
+    font-size: 1.6rem;
+    color: #1b2b46;
+    font-weight: bold;
+}
+.cv-info{
+    margin-left: 20px;
+}
+.profile-content{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.profile-cv{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+/* CREATE YOUR PROFILE page */
+
+.createyourprofile-container{
+    margin: 20px;
+}
+.create-profile-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.create-profile-img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 30px;
+    border: 4px solid #1b2b46;
+}
+.form-input{
+    max-width: 300px;
+}
+
+
 /* Footer*/
 .footer {
     background-color: #1b2b46;
@@ -161,35 +265,16 @@
 }
 
 
+/* What is the code below for? There's a footer section above this. Not sure what it's doing*/
 /* Footer*/
-.container {
-  margin: 0 auto;
-  width: 100%;
-  color: #333;
-  background: #a3aab5;
-}
-.gallery {
-  display:flex;
-  background: #a3aab5;
-}
+/*.container {*/
+/*  margin: 0 auto;*/
+/*  width: 100%;*/
+/*  color: #333;*/
+/*  background: #a3aab5;*/
+/*}*/
+/*.gallery {*/
+/*  display: flex;*/
+/*  background: #a3aab5;*/
+/*}*/
 
-/* Profile Page*/
-
-.profilebox{
-     display: flex;   
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
- }
- 
-.box {
-     display: flex;
-     width: 100%;
-     flex-direction: column;
-     margin: 10px;
-     justify-content: space-around;
-     padding-top: 50px;
-     padding-bottom: 50px;
-     align-items: center;
-     border-radius: 8px;
- }

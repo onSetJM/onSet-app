@@ -38,8 +38,8 @@ module.exports = function OnsetAPI(conn) {
     },
     createProfile: function(profile, callback) {
         conn.query(
-            'INSERT INTO Profile (name, username, token, email, profilepic, city, category, specialities, availability, photosprovided, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
-            [profile.name, profile.username, profile.token, profile.email, profile.profile_pic, profile.city, profile.category, profile.specialities, profile.availability, profile.instagramauthorized, new Date(), new Date()],
+            'INSERT INTO Profile (name, username, token, email, profilepic, city, category, specialities, availability, photosprovided, createdAt, updatedAt, employment, education) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
+            [profile.name, profile.username, profile.token, profile.email, profile.profile_pic, profile.city, profile.category, profile.specialities, profile.availability, profile.instagramauthorized, new Date(), new Date(), profile.employment, profile.education],
             function(err, result) {
               if (err) {
                 callback(err);
@@ -47,7 +47,7 @@ module.exports = function OnsetAPI(conn) {
               }
               else {
                 conn.query(
-                  'SELECT id, name, username, token, email, profilepic, city, category, specialities, availability, photosprovided, createdAt, updatedAt FROM Profile WHERE id = ?', [result.insertId],
+                  'SELECT id, name, username, token, email, profilepic, city, category, specialities, availability, photosprovided, createdAt, updatedAt, education, employment FROM Profile WHERE id = ?', [result.insertId],
                   function(err, result) {
                     if (err) {
                       console.log(err);
@@ -135,6 +135,8 @@ module.exports = function OnsetAPI(conn) {
           p.updatedAt AS profileUpdatedAt,
           p.token as profileToken,
           p.photosprovided as photosprovided,
+          p.education as education,
+          p.employment as employment
           AVG(r.score) as profileScore,
           COUNT(r.id) as totalReviews
         FROM Profile p
@@ -165,7 +167,9 @@ module.exports = function OnsetAPI(conn) {
                 createdAt: res.profileCreatedAt,
                 updatedAt: res.profileUpdatedAt,
                 profileScore: res.profileScore,
-                profileReviews: res.totalReviews
+                profileReviews: res.totalReviews,
+                employment: res.employment,
+                education: res.education
               };
             });
             callback(null, mappedResults);
@@ -219,6 +223,8 @@ module.exports = function OnsetAPI(conn) {
           p.id,
           p.specialities as specialities,
           p.availability as availability,
+          p.education as education,
+          p.employment as employment,
           DATE_FORMAT(p.createdAt,'%d/%m/%Y') as profileCreatedAt,
           p.updatedAt AS profileUpdatedAt,
           p.token as profileToken,
@@ -248,6 +254,8 @@ module.exports = function OnsetAPI(conn) {
                 category : res.profileData,
                 profileCategory: res.category,
                 availability: res.availability,
+                employment: res.employment,
+                education: res.education,
                 city: res.city,
                 createdAt: res.profileCreatedAt,
                 updatedAt: res.profileUpdatedAt,
