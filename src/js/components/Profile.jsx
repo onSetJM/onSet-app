@@ -79,14 +79,12 @@ var Profile = React.createClass({
                         <div className="review-info"><span className="profile-headers">Average Rating:</span> {this.state.profile.profileScore}   
                             <span className="profile-headers">   Total Reviews:</span> {this.state.profile.profileReviews}</div>
                     </div>
-                    
-                    
-                    
+                    <div className="box-buttons col-md-4">
                         <Reviews profile = {this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
                         <Modalcreatereview name={this.state.profile.name} username={this.props.params.username} />
-                  
-                
+                    </div>
+                </div>
                 <br />
                 <br />
                 <div className="profile-content">
@@ -107,7 +105,6 @@ var Profile = React.createClass({
                     </div>
                     {this.props.children}
                 </div>
-            </div>
             </div>
     );
   }

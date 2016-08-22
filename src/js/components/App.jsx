@@ -30,7 +30,7 @@ var App = React.createClass({
       })
     }
         return (
-          <div>
+          <div className="app-maincomponent">
             <Header auth={this.props.route.auth} loggedIn={this.state.loggedIn} />
                 {children}
             <Footer />
