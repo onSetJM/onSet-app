@@ -305,6 +305,8 @@
  
  /*Reviews display */
  
+ 
+ 
 .singleReview {
      display: flex;
      flex-direction: column;
@@ -322,6 +324,7 @@
 .review-var{
     color: #4a71bc;
 }
+
 
 
 /* CONTACT US */
