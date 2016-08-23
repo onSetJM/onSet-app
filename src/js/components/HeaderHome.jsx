@@ -16,18 +16,18 @@ var Header = React.createClass({
     if (this.props.loggedIn) {
       return (
         <div className="navbuttons">
-          <Link to={"/"} className="footerbuttons">Home</Link>
-          <Link to={"search/hairstylist"} className="footerbuttons">Search</Link>
-          <Link to={"/createprofile"} className="footerbuttons">Create Your Profile</Link>
+          <Link to={"/"} className="nav-btn nav-link">Home</Link>
+          <Link to={"search/hairstylist"} className="nav-btn nav-link">Search</Link>
+          <Link to={"/createprofile"} className="nav-btn nav-link">Create Your Profile</Link>
           <Logout auth={this.props.auth} />
         </div>
       )
     } else {
       return (
         <div className="navbuttons">
-          <Link to={"/"} className="footerbuttons">Home</Link>
-          <Link to={"search/hairstylist"} className="footerbuttons">Search</Link>
-          <Link to={"/createprofile"} className="footerbuttons">Create Your Profile</Link>
+          <Link to={"/"} className="nav-btn nav-link">Home</Link>
+          <Link to={"search/hairstylist"} className="nav-btn nav-link">Search</Link>
+          <Link to={"/createprofile"} className="nav-btn nav-link">Create Your Profile</Link>
           <Login auth={this.props.auth} />
         </div>
       )
@@ -37,14 +37,13 @@ var Header = React.createClass({
     console.log(nextProps);
   },
     render: function() {
-    console.log(localStorage.id_token)
     return (
       <div className="header">
         <div className="loginoutbuttons">
           {this.userEntry()}
         </div>
           <div className="header-text">
-            <Link to={"/"}>onSet</Link>
+            <Link className="header-title" to={"/"}>onSet</Link>
             <h2>build your profile. get hired.</h2>
             <SearchBar className="searchbar"/>
         </div>

@@ -74,73 +74,76 @@ var Createprofile = React.createClass({
       
       var profile = this.state.profile;
     return (
-      <div className="createyourprofile-container">
-      <h2>Create your profile!</h2>
-      <h4>Make sure to brag about all the skills you want employers to know about.</h4>
-      <hr />
-      <h4>The Basics</h4>
-        <div className="create-profile-form">
-            <form  id="reviewForm" onSubmit={this._handleSubmit}>
-                <div className="create-profile-flex">
-                    <div className="profile-row1">
-                        <br />
-                        <img className="create-profile-img" src={profile.profile_picture} />
+      <div className="createyourprofile-container content-padding">
+      <h2 className="page-main-title">Create your profile!</h2>
+      <div className="subsection-padding">
+          <h4 className="page-subtitle">Make sure to brag about all the skills you want employers to know about.</h4>
+          <hr />
+          <h4>The Basics</h4>
+            <div className="create-profile-form">
+                <form  id="reviewForm" onSubmit={this._handleSubmit}>
+                    <div className="create-profile-flex">
+                        <div className="profile-col1">
+                            <img className="create-profile-img" src={profile.profile_picture} />
+                        </div>
+                        <div className="profile-col2">
+                            <div className="profile-form-input">
+                                Your username
+                                <input type='text' ref='username' className="form-input" defaultValue={profile.username}/>
+                            </div>
+                            <div className="profile-form-input">
+                                Your Name
+                                <input type='text' ref='name' className="form-input" defaultValue={profile.full_name}/>
+                            </div>
+                        
+                            <div className="profile-form-input">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                        </div>
+                        <div className="profile-col3">
+                            <div className="profile-form-input">
+                                Enter your city
+                                <input ref="city" type="text" className="form-input" />
+                            </div>
+                        
+                            <div className="profile-form-input">
+                                Typical Availability During the Week
+                                <input ref="availability" type="text" className="form-input" />
+                            </div>
+                            <div className="profile-form-input">
+                                Your Area of Work
+                                <select ref="category" >
+                                    <option value="hairstylist">Hairstylist </option>
+                                    <option value="make-up Artist">Make-up Artist</option>
+                                    <option value="colorist">Colorist</option>
+                                    <option value="stylist">Stylist</option>
+                                    <option value="dualist">Dualist</option>
+                                    <option value="nailartist">Nail Artist</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div className="profile-row2">
-                        <div className="profile-form-input">
-                            <p>Your username </p>
-                            <input type='text' ref='username' className="form-input" defaultValue={profile.username}/>
-                        </div>
-                        <div className="profile-form-input">
-                            <p>Your Name</p>
-                            <input type='text' ref='name' className="form-input" defaultValue={profile.full_name}/>
-                        </div>
+                    <br />
+                    <hr />
+                    <h4>Relevant Employment Experience</h4>
+                    <div>Tell us more about what you specialize in.</div> 
+                    <div>Include here anything you'd like potential employers to know about your work and your personal strengths.</div>
+                    <textarea ref="specialities" type="text" />
+                    <p>Employment History: What have you done that an employer should know about?</p>
+                    <input ref="employment" type="text"/>
+                    <p>Education</p>
+                    <input ref="education" type="text"/>
+                    <div className="authorize-div">
+                        <input ref="instagramauthorized" type="checkbox"/>
+                        <p className="auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>
                     </div>
-                    <div className="profile-row3">
-                        <div className="profile-form-input">
-                            <p>Your Email </p>
-                            <input ref="email" type="text" className="form-input" />
-                        </div>
-                        <div className="profile-form-input">
-                            <p> Enter your city </p>
-                            <input ref="city" type="text" className="form-input" />
-                        </div>
-                    </div>
-                    <div className="profile-row4">
-                        <div className="profile-form-input">
-                            <p>Typical Availability During the Week</p>
-                            <input ref="availability" type="text" className="form-input" />
-                        </div>
-                        <div className="profile-form-input">
-                            <p>Your Area of Work</p>
-                            <select ref="category" >
-                                <option value="hairstylist">Hairstylist </option>
-                                <option value="make-up Artist">Make-up Artist</option>
-                                <option value="colorist">Colorist</option>
-                                <option value="stylist">Stylist</option>
-                                <option value="dualist">Dualist</option>
-                                <option value="nailartist">Nail Artist</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <hr />
-                <h4>Relevant Employment Experience</h4>
-                <p>Tell us more about what you specialize in. Include here anything you'd like potential employers to know about your work and your personal strengths.</p>
-                <textarea ref="specialities" type="text" />
-                <p>Employment History: What have you done that an employer should know about?</p>
-                <input ref="employment" type="text"/>
-                <p>Education</p>
-                <input ref="education" type="text"/>
-                <div className="authorize-div">
-                    <input className="auth-radio" ref="instagramauthorized" type="radio"/>
-                    <p className="auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>
-                </div>
-                
-                <br />
-                <button className="btn btn-default active">Create your profile !</button>
-            </form>
+                    
+                    <br />
+                    <button className="btn btn-default active btn-blue">Create your profile !</button>
+                </form>
+            </div>
         </div>
       </div>
     );
