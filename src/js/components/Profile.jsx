@@ -13,6 +13,7 @@ var Createreviewmodal = require('./Createreviewmodal');
 var Email = require("./Email");
 var Reviews = require("./Reviews");
 var StarRatingComponent = require('react-star-rating-component');
+var moment = require('moment');
 
 
 var Profile = React.createClass({
@@ -72,6 +73,7 @@ var Profile = React.createClass({
         var url = "/profile/" + this.props.params.username + "/reviews";
         console.log(this.state, "THIS IS THE FINAL STATE");
         var score = (this.state.profile.profileScore)/2;
+        var date = moment(this.state.profile.createdAt).format('MMMM Do YYYY');
     return (
             <div className="profile-container">
                 <div className="profile-info" >
@@ -116,7 +118,7 @@ var Profile = React.createClass({
                                 <p className="profile-para">{this.state.profile.education}</p>
                         <hr />        
                                 <h2 className="page-subtitle">Member Info</h2>
-                                <p className="profile-para"><span className="profile-header">Member Since:</span> {this.state.profile.createdAt} </p>
+                                <p className="profile-para"><span className="profile-header">Member Since:</span> {date} </p>
                             </div>
                         </div>
                     </div>
