@@ -2,12 +2,14 @@ var React = require('react');
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
 var StarRatingComponent = require('react-star-rating-component');
+var moment = require('moment');
 
 
 
 var ReviewsSingledisplay = React.createClass({
     render: function() {
         var reviewScore = (this.props.review.reviewScore) /2;
+        var date = moment(this.props.review.reviewCreatedAt).format('MMMM Do YYYY');
         return (
             <div className="singleReviewContainer" key={this.props.review.reviewId}>
                 <div className="reviewHeader">
@@ -28,7 +30,7 @@ var ReviewsSingledisplay = React.createClass({
                 </div>
                 
                 <div className="reviewfooter">
-                        <abbr class="initialism"> Reviewed by {this.props.review.reviewerusername} on {this.props.review.reviewCreatedAt} </abbr>
+                        <abbr class="initialism"> Reviewed by {this.props.review.reviewerusername} on {date} </abbr>
                 </div>
             </div>
             

@@ -137,9 +137,9 @@ var Createprofile = React.createClass({
                                   <div className="profile-form-input-lg">Include here anything you'd like potential employers to know about your work and your personal strengths.</div>
                                   <textarea className="profile-form-input-lg" ref="specialities" type="text" />
                                   <p>Employment History: What have you done that an employer should know about?</p>
-                                  <input className="profile-form-input-lg" ref="employment" type="text" />
+                                  <textarea className="profile-form-input-lg" ref="employment" type="text" />
                                   <p>Education</p>
-                                  <input className="profile-form-input-lg" ref="education" type="text" />
+                                  <textarea className="profile-form-input-lg" ref="education" type="text" />
                                   <div className="authorize-div">
                                       <input ref="instagramauthorized" type="checkbox" />
                                       <p className="profile-form-input-lg auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>

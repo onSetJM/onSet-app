@@ -30,6 +30,7 @@
     "express-jwt": "^3.4.0",
     "impromptu-react-animated-header": "^0.2.1",
     "jquery": "^3.1.0",
+    "moment": "^2.14.1",
     "mysql": "^2.11.1",
     "nodemailer": "^2.5.0",
     "nodemailer-smtp-transport": "^2.6.0",

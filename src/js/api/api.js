@@ -232,7 +232,7 @@ module.exports = function OnsetAPI(conn) {
           p.availability as availability,
           p.education as education,
           p.employment as employment,
-          DATE_FORMAT(p.createdAt,'%d/%m/%Y') as profileCreatedAt,
+          p.createdAt as profileCreatedAt,
           p.updatedAt AS profileUpdatedAt,
           p.token as profileToken,
           p.photosprovided as photosprovided,
@@ -481,7 +481,7 @@ module.exports = function OnsetAPI(conn) {
           r.id AS id, 
           r.text AS text, 
           r.score AS score,
-          DATE_FORMAT(r.createdAt,'%d/%m/%Y') AS reviewCreatedAt, 
+          r.createdAt AS reviewCreatedAt, 
           r.reviewertoken as reviewertoken,
           r.reviewerusername as reviewerusername,
           r.profileusername as profileusername
