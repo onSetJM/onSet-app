@@ -92,11 +92,11 @@ var Profile = React.createClass({
                 </div>
                 <br />
                 <br />
-                <div className="profile-content">
                 
                 <Galleryslider key="galleryslider" photos={this.state.photos} />
                 
                     <div className="profile-box content-padding">
+
                         <hr />
                         <div className="profile-cv">
                             <div className="cv-info">
@@ -113,7 +113,7 @@ var Profile = React.createClass({
                         </div>
                     </div>
                     {this.props.children}
-                </div>
+                
             </div>
     );
   }
