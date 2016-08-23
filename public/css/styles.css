@@ -42,14 +42,17 @@ select {
 /*    background-color: #FFF;*/
 /*}*/
 /* Header*/
-.header {
-    background-image: url(../img/hairphoto.jpeg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	margin: 0 auto;
-	width: 100%;
-	padding-bottom: 30%
+/*.header {*/
+/*    background-image: url(../img/hairphoto.jpeg);*/
+/*	background-repeat: no-repeat;*/
+/*	background-size: cover;*/
+/*	background-position: center;*/
+/*	margin: 0 auto;*/
+/*	width: 100%;*/
+/*	padding-bottom: 30%*/
+/*}*/
+.header{
+    background-color: #0e1829
 }
 
 .loginoutbuttons {
@@ -57,7 +60,7 @@ select {
     justify-content: flex-end;
 }
 .nav-btn{
-    color: #1b2b46;
+    color: #f4f4f4;
     background: transparent;
 }
 .nav-link{
@@ -279,6 +282,10 @@ select {
 
 .background{
     background-color: #cee5ea;
+}
+.profilestars{
+    font-size: 1.3rem;
+    align-self: flex-start;
 }
 
 /* CREATE YOUR PROFILE page */

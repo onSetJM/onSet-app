@@ -12,6 +12,7 @@ var Galleryslider = require('./Galleryslider');
 var Createreviewmodal = require('./Createreviewmodal');
 var Email = require("./Email");
 var Reviews = require("./Reviews");
+var StarRatingComponent = require('react-star-rating-component');
 
 
 var Profile = React.createClass({
@@ -70,8 +71,9 @@ var Profile = React.createClass({
         }
         var url = "/profile/" + this.props.params.username + "/reviews";
         console.log(this.state, "THIS IS THE FINAL STATE");
+        var score = (this.state.profile.profileScore)/2;
     return (
-        
+            
             <div className="profile-container">
                 <div className="profile-info" >
                     <div className="profile-img-container prof">
@@ -79,8 +81,17 @@ var Profile = React.createClass({
                     </div>
                     <div className="profile-maininfo prof">
                         <div className="profile-name"> {this.state.profile.name}</div>
+                        
                         <div className="profile-category"> {(this.state.profile.profileCategory).toUpperCase()} </div>
                         <div className="profile-city"><span className="profile-head-city">City:</span> {this.state.profile.city} </div>
+                        
+                        <StarRatingComponent 
+                            className="profilestars"
+                            name="singleprofilerating" 
+                            starCount={5}
+                            value={score}
+                            editing={false} 
+                        />
                         
                     </div>
                     <div className="box-buttons prof">

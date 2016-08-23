@@ -8,7 +8,7 @@ var StarRatingComponent = require('react-star-rating-component');
 var Singleprofileresult = React.createClass({
     render: function() {
         var url = "/profile/" + this.props.profile.username;
-        var score = (this.props.profile.profileScore)/2
+        var score = (this.props.profile.profileScore)/2;
         return (
             <Link to={url}>
                 <div className="singleprofilecontainer">
