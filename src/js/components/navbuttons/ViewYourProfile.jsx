@@ -32,8 +32,7 @@ var ViewYourProfile = React.createClass({
     render: function(){
     return (
       <div>
-             <Button onClick={this.redirect} className="footer-title">View Your Profile</Button>
-
+        <Button onClick={this.redirect} className="view-btn">View Your Profile</Button>
       </div>
     );
     }

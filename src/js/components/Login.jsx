@@ -11,7 +11,7 @@ var Login = React.createClass({
     return (
       <div>
         <ButtonToolbar>
-             <Button onClick={function() {auth.login()}}>Login</Button>
+             <Button className="nav-btn loginout" onClick={function() {auth.login()}}>Login</Button>
         </ButtonToolbar>
       </div>
     );
