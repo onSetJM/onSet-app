@@ -58,15 +58,18 @@ var SearchResults = React.createClass({
             );
         }
     return (
-      <div className="content-padding">
-        <h3 className="page-main-title">Search Results</h3>
-        <hr />
-        <div className="all-search-results">
-             {this.state.profiles.map(function(profile){
-                 return <Singleprofileresult key={profile.profileId} profile = {profile} />;
-             })}
+        
+        <div>    
+            <div className="content-padding">
+            <h3 className="page-main-title">Search Results</h3>
+            <hr />
+            <div className="all-search-results">
+                 {this.state.profiles.map(function(profile){
+                     return <Singleprofileresult key={profile.profileId} profile = {profile} />;
+                 })}
+            </div>
+            </div>
         </div>
-      </div>
     );
 
   }

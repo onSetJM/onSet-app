@@ -1,5 +1,6 @@
 var React = require("react");
 var $ = require("jquery");
+var HeaderOther = require("./HeaderOther");
 
 var Careers = React.createClass({
         getInitialState: function(){
@@ -31,6 +32,8 @@ var Careers = React.createClass({
     },
     render: function() {
         return (
+            <div>
+            <HeaderOther />
             <div className="content-padding">
                 <h1 className="page-main-title">Careers</h1>
                 <div>
@@ -44,6 +47,7 @@ var Careers = React.createClass({
                         <button className="btn btn-default  btn-blue" onClick={this._handleSubmit}> Send away!</button>
                     </form>
                 </div>
+            </div>
             </div>
             );
     }

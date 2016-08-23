@@ -42,17 +42,28 @@ select {
 /*    background-color: #FFF;*/
 /*}*/
 /* Header*/
-/*.header {*/
-/*    background-image: url(../img/hairphoto.jpeg);*/
-/*	background-repeat: no-repeat;*/
-/*	background-size: cover;*/
-/*	background-position: center;*/
-/*	margin: 0 auto;*/
-/*	width: 100%;*/
-/*	padding-bottom: 30%*/
-/*}*/
+.headerhome {
+    background-image: url(../img/hairphoto.jpeg);
+    opacity: 0.9;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	margin: 0 auto;
+	width: 100%;
+	padding-bottom: 30%
+}
+.headerother {
+    background-image: url(../img/hairphoto_other.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	margin: 0 auto;
+	width: 100%;
+	padding-bottom: 5%
+}
 .header{
-    background-color: #0e1829
+    background-color: #0e1829;
+    opacity: 0.9;
 }
 
 .loginoutbuttons {
@@ -60,7 +71,7 @@ select {
     justify-content: flex-end;
 }
 .nav-btn{
-    color: #f4f4f4;
+    color: #FFF;
     background: transparent;
 }
 .nav-link{
@@ -193,6 +204,7 @@ select {
      padding: 30px 180px 30px 120px;
      flex-wrap: wrap;
      background-color: #1b2b46;
+     opacity: 0.9;
      /*border-top: 5px solid #000;*/
  }
 .profile-headers{
@@ -327,6 +339,7 @@ select {
 /* Footer*/
 .footer {
     background-color: #1b2b46;
+    opacity: 0.9;
 }
 .footer-nav{
     display: flex;   

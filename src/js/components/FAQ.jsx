@@ -1,8 +1,11 @@
 var React = require("react");
+var HeaderOther = require("./HeaderOther");
 
 var FAQ = React.createClass({
     render: function() {
         return (
+            <div>
+            <HeaderOther />
             <div className="faq content-padding">
                 <h2 className="page-main-title">FAQ</h2>
                 <div className="subsection-padding">
@@ -20,6 +23,7 @@ var FAQ = React.createClass({
                         for a space to show off what you’re capable of, onSet profiles with built-in 
                         portfolios let you brag about just how talented you are. </p>
                 </div>
+            </div>
             </div>
             );
     }

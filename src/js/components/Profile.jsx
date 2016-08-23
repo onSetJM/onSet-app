@@ -6,7 +6,7 @@ import {ButtonToolbar, Button} from 'react-bootstrap';
 
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
-
+var HeaderOther = require("./HeaderOther");
 var Singlegalleryphoto = require('./Singlegalleryphoto');
 var Galleryslider = require('./Galleryslider');
 var Createreviewmodal = require('./Createreviewmodal');
@@ -73,7 +73,6 @@ var Profile = React.createClass({
         console.log(this.state, "THIS IS THE FINAL STATE");
         var score = (this.state.profile.profileScore)/2;
     return (
-            
             <div className="profile-container">
                 <div className="profile-info" >
                     <div className="profile-img-container prof">
@@ -123,7 +122,6 @@ var Profile = React.createClass({
                     </div>
                 </div>
                     {this.props.children}
-                
             </div>
     );
   }
