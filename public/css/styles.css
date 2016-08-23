@@ -80,13 +80,18 @@ body {
  .searchresulttitle{
      text-align: center;
  }
+ .searchnoresult{
+     text-align:center;
+     padding-bottom: 40px;
+     padding-top: 40px;
+ }
 
  .all-search-results{
      display: flex;
      flex-wrap: wrap;
      padding-left:50px;
      padding-right:50px;
-     align-items:center;
+     justify-content:center;
  }
  .singleprofilecontainer {
      display: flex;
@@ -99,7 +104,7 @@ body {
      padding:10px;
  }
 .searchresultimg {
-     width: 220px;
+     width: 180px;
      height: auto;
      border-radius: 8px 8px 5px 5px;
 }
@@ -107,13 +112,17 @@ body {
     font-weight: bold;
     background-color: #d9d9dd;
     width: 220px;
-    height: 50px;
-    text-align: center;
-    border-radius: 0px 0px 5px 5px;
     color: #1b2b46;
+}
+.profilename {
+    font-weight: bold;
+    color: #1b2b46;
+    background-color: #d9d9dd;
+    text-align: center;
 }
 
 .profile-details {
+    text-align: center;
     font-size: 15px;
     margin: 15px;
 }

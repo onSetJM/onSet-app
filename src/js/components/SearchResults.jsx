@@ -11,18 +11,25 @@ var SearchResults = React.createClass({
         return {};
     },
     fetchData: function(props){
-        var that = this;
-        $.ajax({           
-            url: '/searchresults', 
-            data: props ? {
-                 category: props.params.category,
-                 city: props.params.city,
-                 sortingMethod: props.params.filter
-            } : {
+        var searchObj = {
                  category: this.props.params.category,
                  city: this.props.params.city,
                  sortingMethod: this.props.params.filter
-            },
+            };
+        if(props) {
+            searchObj = {
+                 category: props.params.category,
+                 city: props.params.city,
+                 sortingMethod: props.params.filter
+            }
+        }
+        this.setState({
+            searchObj:searchObj
+        })
+        var that = this;
+        $.ajax({           
+            url: '/searchresults', 
+            data: searchObj,
             type: 'POST',
             success: function(result) {
                 that.setState({
@@ -44,6 +51,11 @@ var SearchResults = React.createClass({
 
         if (!this.state.profiles) {
             return <div>LOADING profiles...</div>;
+        }
+        if(!this.state.profiles[0]){
+            return (
+            <h5 className="searchnoresult"> Sorry, we can't find a {this.state.searchObj.category} in {this.state.searchObj.city}. Please try again! </h5>
+            );
         }
     return (
       <div>

@@ -83,35 +83,36 @@ var Createprofile = React.createClass({
             <form  id="reviewForm" onSubmit={this._handleSubmit}>
                 <div className="create-profile-flex">
                     <div className="profile-row1">
+                        <br />
                         <img className="create-profile-img" src={profile.profile_picture} />
                     </div>
                     <div className="profile-row2">
                         <div className="profile-form-input">
-                            Your username
+                            <p>Your username </p>
                             <input type='text' ref='username' className="form-input" defaultValue={profile.username}/>
                         </div>
                         <div className="profile-form-input">
-                            Your Name
+                            <p>Your Name</p>
                             <input type='text' ref='name' className="form-input" defaultValue={profile.full_name}/>
                         </div>
                     </div>
                     <div className="profile-row3">
                         <div className="profile-form-input">
-                            Your Email
+                            <p>Your Email </p>
                             <input ref="email" type="text" className="form-input" />
                         </div>
                         <div className="profile-form-input">
-                            Enter your city
+                            <p> Enter your city </p>
                             <input ref="city" type="text" className="form-input" />
                         </div>
                     </div>
                     <div className="profile-row4">
                         <div className="profile-form-input">
-                            Typical Availability During the Week
+                            <p>Typical Availability During the Week</p>
                             <input ref="availability" type="text" className="form-input" />
                         </div>
                         <div className="profile-form-input">
-                            Your Area of Work
+                            <p>Your Area of Work</p>
                             <select ref="category" >
                                 <option value="hairstylist">Hairstylist </option>
                                 <option value="make-up Artist">Make-up Artist</option>
@@ -138,7 +139,7 @@ var Createprofile = React.createClass({
                 </div>
                 
                 <br />
-                <button className="btn btn-default active btn-blue">Create your profile !</button>
+                <button className="btn btn-default active">Create your profile !</button>
             </form>
         </div>
       </div>
