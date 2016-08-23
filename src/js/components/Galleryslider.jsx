@@ -14,14 +14,13 @@ var Galleryslider = React.createClass({
     render: function() {
         var settings = {
              dots: false,
-             infinite: false,
-             arrows: true,
+             infinite: true,
              speed: 500,
              slidesToShow: 3,
              slidesToScroll: 1
         };
         return (
-            <div>
+            <div className='fullcarousel'>
       	<Slider {...settings}>
             {this.props.photos.map(function(photo){
                      return <div key={photo.id}> <img className="carouselimg" src={photo.url} /> </div>;
