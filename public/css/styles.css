@@ -266,13 +266,18 @@ body {
 .auth-text{
     margin-left: 10px;
 }
-.createyourprofile-container{
-    margin: 20px;
-}
 .create-profile-flex{
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
-    /*justify-content: space-around;*/
+}
+.profile-col1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.profile-form-input{
+    display: flex;
+    flex-direction:column;
 }
 .create-profile-img {
     max-width: 200px;
@@ -293,8 +298,7 @@ body {
 .footer-nav{
     display: flex;   
     justify-content: space-around;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 30px 50px 30px 20px;
     color: #FFF;
     font-size: 1.3rem;
 }
