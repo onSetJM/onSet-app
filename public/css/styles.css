@@ -156,16 +156,6 @@ body {
 }
 
 
-/* Galley photos*/
-.gallerydisplay {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.singlephoto {
-    max-width: 100px;
-    height: auto;
-}
 
 /* Profile Page*/
 

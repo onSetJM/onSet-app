@@ -97,10 +97,11 @@ var Profile = React.createClass({
                 </div>
                 <br />
                 <br />
+                
                 <div className="profile-content">
-                
+                    <div>
                     <Galleryslider key="galleryslider" photos={this.state.photos} />
-                
+                    </div>
                     <div className="profile-cv"> 
                         <hr />
                         <h2 className="profile-title">Relevant Experience</h2>
