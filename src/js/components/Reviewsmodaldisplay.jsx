@@ -4,6 +4,7 @@ var StarRatingComponent = require('react-star-rating-component');
 var Modal = require('react-modal');
 var $ = require('jquery');
 var ReviewsSingledisplay = require('./ReviewsSingledisplay');
+var StarRatingComponent = require('react-star-rating-component');
 /* global localStorage */
 
 
@@ -32,9 +33,9 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)',
     minHeight: '10rem',
     minWidth: '15rem',
-    width: '65%',
-    maxWidth: '30rem',
-    maxHeight: '80%'
+    width: '80%',
+    maxWidth: '50rem',
+    maxHeight: '70%'
   }
 };
 
@@ -55,6 +56,7 @@ var Reviewsmodaldisplay = React.createClass({
     this.setState({modalIsOpen: false});
   },
   render: function() {
+    var reviewScore = (this.props.profile.profileScore)/2;
     return (
       <div>
           <button className="btn btn-default profilebtn" onClick={this.openModal}>
@@ -65,9 +67,21 @@ var Reviewsmodaldisplay = React.createClass({
           onRequestClose={this.closeModal}
           style={customStyles} >
           <div className="modalreview">
-            <h3>{this.props.profile.name} </h3>
-            <h5> {this.props.profile.profileScore}/10 for {this.props.profile.profileReviews} reviews </h5>
-                 <div className="displayReviews">
+            <div className="allreviewsheader">
+              <h2>{this.props.profile.name} </h2>
+              <div className="userReviewedTitle" >
+                  <h3> {reviewScore} </h3>
+                  <div className= "totalscoreforuser">
+                    <StarRatingComponent 
+                         name="singleprofilerating" 
+                         starCount={5}
+                         value={reviewScore}
+                         editing={false} /> 
+                  </div>
+                  <div className="totalscorereview"> {this.props.profile.profileReviews} reviews </div>
+              </div>
+            </div>
+            <div className="displayReviews">
                  {this.props.reviews.map(function(review){
                      return <ReviewsSingledisplay key={review.reviewId} review = {review} />;
                  })}
