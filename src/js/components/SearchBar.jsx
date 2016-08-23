@@ -1,5 +1,4 @@
 var React = require("react");
-var SearchResults = require("./SearchResults");
 /* global localStorage */
 
 var history = require('react-router').browserHistory;
@@ -30,24 +29,27 @@ var SearchBar = React.createClass({
         return (
             
             <div className="homepagesearchbar">
-                <select ref='category' defaultValue="hairstylist">
-                    <option value="hairstylist">Hairstylist </option>
-                    <option value="make-up Artist">Make-up Artist</option>
-                    <option value="colorist">Colorist</option>
-                    <option value="stylist">Stylist</option>
-                    <option value="dualist">Dualist</option>
-                    <option value="nailartist">Nail Artist</option>
-                </select>
+                <div className="superselect">
+                    <select ref='category' defaultValue="hairstylist">
+                        <option value="hairstylist">Hairstylist </option>
+                        <option value="make-up Artist">Make-up Artist</option>
+                        <option value="colorist">Colorist</option>
+                        <option value="stylist">Stylist</option>
+                        <option value="dualist">Dualist</option>
+                        <option value="nailartist">Nail Artist</option>
+                    </select>
+                </div>
                 
                 <input type="search" ref="city" className="searchinput eqHeight" placeholder="City" />
-                
-                <select ref="filter">
-                    <option value="" disabled selected>Filter by </option>
-                    <option value="profileScore">Best profile scores </option>
-                    <option value="totalReviews">Total number of reviews</option>
-                    <option value="profileCreateAt"> Latest profiles </option>
-                </select>    
-                <button type="button" onClick={this._handleSearch} className="btn btn-secondary btn-sm eqHeight">Search</button>
+                <div className="superselect">
+                    <select ref="filter">
+                        <option value="" disabled selected>Filter by </option>
+                        <option value="profileScore">Best profile scores </option>
+                        <option value="totalReviews">Total number of reviews</option>
+                        <option value="profileCreateAt"> Latest profiles </option>
+                    </select>    
+                </div>
+                <button type="button" onClick={this._handleSearch} className="eqHeight">Search</button>
                 {this.state.searchstatus ? alert('please pick a city ') : null}
             </div>
           

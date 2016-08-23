@@ -20,7 +20,7 @@ var Galleryslider = React.createClass({
               slidesToScroll: 1,
               responsive: [
                 {
-                  breakpoint: 1024,
+                  breakpoint: 1100,
                   settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,

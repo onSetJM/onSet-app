@@ -12,7 +12,12 @@ body {
     color: #1b2b46;
 }
 .content-padding{
-    padding: 60px 120px 40px 120px;
+    /*padding: 60px 120px 40px 120px;*/
+    max-width: 850px;
+    padding: 20px;
+    margin: auto;
+    
+    
 }
 
 .vertical-paddingL{
@@ -38,20 +43,36 @@ body {
 select {
     background-color: #FFF;
 }
+.padding {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.homecontent {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homecontent > div {
+    padding: 3em;
+    background-color: rgba(255,255,255, 0.5);
+}
 /*.dropdown {*/
 /*    background-color: #FFF;*/
 /*}*/
 /* Header*/
-.headerhome {
-    background-image: url(../img/hairphoto.jpeg);
-    opacity: 0.9;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	margin: 0 auto;
-	width: 100%;
-	padding-bottom: 30%
-}
+/*.headerhome {*/
+/*    background-image: url(../img/hair_photo1.jpeg);*/
+/*    opacity: 0.95;*/
+/*	background-repeat: no-repeat;*/
+/*	background-size: cover;*/
+/*	background-position: center;*/
+/*	margin: 0 auto;*/
+/*	width: 100%;*/
+/*	padding-bottom: 30%*/
+/*}*/
 .headerother {
     background-image: url(../img/hairphoto_other.jpeg);
 	background-repeat: no-repeat;
@@ -63,7 +84,8 @@ select {
 }
 .header{
     background-color: #0e1829;
-    opacity: 0.9;
+    opacity: 0.85;
+    padding: 10px;
 }
 
 .loginoutbuttons {
@@ -77,6 +99,7 @@ select {
 .nav-link{
     margin: 8px;
 }
+
 .loginout{
     font-weight: bold;
 }
@@ -85,6 +108,10 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 40px;
+    /*align-items: flex-start;*/
+    /*padding: 40px 250px 40px 250px;*/
+    /*margin: auto;*/
 }
 .searchbar {
     margin-top: 100px;
@@ -92,6 +119,32 @@ select {
 
 .navbuttons{
     display: flex;
+}
+
+/* FORM STUFF */
+select, input, button, textarea {
+    -webkit-appearance: none; 
+    padding: 0 10px;
+    border: 1px solid #888;
+    background-color: white;
+}
+
+.superselect {
+    position: relative;
+    cursor: pointer;
+}
+.superselect::after {
+    content: "";
+    position: absolute;
+    right: 5px;
+    pointer-events: none;
+    border: 5px solid transparent;
+    border-top-color: black;
+    top: 45%;
+}
+
+.superselect > select {
+    height: 100%;
 }
 
 
@@ -116,6 +169,10 @@ select {
     font-weight: bold;
 }
  /* SEARCH RESULTS */
+.searchtitle{
+    text-align: center;
+    font-size: 1.5rem;
+}
 .singleprofilecontainer {
     display: flex;
     width: 200px;
@@ -188,7 +245,6 @@ select {
 .homepagesearchbar {
     display: flex;
     flex-direction: row;
-    width: 60%;
     justify-content: center;
 }
 .eqHeight {
@@ -293,7 +349,7 @@ select {
 }
 
 .background{
-    background-color: #cee5ea;
+    background-color: #f4f4f4;
 }
 .profilestars{
     font-size: 1.3rem;
@@ -452,9 +508,10 @@ select {
     color: #1b2b46;
 }
 
-a:hover {
+a:hover, a:link, a:visited, a:active{
     text-decoration: none;
 }
-a:active {
-    text-decoration: none;
+
+.slick-prev:before, .slick-next:before {
+    color: #1b2b46;
 }

@@ -22,7 +22,7 @@ var Home = React.createClass({
                 get the best of both worlds!</p>
             </div>
             <div className="hiresomeone vertical-paddingR">
-              <h3 className="page-subtitle">Hire Someone with onSet</h3>
+              <h3 className="page-subtitle">Hire Someone</h3>
                 <p>onSet lets you search professionals to see who’s 
                 available for extra work in your city and excelling in their field. See 
                 what each user has accomplished with their visual portfolio and full CV, 

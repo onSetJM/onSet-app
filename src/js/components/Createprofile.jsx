@@ -91,32 +91,32 @@ var Createprofile = React.createClass({
                                   <div className="profile-topform">
                                       <div className="profile-col2">
                                           <div className="profile-form-input">
-                                              Your username
+                                              <div className="bold">Your username</div>
                                               <input type='text' ref='username' className="form-input" defaultValue={profile.username}/>
                                           </div>
                                           <div className="profile-form-input">
-                                              Your Name
+                                              <div className="bold">Your Name</div>
                                               <input type='text' ref='name' className="form-input" defaultValue={profile.full_name}/>
                                           </div>
                   
                                           <div className="profile-form-input">
-                                              Email address
+                                              <div className="bold">Email address</div>
                                               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                                               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                           </div>
                                       </div>
                                       <div className="profile-col3">
                                           <div className="profile-form-input">
-                                              Enter your city
+                                              <div className="bold">Enter your city</div>
                                               <input ref="city" type="text" className="form-input" />
                                           </div>
                   
                                           <div className="profile-form-input">
-                                              Typical Availability During the Week
+                                              <div className="bold">Typical Availability During the Week</div>
                                               <input ref="availability" type="text" className="form-input" />
                                           </div>
                                           <div className="profile-form-input">
-                                              Your Area of Work
+                                              <div className="bold">Your Area of Work</div>
                                               <select ref="category">
                                                   <option value="Hairstylist">Hairstylist </option>
                                                   <option value="Make-Up Artist">Make-Up Artist</option>
@@ -133,12 +133,12 @@ var Createprofile = React.createClass({
                               <hr />
                               <div>
                                   <h4>Relevant Employment Experience</h4>
-                                  <div>Tell us more about what you specialize in.</div>
+                                  <div className="bold">Tell us more about what you specialize in.</div>
                                   <div className="profile-form-input-lg">Include here anything you'd like potential employers to know about your work and your personal strengths.</div>
                                   <textarea className="profile-form-input-lg" ref="specialities" type="text" />
-                                  <p>Employment History: What have you done that an employer should know about?</p>
+                                  <p className="bold">Employment History: What have you done that an employer should know about?</p>
                                   <input className="profile-form-input-lg" ref="employment" type="text" />
-                                  <p>Education</p>
+                                  <p className="bold">Education</p>
                                   <input className="profile-form-input-lg" ref="education" type="text" />
                                   <div className="authorize-div">
                                       <input ref="instagramauthorized" type="checkbox" />

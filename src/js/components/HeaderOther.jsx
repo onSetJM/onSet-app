@@ -10,9 +10,10 @@ var HeaderOther = React.createClass({
     render: function() {
     return (
          <div className="header-text headerother">
+         
             <Link className="header-title" to={"/"}>onSet</Link>
-            <h2>build your profile. get hired.</h2>
-            <SearchBar className="searchbar"/>
+            
+               <SearchBar className="searchbar" />
         </div>
     );
   }

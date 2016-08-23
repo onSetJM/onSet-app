@@ -1,7 +1,7 @@
 var React = require('react');
 var $ = require('jquery');
 var Singleprofileresult = require('./Singleprofileresult');
-
+var HeaderOther = require("./HeaderOther");
 var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
 
@@ -54,14 +54,17 @@ var SearchResults = React.createClass({
         }
         if(!this.state.profiles[0]){
             return (
-            <h5 className="searchnoresult"> Sorry, we can't find a {this.state.searchObj.category} in {this.state.searchObj.city}. Please try again! </h5>
+            <div>
+                <HeaderOther />
+                <h5 className="searchnoresult"> Sorry, we can't find a {this.state.searchObj.category} in {this.state.searchObj.city}. Please try again! </h5>
+            </div>
             );
         }
     return (
-        
         <div>    
+            <HeaderOther />
             <div className="content-padding">
-            <h3 className="page-main-title">Search Results</h3>
+            <h3 className="page-main-title searchtitle">Search Results</h3>
             <hr />
             <div className="all-search-results">
                  {this.state.profiles.map(function(profile){
