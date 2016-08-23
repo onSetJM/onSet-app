@@ -375,15 +375,37 @@ select {
 
  
  /*Reviews display */
+ .userReviewedTitle {
+     display:flex;
+ }
+ .userReviewedTitle h3 {
+     padding-right: 10px;
+ }
+ .totalscoreforuser {
+     font-size: 1.5rem;
+     padding-right: 10px;
+ }
  
-.singleReview {
+ .allreviewsheader {
+    border-bottom: black;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    margin-bottom: 20px;
+}
+    
+ .totalscorereview {
+     padding-top:10px;
+     font-size:1rem;
+ }
+ 
+.singleReviewContainer {
      display: flex;
      flex-direction: column;
-     background-color: #F4F4F4;
-     margin-bottom: 20px;
-     padding: 20px;
+     margin-bottom: 10px;
+     padding-bottom: 10px;
+     padding-top: 10px;
      border-radius: 8px;
-     width: 90%;
+     width: 95%;
 }
 .reviewerUsername{
     font-weight: bold;
@@ -393,6 +415,7 @@ select {
 .review-var{
     color: #4a71bc;
 }
+
 
 
 /* CONTACT US */
