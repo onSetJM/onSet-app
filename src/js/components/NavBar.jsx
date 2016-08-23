@@ -2,7 +2,7 @@ var React = require('react');
 var Login = require("./Login");
 var Logout = require("./Logout");
 var Link = require("react-router").Link;
-
+var ViewYourProfile = require("./navbuttons/ViewYourProfile");
 import AuthService from '../utils/AuthService';
 
 
@@ -16,7 +16,7 @@ var NavBar= React.createClass({
         <div className="navbuttons">
           <Link to={"/"} className="nav-btn nav-link">Home</Link>
           <Link to={"/search/hairstylist/montreal/profileScore"} className="nav-btn nav-link">Search</Link>
-          <Link to={"/createprofile"} className="nav-btn nav-link">Create Your Profile</Link>
+          <ViewYourProfile />
           <Logout auth={this.props.auth} />
         </div>
       )
