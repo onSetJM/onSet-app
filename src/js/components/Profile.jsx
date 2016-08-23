@@ -83,12 +83,7 @@ var Profile = React.createClass({
                         <div className="profile-city"><span className="profile-head-city">City:</span> {this.state.profile.city} </div>
                         
                     </div>
-                    <div className="profile-reviewinfo prof">
-                        <div className="profile-membersince"><span className="profile-header">Member Since:</span> {this.state.profile.createdAt} </div>
-                        <div className="review-avg"><span className="profile-header">Average Rating:</span> {this.state.profile.profileScore} </div>  
-                        <div className="review-total"><span className="profile-header">Total Reviews:</span> {this.state.profile.profileReviews}</div>
                     
-                    </div>
                     <div className="box-buttons prof">
                         <Reviews profile = {this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
@@ -99,18 +94,22 @@ var Profile = React.createClass({
                 <br />
                 <div className="profile-content">
                 
-                    <Galleryslider key="galleryslider" photos={this.state.photos} />
+                <Galleryslider key="galleryslider" photos={this.state.photos} />
                 
-                    <div className="profile-cv"> 
+                    <div className="profile-box content-padding">
                         <hr />
-                        <h2 className="profile-title">Relevant Experience</h2>
-                        <div className="cv-info">
-                            <h3 className="profile-header">Specialities: </h3>
-                            <p className="profile-para"> {this.state.profile.specialities} </p>
-                            <h3 className="profile-header">Previous Employment:</h3>
-                            <p className="profile-para">{this.state.profile.employment}</p>
-                            <h3 className="profile-header">Education:</h3>
-                            <p className="profile-para">{this.state.profile.education}</p>
+                        <div className="profile-cv">
+                            <div className="cv-info">
+                                <h2 className="page-subtitle">Relevant Experience</h2>
+                                <h3 className="profile-header">Specialities: </h3>
+                                <p className="profile-para"> {this.state.profile.specialities} </p>
+                                <h3 className="profile-header">Previous Employment:</h3>
+                                <p className="profile-para">{this.state.profile.employment}</p>
+                                <h3 className="profile-header">Education:</h3>
+                                <p className="profile-para">{this.state.profile.education}</p>
+                                <h2 className="page-subtitle">Member Info</h2>
+                                <p className="profile-para"><span className="profile-header">Member Since:</span> {this.state.profile.createdAt} </p>
+                            </div>
                         </div>
                     </div>
                     {this.props.children}

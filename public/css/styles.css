@@ -12,26 +12,30 @@ body {
     color: #1b2b46;
 }
 .content-padding{
-    padding: 50px;
+    padding: 60px 120px 40px 120px;
 }
-.subsection-padding{
-    padding: 15px 30px 30px 30px;
-}
+
 .vertical-paddingL{
-    padding-right: 30px;
+    padding-right: 40px;
 }
 .vertical-paddingR{
-    padding-left: 30px;
+    padding-left: 40px;
 }
 .page-main-title{
     font-size: 2.2rem;
     font-weight: bold;
     color: #1b2b46;
+    margin-bottom: 20px;
 }
 .page-subtitle{
     font-size: 2.0rem;
     color: #1b2b46;
 }
+
+.profile-box hr {
+    max-width: 100rem
+}
+
 
 /* Header*/
 .header {
@@ -78,6 +82,7 @@ body {
 /* Home page*/
 .howitworks{
     display: flex;
+    flex-wrap: wrap;
 }
 .gethired, .hiresomeone{
     flex: 1;
@@ -167,8 +172,7 @@ body {
     height: auto;
 }
 
-/* Profile Page*/
-
+/* Profile Page !!!*/
  
 .profile-info{
      display: flex;
@@ -225,12 +229,7 @@ body {
     margin-bottom: 5px;
     color: #4a71b2;
 }
-.profile-reviewinfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-}
+
 .box-buttons{
     display: flex;
     flex-direction: column;
@@ -239,38 +238,22 @@ body {
 .prof{
     padding: 10px;
 }
-/*.profile-cv{*/
-/*    margin-left: 50px;*/
-/*    margin-right: 50px;*/
-/*}*/
-.profile-cv hr {
-    max-width: 100rem;
-}
 
 .profile-para{
     font-size: 1rem;
     color: #1b2b46;
 }
-.profile-title{
-    font-size: 1.6rem;
-    color: #1b2b46;
-    font-weight: bold;
-}
-.cv-info{
-    margin-left: 20px;
-}
+
 .profile-content{
     display: flex;
     flex-direction: column;
     align-content: center;
 }
-.profile-cv{
-    margin-left: 50px;
-    margin-right: 50px;
-}
+
 /* CREATE YOUR PROFILE page */
 .authorize-div{
     display: flex;
+    align-items: center;
 }
 .auth-text{
     margin-left: 10px;
@@ -284,10 +267,7 @@ body {
     flex-direction: column;
     justify-content: center;
 }
-.profile-form-input{
-    display: flex;
-    flex-direction:column;
-}
+
 .create-profile-img {
     max-width: 200px;
     height: auto;
@@ -295,11 +275,17 @@ body {
     border: 4px solid #1b2b46;
 }
 .profile-form-input{
+    display: flex;
+    flex-direction:column;
     width: 300px;
     margin-left: 30px;
 }
-
-
+.profile-form-input-lg{
+    width: 650px;
+}
+.profile-topform{
+    display: flex;
+}
 /* Footer*/
 .footer {
     background-color: #1b2b46;

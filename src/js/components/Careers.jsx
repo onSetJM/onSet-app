@@ -33,7 +33,7 @@ var Careers = React.createClass({
         return (
             <div className="content-padding">
                 <h1 className="page-main-title">Careers</h1>
-                <div className="subsection-padding">
+                <div>
                     <h2 className="page-subtitle">Interested in joining our team? Send us an email about yourself!</h2>
                     
                     <form  className="contactusform" id="emailForm">

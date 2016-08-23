@@ -5,7 +5,7 @@ var Home = React.createClass({
     return (
       <div className="home-content content-padding">
         <h2 className="page-main-title">How It Works</h2>
-        <div className="howitworks subsection-padding">
+        <div className="howitworks">
           <div className="gethired vertical-paddingL">
             <h3 className="page-subtitle">Get Hired with onSet</h3>
               <p>onSet is built for professionals in creative trades who are looking for 
@@ -34,7 +34,7 @@ var Home = React.createClass({
         <hr />
         <br />
         <h2 className="page-main-title">Our Vision</h2>
-        <div className="ourvision subsection-padding">
+        <div className="ourvision">
           <h3 className="page-subtitle">What exactly are the “creative trades”?</h3>
             <p>When we say creative trades, we mean hairstylists, makeup artists, 
             personal stylists, costume designers, nail artists, and any other 

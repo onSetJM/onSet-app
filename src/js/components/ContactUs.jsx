@@ -34,7 +34,7 @@ var ContactUs = React.createClass({
     return (
       <div className="contact-us-container content-padding">
       <h2 className="page-main-title">Contact Us</h2> 
-      <div className="subsection-padding">
+      <div >
         <h3 className="contactus-subtitle">Have some thoughts you'd like to share with us? We'd love to hear them! 
         We'll get back to you at the email you provide as soon as possible.</h3>
         

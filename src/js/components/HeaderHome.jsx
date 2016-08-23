@@ -17,7 +17,7 @@ var Header = React.createClass({
       return (
         <div className="navbuttons">
           <Link to={"/"} className="nav-btn nav-link">Home</Link>
-          <Link to={"search/hairstylist"} className="nav-btn nav-link">Search</Link>
+          <Link to={"/search/hairstylist"} className="nav-btn nav-link">Search</Link>
           <Link to={"/createprofile"} className="nav-btn nav-link">Create Your Profile</Link>
           <Logout auth={this.props.auth} />
         </div>
