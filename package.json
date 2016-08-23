@@ -40,6 +40,7 @@
     "react-bootstrap": "^0.30.2",
     "react-dom": "^15.3.0",
     "react-modal": "^1.4.0",
+    "react-parallax": "^0.4.3",
     "react-router": "^2.6.1",
     "react-slick": "^0.13.1",
     "react-star-rating": "^1.4.2",

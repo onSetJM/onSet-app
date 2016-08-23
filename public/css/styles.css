@@ -210,8 +210,8 @@ select, input, button, textarea {
 }
 .searchnoresult{
     text-align: center;
-    padding-bottom: 40px;
-    padding-top: 40px;
+    padding-bottom: 200px;
+    padding-top: 80px;
 }
 
 .all-search-results{
