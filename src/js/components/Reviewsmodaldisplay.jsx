@@ -33,8 +33,8 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)',
     minHeight: '10rem',
     minWidth: '15rem',
-    width: '80%',
-    maxWidth: '50rem',
+    width: '85%',
+    maxWidth: '55rem',
     maxHeight: '70%'
   }
 };
