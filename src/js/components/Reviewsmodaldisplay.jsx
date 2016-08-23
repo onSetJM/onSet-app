@@ -57,7 +57,7 @@ var Reviewsmodaldisplay = React.createClass({
   render: function() {
     return (
       <div>
-          <button className="btn btn-default btn-sm profilebtn" onClick={this.openModal}>
+          <button className="btn btn-default profilebtn" onClick={this.openModal}>
               Total Reviews: {this.props.profile.profileReviews}
           </button>
         <Modal

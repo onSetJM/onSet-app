@@ -166,8 +166,7 @@ body {
  
 .profile-info{
      display: flex;
-     padding-top: 50px;
-     padding-bottom: 50px;
+     padding: 30px 80px 30px 80px;
      flex-wrap: wrap;
      background-color: #F4F4F4;
      border-top: 3px solid #aac8db;
@@ -181,10 +180,17 @@ body {
 .profile-img {
     margin-left: 20px;
     margin-top: 10px;
-    max-width: 140px;
+    max-width: 160px;
     height: auto;
     border-radius: 30px;
     border: 4px solid #1b2b46;
+}
+.carouselimg{
+    max-width: 300px;
+    height: auto;
+}
+.portfolio-padding{
+    padding: 40px 120px 0px 120px;
 }
 .profile-name {
     font-size: 2.4rem;
@@ -220,7 +226,7 @@ body {
     color: #4a71b2;
 }
 
-.box-buttons{
+.box-buttons, .profile-maininfo{
     display: flex;
     flex-direction: column;
     justify-content: center;

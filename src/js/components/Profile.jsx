@@ -90,11 +90,10 @@ var Profile = React.createClass({
                         <Createreviewmodal name={this.state.profile.name} onReviewSubmit={this._reviewSubmitted} username={this.props.params.username} />
                     </div>
                 </div>
-                <br />
-                <br />
-                
-                <Galleryslider key="galleryslider" photos={this.state.photos} />
-                
+                <div className="portfolio-padding">
+                    <h2 className="page-subtitle">Portfolio</h2>
+                    <Galleryslider key="galleryslider" photos={this.state.photos} />
+                </div>
                     <div className="profile-box content-padding">
 
                         <hr />
@@ -107,6 +106,7 @@ var Profile = React.createClass({
                                 <p className="profile-para">{this.state.profile.employment}</p>
                                 <h3 className="profile-header">Education:</h3>
                                 <p className="profile-para">{this.state.profile.education}</p>
+                        <hr />        
                                 <h2 className="page-subtitle">Member Info</h2>
                                 <p className="profile-para"><span className="profile-header">Member Since:</span> {this.state.profile.createdAt} </p>
                             </div>

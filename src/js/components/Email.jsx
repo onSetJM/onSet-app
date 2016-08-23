@@ -72,7 +72,7 @@ var Email = React.createClass({
   render: function() {
     return (
       <div className="email-container">
-         <button  className="btn btn-default btn-sm profilebtn" onClick={this.openModal}> Email {this.props.name} </button>
+         <button  className="btn btn-default profilebtn" onClick={this.openModal}> Email {this.props.name} </button>
          
          <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={customStyles}>
            <div className="modalreview">

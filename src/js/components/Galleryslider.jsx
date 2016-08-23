@@ -19,13 +19,12 @@ var Galleryslider = React.createClass({
              speed: 500,
              slidesToShow: 3,
              slidesToScroll: 1
-            
         };
         return (
             <div>
       	<Slider {...settings}>
             {this.props.photos.map(function(photo){
-                     return <div key={photo.id}> <img src={photo.url} /> </div>;
+                     return <div key={photo.id}> <img className="carouselimg" src={photo.url} /> </div>;
                  })}
         </Slider>
       </div>
