@@ -6,8 +6,24 @@ var history = require('react-router').browserHistory;
 var Link = require("react-router").Link;
 
 var SearchBar = React.createClass({
+    getInitialState: function() {
+        return {
+            searchstatus: false
+        };
+    },
     _handleSearch: function () {
-        history.push(`/search/${this.refs.category.value}/${this.refs.city.value}/${this.refs.filter.value}`);
+        var searchstatus = this.state.searchstatus;
+        if(!this.refs.city.value) {
+            this.setState({
+                searchstatus: true
+            })
+        }
+        else {
+            this.setState({
+                searchstatus: false
+            })
+            history.push(`/search/${this.refs.category.value}/${this.refs.city.value}/${this.refs.filter.value}`);
+        }
     },
     render: function(){
         var children = this.props.children && React.cloneElement(this.props.children, {searchObj: this.state.searchObj });
@@ -31,6 +47,7 @@ var SearchBar = React.createClass({
                           <option value="profileCreateAt"> Latest profiles </option>
                      </select>    
                 <button type="button" onClick={this._handleSearch} className="btn btn-secondary btn-sm eqHeight">Search</button>
+                {this.state.searchstatus ? alert('please pick a city ') : null}
             </div>
           
         );

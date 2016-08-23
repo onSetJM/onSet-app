@@ -114,8 +114,15 @@ module.exports = function OnsetAPI(conn) {
     getAllProfiles: function(options, category, city, sortingMethod, callback) {
       // In case we are called without an options parameter, shift all the parameters manually
       if (!callback) {
-        callback = options;
+        callback = sortingMethod;
         options = {};
+      }
+      if(!sortingMethod){
+        sortingMethod = "profileScore";
+      }
+      
+      if(!city){
+        city = "Montreal";
       }
       var limit = options.numPerPage || 25; // if options.numPerPage is "falsy" then use 25
       var offset = (options.page || 0) * limit;

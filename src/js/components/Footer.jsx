@@ -11,7 +11,7 @@ var Footer = React.createClass({
       <div className="footer-nav">
         <nav className="footer-profiles">
           <Link to={"/"} className="footerbuttons foot-link">Home</Link>
-          <Link to={"/search/hairstylist"} className="footerbuttons foot-link">Browse Profiles</Link>
+          <Link to={"/search/hairstylist/montreal/profileScore"} className="footerbuttons foot-link">Browse Profiles</Link>
           <ViewYourProfile className="footerbuttons">View Your Profile</ViewYourProfile>
         </nav>
         <nav className="footer-about-us">

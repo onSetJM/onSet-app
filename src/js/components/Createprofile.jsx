@@ -115,12 +115,12 @@ var Createprofile = React.createClass({
                             <div className="profile-form-input">
                                 Your Area of Work
                                 <select ref="category" >
-                                    <option value="hairstylist">Hairstylist </option>
-                                    <option value="make-up Artist">Make-up Artist</option>
-                                    <option value="colorist">Colorist</option>
-                                    <option value="stylist">Stylist</option>
-                                    <option value="dualist">Dualist</option>
-                                    <option value="nailartist">Nail Artist</option>
+                                    <option value="Hairstylist">Hairstylist </option>
+                                    <option value="Make-up artist">Make-up Artist</option>
+                                    <option value="Colorist">Colorist</option>
+                                    <option value="Stylist">Stylist</option>
+                                    <option value="Dualist">Dualist</option>
+                                    <option value="Nailartist">Nail Artist</option>
                                 </select>
                             </div>
                         </div>
