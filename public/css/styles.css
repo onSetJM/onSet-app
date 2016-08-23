@@ -35,8 +35,12 @@ body {
 .profile-box hr {
     max-width: 100rem
 }
-
-
+select {
+    background-color: #FFF;
+}
+/*.dropdown {*/
+/*    background-color: #FFF;*/
+/*}*/
 /* Header*/
 .header {
     background-image: url(../img/hairphoto.jpeg);
@@ -98,44 +102,61 @@ body {
     font-weight: bold;
 }
  /* SEARCH RESULTS */
- 
- .searchresulttitle{
-     text-align: center;
- }
- .searchnoresult{
-     text-align:center;
-     padding-bottom: 40px;
-     padding-top: 40px;
- }
+.singleprofilecontainer {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    background-color: #F4F4F4;
+    margin: 10px;
+    align-items: center;
+    border-radius: 8px;
+} 
 
- .all-search-results{
+.singleprofiletop{
+    background-color: #1b2b46;
+    border-radius: 8px;
+    color: #F4F4F4;
+}
+.toptext{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-nickname {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #F4F4F4;
+    margin-top: 15px
+}
+.searchprofilestars{
+    font-size: 1.7rem
+}
+.singleprofilebottom{
+    color: #1b2b46;
+}
+.bold{
+    font-weight: bold;
+}
+.searchnoresult{
+    text-align: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+.all-search-results{
      display: flex;
      flex-wrap: wrap;
      padding-left:50px;
      padding-right:50px;
      justify-content:center;
- }
- .singleprofilecontainer {
-     display: flex;
-     width: 220px;
-     flex-direction: column;
-     background-color: #F4F4F4;
-     margin: 10px;
-     align-items: center;
-     border-radius: 8px;
-     padding:10px;
- }
+}
+
 .searchresultimg {
-     width: 180px;
+     width: 200px;
      height: auto;
      border-radius: 8px 8px 5px 5px;
 }
-.profile-nickname {
-    font-weight: bold;
-    background-color: #d9d9dd;
-    width: 220px;
-    color: #1b2b46;
-}
+
 .profilename {
     font-weight: bold;
     color: #1b2b46;
@@ -166,11 +187,10 @@ body {
  
 .profile-info{
      display: flex;
-     padding: 30px 80px 30px 80px;
+     padding: 30px 180px 30px 120px;
      flex-wrap: wrap;
-     background-color: #F4F4F4;
-     border-top: 3px solid #aac8db;
-     justify-content: space-around;
+     background-color: #1b2b46;
+     /*border-top: 5px solid #000;*/
  }
 .profile-headers{
     font-size: 1rem;
@@ -178,36 +198,38 @@ body {
     color: #1b2b46;
 }
 .profile-img {
-    margin-left: 20px;
     margin-top: 10px;
     max-width: 160px;
     height: auto;
     border-radius: 30px;
-    border: 4px solid #1b2b46;
+    border: 4px solid #f4f4f4;
+    margin-right: 30px;
 }
 .carouselimg{
     max-width: 300px;
     height: auto;
 }
+
 .portfolio-padding{
-    padding: 40px 120px 0px 120px;
+    padding: 40px 120px 40px 120px;
 }
 .profile-name {
     font-size: 2.4rem;
     font-weight: bold;
-    color: #1b2b46;
+    color: #f4f4f4;
 }
 .profile-category{
     font-size: 1.3rem;
     font-weight: bold;
-    color: #4a71b2;
+    color: #FFF;
 }
+
 .profile-city{
-    color: #4a71b2;
+    color: #FFF;
     font-size: 1.3rem;
 }
 .profile-head-city{
-    color: #1b2b46;
+    color: #f4f4f4;
     font-size: 1.4rem;
     font-weight: bold;
 }
@@ -224,12 +246,21 @@ body {
     background-color: #FFF;
     margin-bottom: 5px;
     color: #4a71b2;
+    width: 180px;
+    font-weight: bold;
 }
 
-.box-buttons, .profile-maininfo{
+.profile-maininfo{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.box-buttons{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    justify-content: center;
+    align-items: flex-end;
 }
 .prof{
     padding: 10px;
@@ -244,6 +275,10 @@ body {
     display: flex;
     flex-direction: column;
     align-content: center;
+}
+
+.background{
+    background-color: #cee5ea;
 }
 
 /* CREATE YOUR PROFILE page */
@@ -372,4 +407,11 @@ body {
 .btn-blue{
     background-color: #c4dee1;
     color: #1b2b46;
+}
+
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
 }

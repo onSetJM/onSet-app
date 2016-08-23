@@ -10,34 +10,28 @@ var Singleprofileresult = React.createClass({
         var url = "/profile/" + this.props.profile.username;
         var score = (this.props.profile.profileScore)/2
         return (
-            <div className="singleprofilecontainer">
-                <Link to={url}>
-                <img className="searchresultimg" src={this.props.profile.profile_pic}/>
-                </Link>
-                <div className="singleprofiletext">
-                    <div className="profilename">
-                        <Link to={url}>
-                            <p className="profile-nickname">{this.props.profile.name}</p>
-                        </Link>
-                        
-                        <div>
-                        <StarRatingComponent 
-                         name="singleprofilerating" 
-                         starCount={5}
-                         value={score}
-                         editing={false} />
-                         </div>
-                         <div> ({score}) </div>
+            <Link to={url}>
+                <div className="singleprofilecontainer">
+                    <div className="singleprofiletop">
+                        <img className="searchresultimg" src={this.props.profile.profile_pic}/>
+                        <div className="toptext">
+                            <h4 className="profile-nickname">{this.props.profile.name}</h4>
+                            <StarRatingComponent className="searchprofilestars"
+                                 name="singleprofilerating" 
+                                 starCount={5}
+                                 value={score}
+                                 editing={false} />
+                        </div>
                     </div>
+                   
                     <div className="profile-details">
-                        
-                        <div><strong>{this.props.profile.profileCategory} </strong> </div>
-                        <div><strong>{this.props.profile.city} </strong>  </div>
-                        <div><strong>Speciality:</strong> </div>
-                        <div><p> {this.props.profile.specialities} </p> </div>
+                        <div className="singleprofilebottom bold">{(this.props.profile.profileCategory).toUpperCase()}</div>
+                        <div className="singleprofilebottom bold">{this.props.profile.city}</div>
+                        <div className="singleprofilebottom bold">Speciality:</div>
+                        <div className="singleprofilebottom">{this.props.profile.specialities} </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         );
     }
 });

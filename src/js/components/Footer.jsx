@@ -7,7 +7,6 @@ var Footer = React.createClass({
   render: function() {
     return (
       <div className="footer">
-      <hr />
       <div className="footer-nav">
         <nav className="footer-profiles">
           <Link to={"/"} className="footerbuttons foot-link">Home</Link>
@@ -30,7 +29,6 @@ var Footer = React.createClass({
           </div>
         </nav>
       </div>
-      <hr />
       </div>
     );
   }

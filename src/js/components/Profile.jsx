@@ -83,18 +83,16 @@ var Profile = React.createClass({
                         <div className="profile-city"><span className="profile-head-city">City:</span> {this.state.profile.city} </div>
                         
                     </div>
-                    
                     <div className="box-buttons prof">
                         <Reviews profile = {this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
                         <Createreviewmodal name={this.state.profile.name} onReviewSubmit={this._reviewSubmitted} username={this.props.params.username} />
                     </div>
                 </div>
-                <div className="portfolio-padding">
+                <div className="portfolio-padding background">
                     <h2 className="page-subtitle">Portfolio</h2>
                     <Galleryslider key="galleryslider" photos={this.state.photos} />
-                </div>
-                    <div className="profile-box content-padding">
+                    <div className="profile-box">
 
                         <hr />
                         <div className="profile-cv">
@@ -112,6 +110,7 @@ var Profile = React.createClass({
                             </div>
                         </div>
                     </div>
+                </div>
                     {this.props.children}
                 
             </div>
