@@ -383,7 +383,7 @@ select, input, button, textarea {
 .profile-form-input{
     display: flex;
     flex-direction:column;
-    width: 300px;
+    width: 250px;
     margin-left: 30px;
 }
 .profile-form-input-lg{
