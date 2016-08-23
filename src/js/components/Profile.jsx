@@ -12,6 +12,7 @@ var Galleryslider = require('./Galleryslider');
 var Createreviewmodal = require('./Createreviewmodal');
 var Email = require("./Email");
 var Reviews = require("./Reviews");
+var StarRatingComponent = require('react-star-rating-component');
 
 
 var Profile = React.createClass({
@@ -70,47 +71,58 @@ var Profile = React.createClass({
         }
         var url = "/profile/" + this.props.params.username + "/reviews";
         console.log(this.state, "THIS IS THE FINAL STATE");
+        var score = (this.state.profile.profileScore)/2;
     return (
-        
+            
             <div className="profile-container">
                 <div className="profile-info" >
-                    <div className="profile-img-container col-md-2">
+                    <div className="profile-img-container prof">
                         <img className="profile-img" src={this.state.profile.profile_pic}/>
                     </div>
-                    <div className="profile-maininfo col-md-6">
+                    <div className="profile-maininfo prof">
                         <div className="profile-name"> {this.state.profile.name}</div>
+                        
                         <div className="profile-category"> {(this.state.profile.profileCategory).toUpperCase()} </div>
-                        <div className="profile-city"><span className="profile-headers">City:</span> {this.state.profile.city} </div>
-                        <div className="profile-membersince"><span className="profile-headers">Member of onSet since:</span> {this.state.profile.createdAt} </div>
-                        <div className="review-info"><span className="profile-headers">Average Rating:</span> {this.state.profile.profileScore}   
-                            <span className="profile-headers">   Total Reviews:</span> {this.state.profile.profileReviews}</div>
+                        <div className="profile-city"><span className="profile-head-city">City:</span> {this.state.profile.city} </div>
+                        
+                        <StarRatingComponent 
+                         name="singleprofilerating" 
+                         starCount={5}
+                         value={score}
+                         editing={false} /> 
+                         <h4> {score} </h4>
                     </div>
-                    <div className="box-buttons col-md-4">
-                        <Reviews profile = {this.state.profile}/>
+                    
+                    <div className="box-buttons prof">
+                        <Reviews profile = {this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
                         <Createreviewmodal name={this.state.profile.name} onReviewSubmit={this._reviewSubmitted} username={this.props.params.username} />
                     </div>
                 </div>
-                <br />
-                <br />
-                <div className="profile-content">
-                
+                <div className="portfolio-padding">
+                    <h2 className="page-subtitle">Portfolio</h2>
                     <Galleryslider key="galleryslider" photos={this.state.photos} />
-                
-                    <div className="profile-cv"> 
+                </div>
+                    <div className="profile-box content-padding">
+
                         <hr />
-                        <h2 className="profile-title">Relevant Experience</h2>
-                        <div className="cv-info">
-                            <h3 className="profile-header">Specialities: </h3>
-                            <p className="profile-para"> {this.state.profile.specialities} </p>
-                            <h3 className="profile-header">Previous Employment:</h3>
-                            <p className="profile-para">{this.state.profile.employment}</p>
-                            <h3 className="profile-header">Education:</h3>
-                            <p className="profile-para">{this.state.profile.education}</p>
+                        <div className="profile-cv">
+                            <div className="cv-info">
+                                <h2 className="page-subtitle">Relevant Experience</h2>
+                                <h3 className="profile-header">Specialities: </h3>
+                                <p className="profile-para"> {this.state.profile.specialities} </p>
+                                <h3 className="profile-header">Previous Employment:</h3>
+                                <p className="profile-para">{this.state.profile.employment}</p>
+                                <h3 className="profile-header">Education:</h3>
+                                <p className="profile-para">{this.state.profile.education}</p>
+                        <hr />        
+                                <h2 className="page-subtitle">Member Info</h2>
+                                <p className="profile-para"><span className="profile-header">Member Since:</span> {this.state.profile.createdAt} </p>
+                            </div>
                         </div>
                     </div>
                     {this.props.children}
-                </div>
+                
             </div>
     );
   }

@@ -55,12 +55,10 @@ var Reviewsmodaldisplay = React.createClass({
     this.setState({modalIsOpen: false});
   },
   render: function() {
-    console.log(this.props.reviews, "hi from modal reviews");
-    console.log(this.props.profile, "hi from modal profile");
     return (
       <div>
           <button className="btn btn-default profilebtn" onClick={this.openModal}>
-              TotalReviews: {this.props.profile.profileReviews}
+              Total Reviews: {this.props.profile.profileReviews}
           </button>
         <Modal
           isOpen={this.state.modalIsOpen}

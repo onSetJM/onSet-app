@@ -8,11 +8,7 @@ var Logout = React.createClass({
     var  auth = this.props.auth;
     
     return (
-      <div>
-        <ButtonToolbar>
-             <Button onClick={function() {auth.logout()}}>Logout</Button>
-        </ButtonToolbar>
-      </div>
+      <Button className="nav-btn loginout"  onClick={function() {auth.logout()}}>Logout</Button>
     )
     }
 });

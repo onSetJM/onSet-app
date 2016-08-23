@@ -1,32 +1,66 @@
 
+/* SITE WIDE*/
+
+body {
+    margin: 0;
+    font-family: "helvetica neue", helvetica, arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+.header-title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1b2b46;
+}
+.content-padding{
+    padding: 60px 120px 40px 120px;
+}
+
+.vertical-paddingL{
+    padding-right: 40px;
+}
+.vertical-paddingR{
+    padding-left: 40px;
+}
+.page-main-title{
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #1b2b46;
+    margin-bottom: 20px;
+}
+.page-subtitle{
+    font-size: 2.0rem;
+    color: #1b2b46;
+}
+
+.profile-box hr {
+    max-width: 100rem
+}
+
+
 /* Header*/
 .header {
     background-image: url(../img/hairphoto.jpeg);
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: cover;
 	background-position: center;
 	margin: 0 auto;
 	width: 100%;
 	padding-bottom: 30%
 }
-.onset-title{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #1b2b46;
-}
+
 .loginoutbuttons {
     display: flex;
     justify-content: flex-end;
 }
-.header h1 {
-    /*text-align: center;*/
-    color: #0d1b30;
-    font-weight: bold;
+.nav-btn{
+    color: #1b2b46;
+    background: transparent;
 }
-.header h2 {
-    /*text-align: center;*/
-    color: #152a4c;
+.nav-link{
+    margin: 8px;
+}
+.loginout{
+    font-weight: bold;
 }
 .header-text{
     display: flex;
@@ -48,21 +82,15 @@
 /* Home page*/
 .howitworks{
     display: flex;
+    flex-wrap: wrap;
 }
-.hiresomeone, .gethired, .ourvision {
-    margin: 10px;
-}
-.home-content{
-    margin-left: 10px
-}
-.home-content h2 {
-    font-weight: bold;
+.gethired, .hiresomeone{
+    flex: 1;
 }
 
+
 /* FAQ */
-.faq p, h3{
-    margin: 10px;
-}
+
 .faq {
     margin-left: 10px;
 }
@@ -74,13 +102,18 @@
  .searchresulttitle{
      text-align: center;
  }
+ .searchnoresult{
+     text-align:center;
+     padding-bottom: 40px;
+     padding-top: 40px;
+ }
 
  .all-search-results{
      display: flex;
      flex-wrap: wrap;
      padding-left:50px;
      padding-right:50px;
-     align-items:center;
+     justify-content:center;
  }
  .singleprofilecontainer {
      display: flex;
@@ -93,7 +126,7 @@
      padding:10px;
  }
 .searchresultimg {
-     width: 220px;
+     width: 180px;
      height: auto;
      border-radius: 8px 8px 5px 5px;
 }
@@ -101,13 +134,17 @@
     font-weight: bold;
     background-color: #d9d9dd;
     width: 220px;
-    height: 50px;
-    text-align: center;
-    border-radius: 0px 0px 5px 5px;
     color: #1b2b46;
+}
+.profilename {
+    font-weight: bold;
+    color: #1b2b46;
+    background-color: #d9d9dd;
+    text-align: center;
 }
 
 .profile-details {
+    text-align: center;
     font-size: 15px;
     margin: 15px;
 }
@@ -124,30 +161,18 @@
 }
 
 
-/* Galley photos*/
-.gallerydisplay {
-    display: flex;
-    flex-wrap: wrap;
-}
 
-.singlephoto {
-    max-width: 100px;
-    height: auto;
-}
-
-/* Profile Page*/
-
+/* Profile Page !!!*/
  
 .profile-info{
      display: flex;
-     padding-top: 50px;
-     padding-bottom: 50px;
+     padding: 30px 80px 30px 80px;
      flex-wrap: wrap;
      background-color: #F4F4F4;
      border-top: 3px solid #aac8db;
+     justify-content: space-around;
  }
 .profile-headers{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
     font-weight: bold;
     color: #1b2b46;
@@ -155,27 +180,46 @@
 .profile-img {
     margin-left: 20px;
     margin-top: 10px;
-    max-width: 140px;
+    max-width: 160px;
     height: auto;
     border-radius: 30px;
     border: 4px solid #1b2b46;
 }
+.carouselimg{
+    max-width: 300px;
+    height: auto;
+}
+
+.portfolio-padding{
+    padding: 40px 120px 0px 120px;
+}
 .profile-name {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: bold;
     color: #1b2b46;
 }
 .profile-category{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #4a71b2;
 }
-.profile-city, .profile-membersince, review-info{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.profile-city{
     color: #4a71b2;
-    font-size: 1rem;
+    font-size: 1.3rem;
+}
+.profile-head-city{
+    color: #1b2b46;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.profile-header{
+    color: #1b2b46;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.profile-membersince, .review-avg, .review-total{
+    color: #4a71b2;
+    font-size: 1.2rem;
 }
 .profilebtn{
     background-color: #FFF;
@@ -183,54 +227,44 @@
     color: #4a71b2;
 }
 
-/*.profile-cv{*/
-/*    margin-left: 50px;*/
-/*    margin-right: 50px;*/
-/*}*/
-.profile-cv hr {
-    max-width: 100rem;
+.box-buttons, .profile-maininfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.profile-header{
-    color: #4a71b2;
-    font-size: 1.4rem;
-    font-weight: bold;
+.prof{
+    padding: 10px;
 }
+
 .profile-para{
     font-size: 1rem;
     color: #1b2b46;
 }
-.profile-title{
-    font-size: 1.6rem;
-    color: #1b2b46;
-    font-weight: bold;
-}
-.cv-info{
-    margin-left: 20px;
-}
+
 .profile-content{
     display: flex;
     flex-direction: column;
     align-content: center;
 }
-.profile-cv{
-    margin-left: 50px;
-    margin-right: 50px;
-}
+
 /* CREATE YOUR PROFILE page */
 .authorize-div{
     display: flex;
+    align-items: center;
 }
 .auth-text{
     margin-left: 10px;
 }
-.createyourprofile-container{
-    margin: 20px;
-}
 .create-profile-flex{
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
-    /*justify-content: space-around;*/
 }
+.profile-col1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .create-profile-img {
     max-width: 200px;
     height: auto;
@@ -238,31 +272,36 @@
     border: 4px solid #1b2b46;
 }
 .profile-form-input{
+    display: flex;
+    flex-direction:column;
     width: 300px;
     margin-left: 30px;
 }
-
-
+.profile-form-input-lg{
+    width: 650px;
+}
+.profile-topform{
+    display: flex;
+}
 /* Footer*/
 .footer {
     background-color: #1b2b46;
 }
 .footer-nav{
     display: flex;   
-    flex-direction: row;
     justify-content: space-around;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 30px 50px 30px 20px;
     color: #FFF;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
-.footer-title{
-    /*font-size: 1.3rem;*/
-    font-weight: bold;
+.footer-profiles, .footer-connect, .footer-about-us{
+   display: flex;
+   flex-direction: column;
 }
-.footer ul {
-    list-style-type: none;
-}
+.foot-link{
+    margin-left: 15px;
+} 
+
 .footer a:link {
     color: #FFF;
 }
@@ -280,27 +319,18 @@
     color: #AEDDF5;
     text-decoration:none; 
 }
-.socialmediaicons {
+.view-btn{
+    color: #FFF;
+    background-color: #1b2b46;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.3rem;
+}
+.socialmediaicons{
     display: flex;
 }
-.socialmediaicons li{
+.fa {
     margin-right: 20px;
 }
-
-
-/* What is the code below for? There's a footer section above this. Not sure what it's doing*/
-/* Footer*/
-/*.container {*/
-/*  margin: 0 auto;*/
-/*  width: 100%;*/
-/*  color: #333;*/
-/*  background: #a3aab5;*/
-/*}*/
-/*.gallery {*/
-/*  display: flex;*/
-/*  background: #a3aab5;*/
-/*}*/
-
 
  
  /*Reviews display */
@@ -329,22 +359,21 @@
 
 /* CONTACT US */
 .contact-us-container{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #1b2b46;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
 }
 .contactusform{
-    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin-top: 30px;
 }
-.contactus-title{
-    color: #1b2b46;
-    font-weight: bold;
-    font-size: 1.8rem;
-}
+
 .contactus-subtitle{
     color: #1b2b46; 
-    font-size: 1.5rem;
-    
+    font-size: 1.3rem;
+}
+
+.btn-blue{
+    background-color: #c4dee1;
+    color: #1b2b46;
 }

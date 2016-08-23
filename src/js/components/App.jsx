@@ -1,4 +1,4 @@
-var Header = require('./Header');
+var HeaderHome = require('./HeaderHome');
 var Footer = require('./Footer');
 var React = require('react');
 var Login = require("./Login");
@@ -31,7 +31,7 @@ var App = React.createClass({
     }
         return (
           <div className="app-maincomponent">
-            <Header auth={this.props.route.auth} loggedIn={this.state.loggedIn} />
+            <HeaderHome auth={this.props.route.auth} loggedIn={this.state.loggedIn} />
                 {children}
             <Footer />
           </div>

@@ -30,7 +30,7 @@ var Reviews = React.createClass({
   },
   render: function() {
       if (!this.state.reviews) {
-            return <div>LOADING FOLLOWERS...</div>;
+            return <div>Loading</div>;
         }
     return (
       <div>
