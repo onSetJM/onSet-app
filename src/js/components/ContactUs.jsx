@@ -28,8 +28,7 @@ var ContactUs = React.createClass({
     _handleSubmit: function(e) {
         e.preventDefault();
         this._sendData();
-        // history.push("/contactus");
-        alert("Thanks for your email!");
+        history.push("/");
     },
     render: function() {
     return (

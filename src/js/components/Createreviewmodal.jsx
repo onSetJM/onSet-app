@@ -73,14 +73,16 @@ var Createreviewmodal = React.createClass({
             data: reviewObj,
             type: 'POST',
             success: function(result) {
-                console.log("This is the result" + result);
+              
+                that.props.onReviewSubmit();
+                console.log("This is the result KJHGKJHVKJHHJ");
             },
             error: function() {
               console.log('this is the ajax error');      
             }
         });
         this.setState({modalIsOpen: false})
-        this.props.onReviewSubmit();
+       
     },
     componentDidMount: function() {
       var that = this;

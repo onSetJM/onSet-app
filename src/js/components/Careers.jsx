@@ -1,6 +1,7 @@
 var React = require("react");
 var $ = require("jquery");
 var HeaderOther = require("./HeaderOther");
+var history = require('react-router').browserHistory;
 
 var Careers = React.createClass({
     getInitialState: function(){
@@ -27,8 +28,7 @@ var Careers = React.createClass({
     _handleSubmit: function(e) {
         e.preventDefault();
         this._sendData();
-        // history.push("/contactus");
-        alert("Thanks for your email!");
+        history.push("/");
     },
     render: function() {
         return (

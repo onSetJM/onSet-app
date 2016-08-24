@@ -28,7 +28,8 @@ var NavBar= React.createClass({
 
           <Link to={!this.state.username ? "/createprofile": "/editprofile/"+this.state.username} className="nav-btn nav-link">{!this.state.username ? "Create your profile": "Edit your profile"}</Link>
 
-          <ViewYourProfile />
+          
+          {!this.state.username ? null: <ViewYourProfile />} 
 
           <Logout auth={this.props.auth} />
         </div>

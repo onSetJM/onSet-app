@@ -14,11 +14,14 @@ var Email = require("./Email");
 var Reviews = require("./Reviews");
 var StarRatingComponent = require('react-star-rating-component');
 var moment = require('moment');
+var Reviewsmodaldisplay = require('./Reviewsmodaldisplay');
 
 
 var Profile = React.createClass({
     getInitialState: function() {
-        return {};
+        return {
+            reviews: []
+        };
     },
     fetchData: function() {
         var that = this;
@@ -29,6 +32,7 @@ var Profile = React.createClass({
             type: 'POST',
             success: function(result) {
                 console.log(result, "this is the result of profile AJAX");
+                that._fetchReviews(result.profile);
                 that.setState({
                  profile: result.profile
                 });
@@ -47,6 +51,26 @@ var Profile = React.createClass({
               console.log('this is the ajax error');      
             }
         });
+            },
+            error: function() {
+              console.log('this is the ajax error');      
+            }
+        });
+        
+        
+        
+  },
+  _fetchReviews: function(profile) {
+      var that = this;
+       $.ajax({           
+            url: '/reviews', 
+            data: {profileusername: profile.username},
+            type: 'POST',
+            success: function(result) {
+                console.log(result.reviews, "this is the review object");
+                that.setState({
+                 reviews:result.reviews
+                });
             },
             error: function() {
               console.log('this is the ajax error');      
@@ -100,9 +124,9 @@ var Profile = React.createClass({
                         
                     </div>
                     <div className="box-buttons prof">
-                        <Reviews profile = {this.state.profile} />
+                         <Reviewsmodaldisplay reviews= {this.state.reviews} profile={this.state.profile} />
                         <Email username={this.props.params.username} name={this.state.profile.name} />
-                        <Createreviewmodal name={this.state.profile.name} onReviewSubmit={this._reviewSubmitted} username={this.props.params.username} />
+                        <Createreviewmodal  name={this.state.profile.name} onReviewSubmit={this._reviewSubmitted} username={this.props.params.username} />
                     </div>
                 </div>
                 </div>

@@ -10,28 +10,32 @@ var Home = React.createClass({
           <h2 className="page-main-title">How It Works</h2>
           <div className="howitworks">
             <div className="gethired vertical-paddingL">
+              <i className="fa fa-scissors fahowitworks" aria-hidden="true"></i>
               <h3 className="page-subtitle">Get Hired with onSet</h3>
+                
                 <p>onSet is built for professionals in creative trades who are looking for 
                 freelance work and to network in their field. 
-                If you’re looking to be hired, start by creating a profile, which can be 
-                linked to your Instagram account to include a visual portfolio. 
-                Personalize your account as much as you like and you’re good to go! It’s as simple as that.</p>
+                If you’re looking to be hired, start by creating a profile and
+                link it to your Instagram account to include a visual portfolio. 
+                Personalize your account and you’re good to go! It’s as simple as that.</p>
           
                 <p>We know a CV doesn't capture what you're really capable of and 
                 no one carries around a physical portfolio anymore. With onSet you 
                 get the best of both worlds!</p>
             </div>
             <div className="hiresomeone vertical-paddingR">
+              <i className="fa fa-check-square-o fahowitworks" aria-hidden="true"></i> 
               <h3 className="page-subtitle">Hire Someone</h3>
+                
                 <p>onSet lets you search professionals to see who’s 
                 available for extra work in your city and excelling in their field. See 
                 what each user has accomplished with their visual portfolio and full CV, 
-                to feel confident you’re hiring one of the best!
+                to feel confident you’re hiring one of the best! </p>
           
-                Be sure to check out the each artist's reviews to ensure you're connecting with someone
+                <p> Check out each artist's reviews to ensure you're connecting with someone
                 who will be a good fit. If you're interested in collaborating with someone, 
                 just click the “Connect” button on their profile. You’ll have to sign in 
-                with either Google or Instagram but, don’t worry, it's just two clicks! </p>
+                with either Google or Instagram! </p>
             </div>
           </div>
           <hr />

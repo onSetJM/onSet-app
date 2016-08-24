@@ -84,7 +84,7 @@ var Createprofile = React.createClass({
                       <hr />
                       <h4>The Basics</h4>
                       <div className="create-profile-form">
-                          <form id="reviewForm" onSubmit={this._handleSubmit}>
+                          <form id="reviewForm" >
                               <div className="create-profile-flex">
                                   <div className="profile-col1">
                                       <img className="create-profile-img" src={profile.profile_pic} />
@@ -131,6 +131,7 @@ var Createprofile = React.createClass({
                               </div>
                               <br />
                               <hr />
+<<<<<<< HEAD
                             <div>
                                 <h4>Relevant Employment Experience</h4>  
                                 <div className="cform">
@@ -157,6 +158,7 @@ var Createprofile = React.createClass({
                                         <button className="btn btn-danger foot-link" onClick={this._handleDelete}>Delete your profile!</button>
                                     </div>
                             </div>
+
                           </form>
                       </div>
                       
