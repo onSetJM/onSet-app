@@ -97,7 +97,7 @@ var Email = React.createClass({
                 <label htmlFor="emailtext">Describe the services that you need  </label>
                 <textarea className="form-control" ref="msg" id="exampleTextarea" rows="3"></textarea>
 
-               <button  className="btn btn-default btn-sm profilebtn" onClick={this._handleSubmit}> Send an email !</button>
+               <button  className="btn btn-default btn-sm btn-blue cform" onClick={this._handleSubmit}> Send an email !</button>
              </form>
            </div>
          </Modal>

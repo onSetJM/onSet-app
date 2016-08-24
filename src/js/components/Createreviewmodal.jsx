@@ -131,7 +131,7 @@ var Createreviewmodal = React.createClass({
             <div className="form-group">
                 <textarea className="form-control" ref="reviewText" id="exampleTextarea" rows="3" placeholder="Review message"></textarea>
             </div>
-            <button className="btn btn-default btn-sm profilebtn">Submit your review!</button>
+            <button className="btn btn-default btn-sm btn-blue">Submit your review!</button>
 
           </form>
           </div>

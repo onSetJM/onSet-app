@@ -79,6 +79,7 @@ var Profile = React.createClass({
         var date = moment(this.state.profile.createdAt).format('MMMM Do YYYY');
     return (
             <div className="profile-container">
+            <div className="profile-topbar">
                 <div className="profile-info" >
                     <div className="profile-img-container prof">
                         <img className="profile-img" src={this.state.profile.profile_pic}/>
@@ -104,28 +105,39 @@ var Profile = React.createClass({
                         <Createreviewmodal name={this.state.profile.name} onReviewSubmit={this._reviewSubmitted} username={this.props.params.username} />
                     </div>
                 </div>
+                </div>
+                
                 <div className="portfolio-padding background">
-                    <h2 className="page-subtitle">Portfolio</h2>
+                    <div className="center">
+                        <h2 className="page-subtitle port-title">Portfolio</h2>
+                    </div>
                     <Galleryslider key="galleryslider" photos={this.state.photos} />
                     <div className="profile-box">
-
-                        <hr />
-                        <div className="profile-cv">
-                            <div className="cv-info">
-                                <h2 className="page-subtitle">Relevant Experience</h2>
-                                <h3 className="profile-header">Specialities: </h3>
+                        
+                        <div className="cv-info content-padding">
+                            <hr />
+                            <h2 className="page-subtitle prof-spacing">Relevant Experience</h2>
+                            
+                            <div className="prof-space">
+                                <h3 className="profile-header content-green">Specialities: </h3>
                                 <p className="profile-para"> {this.state.profile.specialities} </p>
-                                <h3 className="profile-header">Previous Employment:</h3>
-                                <p className="profile-para">{this.state.profile.employment}</p>
-                                <h3 className="profile-header">Education:</h3>
-                                <p className="profile-para">{this.state.profile.education}</p>
-                        <hr />        
-                                <h2 className="page-subtitle">Member Info</h2>
-                                <p className="profile-para"><span className="profile-header">Member Since:</span> {date} </p>
                             </div>
+                            <div className="prof-space">
+                                <h3 className="profile-header content-green">Previous Employment:</h3>
+                                <p className="profile-para">{this.state.profile.employment}</p>
+                            </div>
+                            <div>
+                                <h3 className="profile-header content-green">Education:</h3>
+                                <p className="profile-para">{this.state.profile.education}</p>
+                            </div>
+                            <hr />        
+                            
+                            <h2 className="page-subtitle prof-spacing">Member Info</h2>
+                            <h3 className="profile-header content-green">Member Since:</h3> 
+                            <p className="profile-para">{date} </p>
+                        </div>
                         </div>
                     </div>
-                </div>
                     {this.props.children}
             </div>
     );

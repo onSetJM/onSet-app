@@ -92,7 +92,7 @@ var Createprofile = React.createClass({
                                   <div className="profile-topform">
                                       <div className="profile-col2">
                                           <div className="profile-form-input">
-                                              <div className="bold">Your username</div>
+                                              <div className="bold ">Your username</div>
                                               <input type='text' ref='username' className="form-input" defaultValue={profile.username} disabled/>
                                           </div>
                                           <div className="profile-form-input">
@@ -101,9 +101,8 @@ var Createprofile = React.createClass({
                                           </div>
                   
                                           <div className="profile-form-input">
-                                              <div className="bold" >Email address</div>
+                                              <div className="bold">Email address</div>
                                               <input type="email" ref='email' class="form-control" defaultValue={profile.email} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                           </div>
                                       </div>
                                       <div className="profile-col3">
@@ -113,7 +112,7 @@ var Createprofile = React.createClass({
                                           </div>
                   
                                           <div className="profile-form-input">
-                                              <div className="bold" >Typical Availability During the Week</div>
+                                              <div className="bold" >Typical Availability</div>
                                               <input ref="availability" defaultValue={profile.availability} type="text" className="form-input" />
                                           </div>
                                           <div className="profile-form-input">
@@ -132,26 +131,35 @@ var Createprofile = React.createClass({
                               </div>
                               <br />
                               <hr />
-                              <div>
-                                  <h4>Relevant Employment Experience</h4>
-                                  <div className="bold">Tell us more about what you specialize in.</div>
-                                  <div className="profile-form-input-lg">Include here anything you'd like potential employers to know about your work and your personal strengths.</div>
-                                  <textarea className="profile-form-input-lg" ref="specialities" defaultValue={profile.specialities} type="text" />
-                                  <p>Employment History: What have you done that an employer should know about?</p>
-                                  <textarea className="profile-form-input-lg" ref="employment" defaultValue={profile.employment} type="text" />
-                                  <p>Education</p>
-                                  <textarea className="profile-form-input-lg" ref="education" type="text" defaultValue={profile.education} />
-                                  <div className="authorize-div">
-                                      <input ref="instagramauthorized" type="checkbox" />
-                                      <p className="profile-form-input-lg auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>
-                                  </div>
-                  
-                                  <br />
-                                  <button className="btn btn-default active btn-blue">Edit your profile !</button>
-                              </div>
+                            <div>
+                                <h4>Relevant Employment Experience</h4>  
+                                <div className="cform">
+                                    <div className="bold">Tell us more about what you specialize in.</div>
+                                    <p className="profile-form-input-lg">Include here anything you'd like potential employers to know about your work.</p>
+                                    <textarea className="profile-form-input-lg" ref="specialities" defaultValue={profile.specialities} type="text" />
+                                </div>
+                                <div className="cform">
+                                    <p>Employment History: What have you done that an employer should know about?</p>
+                                    <textarea className="profile-form-input-lg" ref="employment" defaultValue={profile.employment} type="text" />
+                                </div>
+                                <div className="cform">
+                                    <p>Education</p>
+                                    <textarea className="profile-form-input-lg" ref="education" type="text" defaultValue={profile.education} />
+                                </div>
+                                    <div className="authorize-div">
+                                        <input ref="instagramauthorized" className="checkbox" type="checkbox" />
+                                        <p className="profile-form-input-lg auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>
+                                    </div>
+                      
+                                    <br />
+                                    <div className="prof-btn">
+                                        <button className="btn btn-default active btn-blue">Edit your profile!</button>
+                                        <button className="btn btn-danger foot-link" onClick={this._handleDelete}>Delete your profile!</button>
+                                    </div>
+                            </div>
                           </form>
                       </div>
-                      <button className="btn btn-danger" onClick={this._handleDelete}>Delete your profile !</button>
+                      
                   </div>
             );
         }

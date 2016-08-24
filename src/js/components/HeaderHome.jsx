@@ -7,6 +7,9 @@ var Link = require("react-router").Link;
 var Parallax = require('react-parallax').Parallax;
 
 var HeaderHome = React.createClass({
+    componentDidMount: function() {
+      setTimeout(function() {window.scrollBy(0, 1);}, 0);
+    },
     render: function() {
     return (
           <div>

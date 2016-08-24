@@ -6,6 +6,7 @@ body {
     font-family: "helvetica neue", helvetica, arial, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+
 .header-title{
     font-size: 2.5rem;
     font-weight: bold;
@@ -52,7 +53,9 @@ select {
     justify-content: center;
     align-items: center;
 }
-
+.content-green{
+    color: #73C2C2;
+}
 .homecontent > div {
     padding: 3em;
     background-color: rgba(255,255,255, 0.5);
@@ -120,7 +123,8 @@ select {
 }
 
 /* FORM STUFF */
-select, input, button, textarea {
+/*select, input, button, textarea {*/
+.searchbarheader{
     -webkit-appearance: none; 
     padding: 0 10px;
     border: 1px solid #888;
@@ -168,7 +172,7 @@ select, input, button, textarea {
     width: 200px;
     flex-direction: column;
     background-color: #F4F4F4;
-    margin: 10px;
+    margin: 15px;
     align-items: center;
     border-radius: 8px;
 } 
@@ -245,15 +249,16 @@ select, input, button, textarea {
 }
 
 
-
 /* Profile Page !!!*/
- 
+.profile-topbar{
+    background-color: #1b2b46;
+     opacity: 0.8;
+}
+
 .profile-info{
      display: flex;
-     padding: 30px 180px 30px 120px;
+     padding: 30px 180px 30px 180px;
      flex-wrap: wrap;
-     background-color: #1b2b46;
-     opacity: 0.8;
      /*border-top: 5px solid #000;*/
  }
 .profile-headers{
@@ -285,7 +290,7 @@ select, input, button, textarea {
 .profile-category{
     font-size: 1.3rem;
     font-weight: bold;
-    color: #FFF;
+    color: #73C2C2;
 }
 
 .profile-city{
@@ -298,9 +303,19 @@ select, input, button, textarea {
     font-weight: bold;
 }
 .profile-header{
-    color: #1b2b46;
     font-size: 1.2rem;
     font-weight: bold;
+}
+.prof-space{
+    padding-bottom: 15px;
+}
+.prof-spacing{
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.prof-btn{
+    display: flex;
+    flex-wrap: wrap;
 }
 .profile-membersince, .review-avg, .review-total{
     color: #4a71b2;
@@ -308,7 +323,7 @@ select, input, button, textarea {
 }
 .profilebtn{
     background-color: #FFF;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: #4a71b2;
     width: 180px;
     font-weight: bold;
@@ -348,7 +363,44 @@ select, input, button, textarea {
     font-size: 1.3rem;
     align-self: flex-start;
 }
+.port-title{
+    padding-bottom: 20px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
 
+/* ABOUT US */
+.about{
+    text-align: center;
+}
+.about-us{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.bio{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 200px;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+.bioimg{
+    margin: 20px;
+    width: auto;
+    border-radius: 90px;
+    max-height: 180px;
+}
+.github{
+    font-size: 2.5rem;
+    color: #1b2b46;
+}
+.biop{
+    text-align: center;
+}
 /* CREATE YOUR PROFILE page */
 .authorize-div{
     display: flex;
@@ -377,7 +429,7 @@ select, input, button, textarea {
     display: flex;
     flex-direction:column;
     width: 250px;
-    margin-left: 30px;
+    margin: 5px 0px 10px 30px;
 }
 .profile-form-input-lg{
     width: 650px;
@@ -438,7 +490,6 @@ select, input, button, textarea {
     display:flex;
 }
 
-
 .reviewfooter{
     font-size: 0.85rem;
 }
@@ -446,10 +497,7 @@ select, input, button, textarea {
     font-size:1.4rem;
 }
 .modalreview {
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 40px;
-    padding-top: 25px;
+    padding: 25px 40px 40px 40px;
     max-height: calc(100vh - 210px);
     overflow-y: auto;
 }

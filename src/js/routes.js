@@ -23,7 +23,7 @@ var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
 var SearchForm = require("./components/SearchForm");
 var Editprofile = require("./components/Editprofile");
-
+var AboutUs = require("./components/AboutUs");
 
 var Createreviewmodal = require("./components/Createreviewmodal");
 var Gallery = require("./components/Gallery");
@@ -47,7 +47,7 @@ var routes = (
             
             <IndexRoute component={Home}/>
             <Route path="pleaselogin" component={PleaseLogIn}></Route>
-            
+            <Route path="aboutus" component={AboutUs}></Route>
 
             <Route path="createprofile" component={Createprofile} onEnter={requireAuth}></Route>
             <Route path="editprofile/:username" component={Editprofile} onEnter={requireAuth}></Route>

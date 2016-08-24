@@ -15,7 +15,7 @@ var Footer = React.createClass({
         </nav>
         <nav className="footer-about-us">
           <Link to={"/"} className="footerbuttons">How It Works</Link>
-          <Link to={"/"} className="footerbuttons">Our Vision</Link>
+          <Link to={"/aboutus"} className="footerbuttons">About Us</Link>
           <Link to={"/faq"} className="footerbuttons">FAQ</Link>
 
         </nav>

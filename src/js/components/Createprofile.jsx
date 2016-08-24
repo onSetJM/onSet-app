@@ -101,8 +101,8 @@ var Createprofile = React.createClass({
                   
                                           <div className="profile-form-input">
                                               <div className="bold">Email address</div>
-                                              <input type="email" ref="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                              <input type="email" ref="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                              <small id="emailHelp" className="form-text text-muted">We'll never share your email.)</small>
 
                                           </div>
                                       </div>
@@ -133,14 +133,20 @@ var Createprofile = React.createClass({
                               <br />
                               <hr />
                               <div>
-                                  <h4>Relevant Employment Experience</h4>
-                                  <div className="bold">Tell us more about what you specialize in.</div>
-                                  <div className="profile-form-input-lg">Include here anything you'd like potential employers to know about your work and your personal strengths.</div>
-                                  <textarea className="profile-form-input-lg" ref="specialities" type="text" />
-                                  <p>Employment History: What have you done that an employer should know about?</p>
-                                  <textarea className="profile-form-input-lg" ref="employment" type="text" />
-                                  <p>Education</p>
-                                  <textarea className="profile-form-input-lg" ref="education" type="text" />
+                                    <h4 className="cform">Relevant Employment Experience</h4>
+                                    <div className="cform">
+                                        <div className="bold">Tell us more about what you specialize in.</div>
+                                        <p className="profile-form-input-lg">Include here anything you'd like potential employers to know about your work.</p>
+                                        <textarea className="profile-form-input-lg" ref="specialities" type="text" />
+                                    </div>
+                                    <div className="cform">
+                                      <p className="bold">Employment History</p> <div>What have you done that an employer should know about?</div>
+                                      <textarea className="profile-form-input-lg" ref="employment" type="text" />
+                                    </div>
+                                    <div className="cform">
+                                      <p className="bold">Education</p>
+                                      <textarea className="profile-form-input-lg" ref="education" type="text" />
+                                    </div>
                                   <div className="authorize-div">
                                       <input className="checkbox" ref="instagramauthorized" type="checkbox" />
                                       <p className="profile-form-input-lg auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>

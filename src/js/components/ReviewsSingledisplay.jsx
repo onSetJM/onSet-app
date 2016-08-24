@@ -14,7 +14,7 @@ var ReviewsSingledisplay = React.createClass({
             <div className="singleReviewContainer" key={this.props.review.reviewId}>
                 <div className="reviewHeader">
                     <div>
-                    <h5> {this.props.review.reviewHeadline} </h5>
+                        <h5> {this.props.review.reviewHeadline} </h5>
                     </div>
                     <div className= "starsforsinglereview">
                     <StarRatingComponent 

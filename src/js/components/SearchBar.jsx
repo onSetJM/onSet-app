@@ -30,7 +30,7 @@ var SearchBar = React.createClass({
             
             <div className="homepagesearchbar">
                 <div className="superselect">
-                    <select ref='category' defaultValue="hairstylist">
+                    <select ref='category' defaultValue="hairstylist" className="searchbarheader">
                         <option value="Hairstylist">Hairstylist </option>
                         <option value="Make-Up Artist">Make-up Artist</option>
                         <option value="Colorist">Colorist</option>
@@ -40,16 +40,16 @@ var SearchBar = React.createClass({
                     </select>
                 </div>
                 
-                <input type="search" ref="city" className="searchinput eqHeight" placeholder="City"  />
+                <input type="search" ref="city" className="searchinput eqHeight searchbarheader" placeholder="City"  />
                 <div className="superselect">
-                    <select ref="filter">
+                    <select ref="filter" className="searchbarheader">
                         <option value="" disabled selected>Filter by </option>
                         <option value="profileScore">Best profile scores </option>
                         <option value="totalReviews">Total number of reviews</option>
-                        <option value="profileCreateAt"> Latest profiles </option>
+                        <option value="profileCreateAt">Latest profiles </option>
                     </select>    
                 </div>
-                <button type="button" onClick={this._handleSearch} className="eqHeight">Search</button>
+                <button type="button" onClick={this._handleSearch} className="eqHeight searchbarheader">Search</button>
                 {this.state.searchstatus ? alert('please pick a city ') : null}
             </div>
           
