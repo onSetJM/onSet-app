@@ -131,7 +131,7 @@ var Createprofile = React.createClass({
                               </div>
                               <br />
                               <hr />
-<<<<<<< HEAD
+
                             <div>
                                 <h4>Relevant Employment Experience</h4>  
                                 <div className="cform">
