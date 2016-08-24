@@ -2,13 +2,13 @@ var React = require('react');
 var Login = require("./Login");
 var Logout = require("./Logout");
 var Link = require("react-router").Link;
-<<<<<<< HEAD
+
 var $ = require('jquery');
 /* global localStorage */
 
-=======
+
 var ViewYourProfile = require("./navbuttons/ViewYourProfile");
->>>>>>> a3caa03e14f545015b7b8c1750bf6e78942159f1
+
 import AuthService from '../utils/AuthService';
 
 
