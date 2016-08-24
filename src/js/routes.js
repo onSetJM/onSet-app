@@ -22,6 +22,7 @@ var Careers = require("./components/Careers");
 var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
 var SearchForm = require("./components/SearchForm");
+var Editprofile = require("./components/Editprofile");
 
 
 var Createreviewmodal = require("./components/Createreviewmodal");
@@ -49,6 +50,7 @@ var routes = (
             
 
             <Route path="createprofile" component={Createprofile} onEnter={requireAuth}></Route>
+            <Route path="editprofile/:username" component={Editprofile} onEnter={requireAuth}></Route>
             
             <Route path="search/(:category)/(:city)/(:filter)" component={SearchResults}>
             </Route>

@@ -63,6 +63,9 @@ var Profile = React.createClass({
      console.log(this.props.params.username);
     history.push(`/profile/${this.props.params.username}/email`);
   },
+  _onEditProfileClick: function() {
+      history.push(`/editprofile/${this.props.params.username}`);
+  },
   render: function() {
       if (!this.state.profile) {
             return <div>Loading...</div>;

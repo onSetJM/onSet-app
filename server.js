@@ -215,6 +215,55 @@ app.post('/createprofile', function(req, res) {
   });
 });
 
+app.post('/editProfile', function(req, res) {
+  // res.send(req.user);
+  // console.log(req.user);
+  onSetAPI.editProfile({
+    specialities: req.body.specialities,
+    city: req.body.city,
+    category: req.body.category,
+    username: req.body.username,
+    email: req.body.email,
+    name: req.body.name,
+    instagramauthorized: req.body.instagramauthorized,
+    availability: req.body.availability,
+    employment: req.body.employment,
+    education: req.body.education
+  }, function(err, profile) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
+    }
+    else {
+      res.send({
+        success: true,
+        profile: profile
+      });
+    }
+  });
+});
+
+app.post('/getusername', function(req, res) {
+  // res.send(req.user);
+  // console.log(req.user);
+  console.log(req.body.token, "THIS IS THE USER TOKEN TUESDAY NIGHT")
+  onSetAPI.getUsername({
+    token: req.body.token,
+  }, function(err, username) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
+    }
+    else {
+      console.log(username[0], "THIS IS THE USERNAME TUESDAY NIGHT")
+      res.send({
+        success: true,
+        username: username[0]
+      });
+    }
+  });
+});
+
 app.post('/createareview', function(req, res) {
   onSetAPI.createReview({
     text: req.body.text,

@@ -17,6 +17,8 @@ CREATE TABLE Profile (
   name VARCHAR(100),
   availability VARCHAR(100),
   photosprovided VARCHAR(60),
+  employment TEXT,
+  education TEXT,
   createdAt DATETIME NOT NULL,
   updatedAt DATETIME NOT NULL,
   PRIMARY KEY (id)

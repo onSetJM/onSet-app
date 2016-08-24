@@ -62,6 +62,44 @@ module.exports = function OnsetAPI(conn) {
             }
           );
     },
+    editProfile: function(profile, callback) {
+      console.log(profile, "this is the UPDATE profile for SQL")
+        conn.query(`
+            UPDATE Profile SET 
+              name = ?, 
+              email = ?, 
+              city = ?, 
+              category = ?, 
+              specialities = ?, 
+              availability = ?, 
+              photosprovided = ?, 
+              updatedAt = ?, 
+              employment = ?, 
+              education = ? 
+              WHERE username = ?`, 
+            [profile.name, profile.email, profile.city, profile.category, profile.specialities, profile.availability, profile.instagramauthorized, new Date(), profile.employment, profile.education, profile.username],
+            function(err, result) {
+              if (err) {
+                callback(err);
+                console.log(err);
+              }
+              else {
+                conn.query(
+                  'SELECT name, email, city, category, specialities, availability, photosprovided, updatedAt, education, employment FROM Profile WHERE id = ?', [result.insertId],
+                  function(err, result) {
+                    if (err) {
+                      console.log(err);
+                      callback(err);
+                    }
+                    else {
+                      callback(null, result[0]);
+                    }
+                  }
+                );
+              }
+            }
+          );
+    },
     createReview: function(review, callback) {
       console.log(review);
       conn.query(
@@ -170,6 +208,7 @@ module.exports = function OnsetAPI(conn) {
                 category : res.profileData,
                 profileCategory: res.category,
                 availability: res.availability,
+                email: res.email,
                 city: res.city,
                 createdAt: res.profileCreatedAt,
                 updatedAt: res.profileUpdatedAt,
@@ -261,6 +300,7 @@ module.exports = function OnsetAPI(conn) {
                 category : res.profileData,
                 profileCategory: res.category,
                 availability: res.availability,
+                email: res.email,
                 employment: res.employment,
                 education: res.education,
                 city: res.city,
@@ -268,6 +308,31 @@ module.exports = function OnsetAPI(conn) {
                 updatedAt: res.profileUpdatedAt,
                 profileScore: res.profileScore,
                 profileReviews: res.totalReviews
+              };
+            });
+            callback(null, mappedResults);
+          }
+        }
+      );
+    },
+    getUsername: function(token, callback) {
+      console.log(token);
+      conn.query(`
+        SELECT 
+          p.username AS username, 
+          p.token AS token
+        FROM Profile p
+          WHERE token = ?`, [token.token],
+        function(err, results) {
+          if (err) {
+            console.log(err);
+            callback(err);
+          }
+          else {
+            console.log(results, "THIS IS THE RESULTS");
+            var mappedResults = results.map(function(res) {
+              return {
+                username: res.username,
               };
             });
             callback(null, mappedResults);
