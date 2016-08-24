@@ -49,10 +49,12 @@ var Reviewsmodaldisplay = React.createClass({
         this.setState({rating: nextValue});
     },
   openModal: function() {
+    $("body").css("overflow", "hidden");
     this.setState({modalIsOpen: true});
   },
 
   closeModal: function() {
+     $("body").css("overflow", "auto");
     this.setState({modalIsOpen: false});
   },
   render: function() {
