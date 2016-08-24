@@ -451,8 +451,11 @@ select, input, button, textarea {
     overflow-y: auto;
 }
 
-
-
+.checkbox{
+    -webkit-appearance: checkbox;
+    margin-top: 5px;
+    margin-bottom: auto;
+}
 /* CONTACT US */
 .contact-us-container{
     color: #1b2b46;
