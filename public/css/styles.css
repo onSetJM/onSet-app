@@ -488,17 +488,19 @@ select, input, button, textarea {
 .footer {
     background-color: #1b2b46;
     opacity: 0.9;
+    padding: 30px;
 }
 .footer-nav{
-    display: flex;   
-    justify-content: space-around;
-    padding: 30px 50px 30px 20px;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
     color: #FFF;
     font-size: 1.3rem;
 }
 .footer-profiles, .footer-connect, .footer-about-us{
    display: flex;
    flex-direction: column;
+   padding: 10px 100px 10px 100px;
 }
 .foot-link{
     margin-left: 15px;
