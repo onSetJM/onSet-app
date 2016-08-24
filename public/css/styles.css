@@ -13,11 +13,9 @@ body {
 }
 .content-padding{
     /*padding: 60px 120px 40px 120px;*/
-    max-width: 850px;
-    padding: 20px;
+    max-width: 900px;
+    padding: 40px 20px 20px 20px;
     margin: auto;
-    
-    
 }
 
 .vertical-paddingL{
@@ -160,14 +158,6 @@ select, input, button, textarea {
 }
 
 
-/* FAQ */
-
-.faq {
-    margin-left: 10px;
-}
-.faq h2{
-    font-weight: bold;
-}
  /* SEARCH RESULTS */
 .searchtitle{
     text-align: center;
@@ -260,7 +250,7 @@ select, input, button, textarea {
      padding: 30px 180px 30px 120px;
      flex-wrap: wrap;
      background-color: #1b2b46;
-     opacity: 0.9;
+     opacity: 0.8;
      /*border-top: 5px solid #000;*/
  }
 .profile-headers{
@@ -392,56 +382,6 @@ select, input, button, textarea {
 .profile-topform{
     display: flex;
 }
-/* Footer*/
-.footer {
-    background-color: #1b2b46;
-    opacity: 0.9;
-}
-.footer-nav{
-    display: flex;   
-    justify-content: space-around;
-    padding: 30px 50px 30px 20px;
-    color: #FFF;
-    font-size: 1.3rem;
-}
-.footer-profiles, .footer-connect, .footer-about-us{
-   display: flex;
-   flex-direction: column;
-}
-.foot-link{
-    margin-left: 15px;
-} 
-
-.footer a:link {
-    color: #FFF;
-}
-.footer a:active {
-    color: #FFF;
-}
-.footer a:hover {
-    color: #AEDDF5;
-    text-decoration:none; 
-}
-.footer a:visited {
-    color: #FFF;
-}
-.footer a:hover {
-    color: #AEDDF5;
-    text-decoration:none; 
-}
-.view-btn{
-    color: #FFF;
-    background-color: #1b2b46;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.3rem;
-}
-.socialmediaicons{
-    display: flex;
-}
-.fa {
-    margin-right: 20px;
-}
-
  
  /*Reviews display */
  .userReviewedTitle {
@@ -511,17 +451,24 @@ select, input, button, textarea {
     overflow-y: auto;
 }
 
-
-
+.checkbox{
+    -webkit-appearance: checkbox;
+    margin-top: 5px;
+    margin-bottom: auto;
+}
 /* CONTACT US */
 .contact-us-container{
     color: #1b2b46;
+    padding-bottom: 60px;
 }
 .contactusform{
     display: flex;
     flex-direction: column;
     max-width: 50%;
     margin-top: 30px;
+}
+.cform{
+    margin: 10px 0px 10px 0px;
 }
 
 .contactus-subtitle{
@@ -532,7 +479,68 @@ select, input, button, textarea {
 .btn-blue{
     background-color: #c4dee1;
     color: #1b2b46;
+    width:150px;
 }
+
+/* Please log in */
+.pleaselogin{
+    margin-bottom: 100px;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #1b2b46;
+    opacity: 0.9;
+    padding: 30px;
+}
+.footer-nav{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #FFF;
+    font-size: 1.3rem;
+}
+.footer-profiles, .footer-connect, .footer-about-us{
+   display: flex;
+   flex-direction: column;
+   padding: 10px 100px 10px 100px;
+}
+.foot-link{
+    margin-left: 15px;
+} 
+
+.footer a:link {
+    color: #FFF;
+}
+.footer a:active {
+    color: #FFF;
+}
+.footer a:hover {
+    color: #AEDDF5;
+    text-decoration:none; 
+}
+.footer a:visited {
+    color: #FFF;
+}
+.footer a:hover {
+    color: #AEDDF5;
+    text-decoration:none; 
+}
+.view-btn{
+    color: #FFF;
+    background-color: #1b2b46;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.3rem;
+}
+.socialmediaicons{
+    display: flex;
+}
+.fa {
+    margin-right: 20px;
+}
+
+
+/* keep at bottom*/
 
 a:hover, a:link, a:visited, a:active{
     text-decoration: none;

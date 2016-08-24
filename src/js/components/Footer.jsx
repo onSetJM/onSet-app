@@ -1,7 +1,7 @@
 var React = require('react');
 import {Button} from 'react-bootstrap';
 var Link = require("react-router").Link;
-var ViewYourProfile = require("./navbuttons/ViewYourProfile");
+var ViewYourProfileFoot = require("./navbuttons/ViewYourProfileFoot");
 
 var Footer = React.createClass({
   render: function() {
@@ -11,7 +11,7 @@ var Footer = React.createClass({
         <nav className="footer-profiles">
           <Link to={"/"} className="footerbuttons foot-link">Home</Link>
           <Link to={"/search/hairstylist/montreal/profileScore"} className="footerbuttons foot-link">Browse Profiles</Link>
-          <ViewYourProfile className="footerbuttons">View Your Profile</ViewYourProfile>
+          <ViewYourProfileFoot className="footerbuttons">View Your Profile</ViewYourProfileFoot>
         </nav>
         <nav className="footer-about-us">
           <Link to={"/"} className="footerbuttons">How It Works</Link>

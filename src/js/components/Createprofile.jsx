@@ -103,6 +103,7 @@ var Createprofile = React.createClass({
                                               <div className="bold">Email address</div>
                                               <input type="email" ref="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                                               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
                                           </div>
                                       </div>
                                       <div className="profile-col3">
@@ -112,7 +113,7 @@ var Createprofile = React.createClass({
                                           </div>
                   
                                           <div className="profile-form-input">
-                                              <div className="bold">Typical Availability During the Week</div>
+                                              <div className="bold">Typical Availability</div>
                                               <input ref="availability" type="text" className="form-input" />
                                           </div>
                                           <div className="profile-form-input">
@@ -141,12 +142,12 @@ var Createprofile = React.createClass({
                                   <p>Education</p>
                                   <textarea className="profile-form-input-lg" ref="education" type="text" />
                                   <div className="authorize-div">
-                                      <input ref="instagramauthorized" type="checkbox" />
+                                      <input className="checkbox" ref="instagramauthorized" type="checkbox" />
                                       <p className="profile-form-input-lg auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>
                                   </div>
                   
                                   <br />
-                                  <button className="btn btn-default active btn-blue">Create your profile !</button>
+                                  <button className="btn btn-default active btn-blue">Submit!</button>
                               </div>
                           </form>
                       </div>

@@ -42,12 +42,12 @@ var ContactUs = React.createClass({
           We'll get back to you at the email you provide as soon as possible.</h3>
           
             <form  className="contactusform" id="emailForm">
-                  <input ref="name" type="text" placeholder="Name" />
-                  <input ref="email" type="text" placeholder="Your Email"/>
-                  <textarea ref="msg" type="text" placeholder="Share your thoughts here!" />
+                  <input className="cform" ref="name" type="text" placeholder="Name" />
+                  <input className="cform"ref="email" type="text" placeholder="Your Email"/>
+                  <textarea className="cform"ref="msg" type="text" placeholder="Share your thoughts here!" />
   
                 <br/>
-                <button className="btn btn-default  btn-blue" onClick={this._handleSubmit}> Send away!</button>
+                <button className="btn btn-default btn-blue" onClick={this._handleSubmit}> Send away!</button>
             </form>
           </div>
         </div>

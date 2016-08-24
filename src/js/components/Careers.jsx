@@ -3,7 +3,7 @@ var $ = require("jquery");
 var HeaderOther = require("./HeaderOther");
 
 var Careers = React.createClass({
-        getInitialState: function(){
+    getInitialState: function(){
         return {};
     },
     _sendData : function () {
@@ -34,15 +34,15 @@ var Careers = React.createClass({
         return (
             <div>
             <HeaderOther />
-            <div className="content-padding">
+            <div className="content-padding contact-us-container">
                 <h1 className="page-main-title">Careers</h1>
                 <div>
-                    <h2 className="page-subtitle">Interested in joining our team? Send us an email about yourself!</h2>
+                    <h2 className="contactus-subtitle">Interested in joining our team? Send us an email about yourself!</h2>
                     
                     <form  className="contactusform" id="emailForm">
-                        <input ref="name" type="text" placeholder="Name" />
-                        <input ref="email" type="text" placeholder="Your Email"/>
-                        <textarea ref="msg" type="text" placeholder="Tell us about yourself!!" />
+                        <input className="cform" ref="name" type="text" placeholder="Name" />
+                        <input className="cform" ref="email" type="text" placeholder="Your Email"/>
+                        <textarea className="cform" ref="msg" type="text" placeholder="Tell us about yourself!!" />
                         <br/>
                         <button className="btn btn-default  btn-blue" onClick={this._handleSubmit}> Send away!</button>
                     </form>

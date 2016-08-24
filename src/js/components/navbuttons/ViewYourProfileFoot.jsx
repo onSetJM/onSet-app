@@ -5,7 +5,7 @@ var history = require('react-router').browserHistory;
 var $ = require("jquery");
 
 
-var ViewYourProfile = React.createClass({
+var ViewYourProfileFoot = React.createClass({
     redirect: function () {
         if (!localStorage.id_token) {
             history.push("/pleaselogin")
@@ -32,11 +32,10 @@ var ViewYourProfile = React.createClass({
     render: function(){
     return (
       <div>
-        <Button onClick={this.redirect} className="nav-btn">View Your Profile</Button>
+        <Button onClick={this.redirect} className="view-btn">View Your Profile</Button>
       </div>
     );
     }
 });
 
-module.exports = ViewYourProfile;
-
+module.exports = ViewYourProfileFoot;

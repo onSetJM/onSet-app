@@ -2,9 +2,13 @@ var React = require('react');
 var Login = require("./Login");
 var Logout = require("./Logout");
 var Link = require("react-router").Link;
+<<<<<<< HEAD
 var $ = require('jquery');
 /* global localStorage */
 
+=======
+var ViewYourProfile = require("./navbuttons/ViewYourProfile");
+>>>>>>> a3caa03e14f545015b7b8c1750bf6e78942159f1
 import AuthService from '../utils/AuthService';
 
 
@@ -21,7 +25,11 @@ var NavBar= React.createClass({
         <div className="navbuttons">
           <Link to={"/"} className="nav-btn nav-link">Home</Link>
           <Link to={"/search/hairstylist/montreal/profileScore"} className="nav-btn nav-link">Search</Link>
+
           <Link to={!this.state.username ? "/createprofile": "/editprofile/"+this.state.username} className="nav-btn nav-link">{!this.state.username ? "Create your profile": "Edit your profile"}</Link>
+
+          <ViewYourProfile />
+
           <Logout auth={this.props.auth} />
         </div>
       )
