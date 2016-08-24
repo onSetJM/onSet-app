@@ -100,6 +100,24 @@ module.exports = function OnsetAPI(conn) {
             }
           );
     },
+    deleteProfile: function(profile, callback) {
+      console.log(profile, "this is the UPDATE profile for SQL")
+        conn.query(`
+            DELETE FROM Profile
+              WHERE username = ?`, 
+            [profile.username],
+            function(err, result) {
+              if (err) {
+                callback(err);
+                console.log(err);
+              }
+              else {
+                console.log(result);
+                callback(null, result);
+              }
+            }
+          );
+    },
     createReview: function(review, callback) {
       console.log(review);
       conn.query(

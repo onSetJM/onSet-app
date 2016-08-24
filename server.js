@@ -243,6 +243,23 @@ app.post('/editProfile', function(req, res) {
   });
 });
 
+app.post('/delete', function(req, res) {
+  console.log(req.body.username, "the delete username")
+  onSetAPI.deleteProfile({
+    username: req.body.username
+  }, function(err, profile) {
+    if (err) {
+      console.log(err);
+      res.status(400).send("Whoopsy! Something went wrong!");
+    }
+    else {
+      res.send({
+        success: true
+      });
+    }
+  });
+});
+
 app.post('/getusername', function(req, res) {
   // res.send(req.user);
   // console.log(req.user);

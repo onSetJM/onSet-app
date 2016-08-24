@@ -39,6 +39,19 @@ var Createprofile = React.createClass({
                 });
 
             },
+            _handleDelete:function () { 
+                $.ajax({
+                    url: '/delete',
+                    data: {username:this.props.params.username},
+                    type: 'POST',
+                    success: function(result) {
+                        history.push(`/`);
+                    },
+                    error: function() {
+                        console.log('this is the ajax error');
+                    }
+                });
+            },
             componentDidMount: function() {
                 var that = this;
                 $.ajax({           
@@ -138,6 +151,7 @@ var Createprofile = React.createClass({
                               </div>
                           </form>
                       </div>
+                      <button className="btn btn-danger" onClick={this._handleDelete}>Delete your profile !</button>
                   </div>
             );
         }
