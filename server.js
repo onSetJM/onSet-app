@@ -268,6 +268,7 @@ app.post('/createareview', function(req, res) {
   onSetAPI.createReview({
     text: req.body.text,
     score: req.body.score,
+    headline:req.body.headline,
     reviewertoken: req.body.reviewertoken,
     reviewerusername: req.body.reviewerusername,
     profileusername: req.body.profileusername

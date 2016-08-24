@@ -60,6 +60,7 @@ var Createreviewmodal = React.createClass({
       e.preventDefault();
       var reviewObj = {
           score: this.state.rating,
+          headline: this.refs.headline.value,
           text: this.refs.reviewText.value,
           reviewertoken: localStorage.instagram_sub,
           profileusername: this.props.username,
@@ -122,7 +123,7 @@ var Createreviewmodal = React.createClass({
                 </h2>
             </div>
             <div className="form-group">
-                 <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="Review Title" />
+                 <input type="text" className="form-control" ref="headline" id="exampleInputPassword1" placeholder="Headline" />
             </div>
 
              

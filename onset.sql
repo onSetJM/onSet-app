@@ -31,8 +31,9 @@ ALTER TABLE Profile ADD education VARCHAR(255);
 UPDATE Profile SET employment="Aveda Salon", education="Aveda Institute";
 CREATE TABLE Reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  headline VARCHAR(255),
   text TEXT(10000), 
-  score DECIMAL(2,1),
+  score DECIMAL(3,1),
   createdAt DATETIME NOT NULL,
   token VARCHAR(255),
   profileusername VARCHAR(60)
@@ -40,6 +41,8 @@ CREATE TABLE Reviews (
 
 ALTER TABLE Reviews
 ADD reviewerusername VARCHAR(100);
+ALTER TABLE Reviews
+ADD headline VARCHAR(255);
 
 ALTER TABLE Reviews CHANGE token reviewertoken VARCHAR(100);
 

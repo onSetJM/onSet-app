@@ -31,16 +31,16 @@ var SearchBar = React.createClass({
             <div className="homepagesearchbar">
                 <div className="superselect">
                     <select ref='category' defaultValue="hairstylist">
-                        <option value="hairstylist">Hairstylist </option>
-                        <option value="make-up Artist">Make-up Artist</option>
-                        <option value="colorist">Colorist</option>
-                        <option value="stylist">Stylist</option>
-                        <option value="dualist">Dualist</option>
-                        <option value="nailartist">Nail Artist</option>
+                        <option value="Hairstylist">Hairstylist </option>
+                        <option value="Make-Up Artist">Make-up Artist</option>
+                        <option value="Colorist">Colorist</option>
+                        <option value="Stylist">Stylist</option>
+                        <option value="Dualist">Dualist</option>
+                        <option value="Nail Artist">Nail Artist</option>
                     </select>
                 </div>
                 
-                <input type="search" ref="city" className="searchinput eqHeight" placeholder="City" />
+                <input type="search" ref="city" className="searchinput eqHeight" placeholder="City"  />
                 <div className="superselect">
                     <select ref="filter">
                         <option value="" disabled selected>Filter by </option>

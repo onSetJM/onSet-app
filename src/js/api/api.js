@@ -103,14 +103,14 @@ module.exports = function OnsetAPI(conn) {
     createReview: function(review, callback) {
       console.log(review);
       conn.query(
-        'INSERT INTO Reviews (text, score, reviewertoken, reviewerusername, profileusername, createdAt) VALUES (?, ?, ?, ?, ?, ?)', [review.text, review.score, review.token, review.reviewerusername, review.profileusername, new Date()],
+        'INSERT INTO Reviews (text, score, headline, reviewertoken, reviewerusername, profileusername, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?)', [review.text, review.score, review.headline, review.token, review.reviewerusername, review.profileusername, new Date()],
         function(err, result) {
           if (err) {
             callback(err);
           }
           else {
             conn.query(
-              'SELECT id, text, score, reviewertoken, reviewerusername, profileusername, createdAt FROM Reviews WHERE id = ?', [result.insertId],
+              'SELECT id, text, score, headline, reviewertoken, reviewerusername, profileusername, createdAt FROM Reviews WHERE id = ?', [result.insertId],
               function(err, result) {
                 if (err) {
                   callback(err);
@@ -546,13 +546,14 @@ module.exports = function OnsetAPI(conn) {
           r.id AS id, 
           r.text AS text, 
           r.score AS score,
-          r.createdAt AS reviewCreatedAt, 
+          r.createdAt AS reviewCreatedAt,
+          r.headline as headline,
           r.reviewertoken as reviewertoken,
           r.reviewerusername as reviewerusername,
           r.profileusername as profileusername
         FROM Reviews r
           WHERE profileusername = ?
-        ORDER BY reviewCreatedAt DESC LIMIT ? OFFSET ?`, [profileusername, limit, offset],
+        ORDER BY reviewCreatedAt DESC`, [profileusername],
         function(err, results) {
           if (err) {
             console.log(err);
@@ -564,6 +565,7 @@ module.exports = function OnsetAPI(conn) {
               return {
                 reviewId: res.id,
                 reviewText: res.text,
+                reviewHeadline: res.headline,
                 reviewScore: res.score,
                 reviewCreatedAt: res.reviewCreatedAt,
                 profileusername : res.profileusername,
