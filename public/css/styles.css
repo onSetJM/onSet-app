@@ -449,9 +449,12 @@ select, input, button, textarea {
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 40px;
-    padding-top: 25px;
+    padding-top: 45px;
     max-height: calc(100vh - 210px);
     overflow-y: auto;
+    height: 100%;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
 }
 
 .checkbox{
@@ -469,6 +472,10 @@ select, input, button, textarea {
     flex-direction: column;
     max-width: 50%;
     margin-top: 30px;
+}
+.displayReviews {
+    -webkit-flex: 1 1 auto;
+    overflow-y: scroll;
 }
 .cform{
     margin: 10px 0px 10px 0px;
@@ -542,6 +549,15 @@ select, input, button, textarea {
     margin-right: 20px;
 }
 
+.fahowitworks {
+    margin-right:0px;
+    font-size: 7rem;
+    color: #0a111c;
+    margin-left: 35%;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
 
 /* keep at bottom*/
 
@@ -551,4 +567,8 @@ a:hover, a:link, a:visited, a:active{
 
 .slick-prev:before, .slick-next:before {
     color: #1b2b46;
+}
+.editbuttons{
+    display: flex;
+    justify-content: space-between;
 }
