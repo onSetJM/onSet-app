@@ -27,6 +27,33 @@ CREATE TABLE Profile (
 ALTER TABLE Profile ADD employment TEXT;
 ALTER TABLE Profile ADD education VARCHAR(255);
 
+INSERT INTO Profile 
+(token, specialities, city, email, profilepic, category, username, name, availability, photosprovided, employment, education, createdAt, updatedAt)
+VALUES (
+"insta5245",
+"20 years total experience with a 10 year main focus on coloring.
+Coloring : 10 years of focussing mainly on coloring; all colors, balayage, highlighting, bleach out, color correction, basically everything.
+Cutting : Specialized in men and women hair; curly. clippers, curly hair, all hair types. I have experience in all the different techniques for each hair.
+Styles : Blow outs, flat ironing, beach waves",
+"Montreal", 
+"jason@gmail.com", 
+"http://salonhelmet.ca/wp-content/uploads/2014/03/jason1.png",
+"Hairstylist", "Jason12", "Jason Krejberg", "Monday-Friday 11am to 8pm", "yes", 
+"Owner - Helmet Salon (2009 to present)",
+"Axis (Vancouver -1996)
+Coupe-bizzarre (Toronto)
+Vidal Sassoon (Toronto) 
+Coupe-bizarre (Montreal, one training with stylist)", CURDATE(), CURDATE());
+
+
+INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/12249638_924132021013094_5590899680109095563_n.jpg?oh=ab845b26f315499dec3e3809a4b95dba&oe=5855269A", "insta5245");
+INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/1234879_498636973562603_1649411195_n.jpg?oh=eeaab364374f9fcfbca31d7852173b37&oe=5857B917", "insta5245");
+INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/1239568_498637383562562_1701962357_n.jpg?oh=884a36f3c0daa13d9e1e882da2efab38&oe=581025BE", "insta5245");
+INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/c38.0.206.206/p206x206/1240010_498649333561367_548506816_n.jpg?oh=b7d92cca16c845a507d2ffaea055ae58&oe=5848BB37", "insta5245");
+INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/1234879_498636973562603_1649411195_n.jpg?oh=eeaab364374f9fcfbca31d7852173b37&oe=5857B917", "insta5245");
+INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/1176393_498637543562546_440759673_n.jpg?oh=9b597d4a9ce17d2b1cdff0024c8f1e76&oe=584FAC8B", "insta5245");
+INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/11329982_829604363799194_5366373428100012826_n.jpg?oh=e29717b5da43ac3c341ae46f193c98dc&oe=584B90BA", "insta5245");
+INSERT INTO Photos (photourl, token) VALUES ("", "insta5245");
 
 UPDATE Profile SET employment="Aveda Salon", education="Aveda Institute";
 CREATE TABLE Reviews (
@@ -35,8 +62,9 @@ CREATE TABLE Reviews (
   text TEXT(10000), 
   score DECIMAL(3,1),
   createdAt DATETIME NOT NULL,
-  token VARCHAR(255),
-  profileusername VARCHAR(60)
+  reviewerusername VARCHAR(80),
+  reviewertoken VARCHAR(255),
+  profileusername VARCHAR(80)
 );
 
 ALTER TABLE Reviews
