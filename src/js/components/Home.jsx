@@ -17,7 +17,7 @@ var Home = React.createClass({
                 freelance work and to network in their field. 
                 If you’re looking to be hired, start by creating a profile and
                 link it to your Instagram account to include a visual portfolio. 
-                Personalize your account as much as you like and you’re good to go! It’s as simple as that.</p>
+                Personalize your account and you’re good to go! It’s as simple as that.</p>
           
                 <p>We know a CV doesn't capture what you're really capable of and 
                 no one carries around a physical portfolio anymore. With onSet you 
