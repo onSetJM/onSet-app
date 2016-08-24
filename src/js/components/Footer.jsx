@@ -24,7 +24,7 @@ var Footer = React.createClass({
           <Link to={"/careers"} className="footerbuttons ">Careers</Link>
             <div className="socialmediaicons">
               <a href="https://www.youtube.com/watch?v=-tCTm5M3Cp8"><i className="fa fa-instagram" aria-hidden="true"></i></a>
-              <a href="https://www.youtube.com/watch?v=-tCTm5M3Cp8"><i className="fa fa-github-square" aria-hidden="true"></i></a>
+              <a href="https://github.com/onSetJM/onSetJM.github.io"><i className="fa fa-github-square" aria-hidden="true"></i></a>
               <a href="https://www.youtube.com/watch?v=-tCTm5M3Cp8"><i className="fa fa-twitter" aria-hidden="true"></i></a>
           </div>
         </nav>
