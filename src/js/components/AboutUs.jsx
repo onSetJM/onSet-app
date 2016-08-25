@@ -20,7 +20,7 @@ var AboutUs = React.createClass({
                     <div className="bio">
                         <h3 className="page-subtitle content-green">Max Martin</h3>
                             <img className="bioimg" src="./img/max.png"/>
-                            <p className="biop">Max is Montreal-born math grad turned web developer.</p>
+                            <p className="biop">Max is Montreal-born mathematics graduate turned web developer.</p>
                             <a href="https://github.com/Martimax21">
                                 <i className="fa fa-github-square github" aria-hidden="true"></i>
                             </a>
