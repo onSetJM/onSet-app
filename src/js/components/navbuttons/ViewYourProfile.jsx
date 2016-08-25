@@ -18,9 +18,7 @@ var ViewYourProfile = React.createClass({
             type: 'POST',
             success: function(result) {
                 console.log(result, "result!!");
-                return (
-                    history.push(`/profile/${result.username}`)
-                 );
+                history.push(`/profile/${result.username}`)
                 },
             error: function() {
                     console.log('this is the ajax error');      

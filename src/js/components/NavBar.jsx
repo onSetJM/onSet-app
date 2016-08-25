@@ -20,6 +20,7 @@ var NavBar= React.createClass({
     return {};
   },
   userEntry: function() {
+    console.log(this.state.username, "This is state for the nav buttons");
     if (this.props.loggedIn) {
       return (
         <div className="navbuttons">
@@ -35,11 +36,12 @@ var NavBar= React.createClass({
         </div>
       )
     } else {
+      console.log(this.state.username, "This is state for the nav buttons");
       return (
         <div className="navbuttons">
           <Link to={"/"} className="nav-btn nav-link">Home</Link>
           <Link to={"/search/hairstylist/montreal/profileScore"} className="nav-btn nav-link">Search</Link>
-          <Link to={!this.state.username ? "/createprofile": "/editprofile/"+this.state.username} className="nav-btn nav-link">{this.state.username ? "Create your profile": "Edit your profile"}</Link>
+          <Link to={!this.state.username ? "/createprofile": "/editprofile/"+this.state.username} className="nav-btn nav-link">{!this.state.username ? "Create your profile": "Edit your profile"}</Link>
           <Login auth={this.props.auth} />
         </div>
       )
