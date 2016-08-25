@@ -19,6 +19,7 @@ var NavBar= React.createClass({
   getDefaultProps: function() {
     return {};
   },
+  
   userEntry: function() {
     console.log(this.state.username, "This is state for the nav buttons");
     if (this.props.loggedIn) {

@@ -21,6 +21,7 @@ var App = React.createClass({
     componentWillUnmount: function() {
       this.props.route.auth.offAuthChanged(this._handleAuthChanged);
     },
+ 
     render: function() {
         
     var children = null;

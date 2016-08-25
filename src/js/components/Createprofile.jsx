@@ -47,11 +47,13 @@ var Createprofile = React.createClass({
                     type: 'POST',
                     success: function(result) {
                         history.push(`/profile/${that.refs.username.value}`);
+                        window.location.reload();
                     },
                     error: function() {
                         console.log('this is the ajax error');
                     }
                 });
+                
 
             },
             componentDidMount: function() {
