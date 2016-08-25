@@ -24,6 +24,34 @@ CREATE TABLE Profile (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE Reviews (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  headline VARCHAR(255),
+  text TEXT(10000), 
+  score DECIMAL(3,1),
+  createdAt DATETIME NOT NULL,
+  reviewerusername VARCHAR(80),
+  reviewertoken VARCHAR(255),
+  profileusername VARCHAR(80)
+);
+
+CREATE TABLE Photos (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  photourl TEXT(10000), 
+  token VARCHAR(255)
+);
+
+CREATE TABLE User (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  nickname VARCHAR(100) NOT NULL,
+  typeOfLogin ENUM ('facebook', 'google', 'instagram'),
+  profilepic varchar(255),
+  createdAt DATETIME,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 ALTER TABLE Profile ADD employment TEXT;
 ALTER TABLE Profile ADD education VARCHAR(255);
 
@@ -40,12 +68,13 @@ INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1462
 INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/11329982_829604363799194_5366373428100012826_n.jpg?oh=e29717b5da43ac3c341ae46f193c98dc&oe=584B90BA", "insta5245");
 INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/11873551_879642315462065_6597657287330249639_n.jpg?oh=1bd56f1897d93e3cedf5d0ef4d175fb3&oe=584A7EC6", "insta5245");
 
-UPDATE Profile SET city='Montreal' where token="instagram|51239569 " ;
+UPDATE Profile SET email='onsetwebsite@gmail.com' where id=3 ;
 UPDATE Profile SET profilepic='https://scontent-yyz1-1.cdninstagram.com/t51.2885-19/s150x150/12534389_1702368806652422_499037292_a.jpg' where id=10 ;
-UPDATE Profile SET specialities='I do make-up for TV commercials and movies. Ive worked on american movies mostly' where id=9 ;
+UPDATE Profile SET specialities='I do make-up for TV commercials and movies.Ive worked on american movies' where id=9 ;
 UPDATE Profile SET token="insta005" where id=11;
 
 UPDATE Profile SET employment="Aveda Salon", education="Aveda Institute";
+
 
 
 
@@ -60,6 +89,7 @@ CREATE TABLE Reviews (
   profileusername VARCHAR(80)
 );
 
+
 ALTER TABLE Reviews
 ADD reviewerusername VARCHAR(100);
 ALTER TABLE Reviews
@@ -73,11 +103,6 @@ ALTER TABLE Reviews CHANGE token reviewertoken VARCHAR(100);
 
 UPDATE Reviews SET reviewertoken='instagram|1526590778' ;
 
-CREATE TABLE Photos (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  photourl TEXT(10000), 
-  token VARCHAR(255)
-);
 
 /* FOREIGN KEY (userId) REFERENCES user(id),
 FOREIGN KEY (profileId) REFERENCES profile(id) */
@@ -90,16 +115,7 @@ WHERE some_column=some_value;
 --  profile_type ENUM ('artist', 'client') DEFAULT 'client',
 -- This creates the users table. The username field is constrained to unique
 
--- CREATE TABLE User (
---   id INT(11) NOT NULL AUTO_INCREMENT,
---   username VARCHAR(50) NOT NULL,
---   email VARCHAR(255) NOT NULL,
---   nickname VARCHAR(100) NOT NULL,
---   typeOfLogin ENUM ('facebook', 'google', 'instagram'),
---   profilepic varchar(255),
---   createdAt DATETIME,
---   PRIMARY KEY (id)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 INSERT INTO Profile 

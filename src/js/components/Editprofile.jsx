@@ -45,12 +45,14 @@ var Createprofile = React.createClass({
                     data: {username:this.props.params.username},
                     type: 'POST',
                     success: function(result) {
+                        console.log(result, "HI WED NIGHT");
                         history.push(`/`);
                     },
                     error: function() {
                         console.log('this is the ajax error');
                     }
                 });
+                history.push(`/`);
             },
             componentDidMount: function() {
                 var that = this;
@@ -131,7 +133,10 @@ var Createprofile = React.createClass({
                               </div>
                               <br />
                               <hr />
+<<<<<<< HEAD
+=======
 
+>>>>>>> 93d136e69309975db70d0e528c562921e106a465
                             <div>
                                 <h4>Relevant Employment Experience</h4>  
                                 <div className="cform">
@@ -148,13 +153,13 @@ var Createprofile = React.createClass({
                                     <textarea className="profile-form-input-lg" ref="education" type="text" defaultValue={profile.education} />
                                 </div>
                                     <div className="authorize-div">
-                                        <input ref="instagramauthorized" className="checkbox" type="checkbox" />
+                                        <input ref="instagramauthorized" className="checkbox" type="checkbox" defaultValue={profile.photosprovided} />
                                         <p className="profile-form-input-lg auth-text">Please check this box to authorize us adding your Instagram photos to your account.</p>
                                     </div>
                       
                                     <br />
                                     <div className="prof-btn">
-                                        <button className="btn btn-default active btn-blue">Edit your profile!</button>
+                                        <button className="btn btn-default active btn-blue" onClick={this._handleSubmit}>Edit your profile!</button>
                                         <button className="btn btn-danger foot-link" onClick={this._handleDelete}>Delete your profile!</button>
                                     </div>
                             </div>

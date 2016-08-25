@@ -55,7 +55,6 @@ var NavBar= React.createClass({
                  data: {token: localStorage.instagram_sub},
                  type: 'POST',
                   success: function(result) {
-                      console.log(result.username.username, "this is the result of USERNAME AJAX");
                      that.setState({
                            username: result.username.username
                       });

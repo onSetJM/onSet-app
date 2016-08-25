@@ -28,7 +28,7 @@ var Singleprofileresult = React.createClass({
                         <div className="singleprofilebottom bold">{(this.props.profile.profileCategory).toUpperCase()}</div>
                         <div className="singleprofilebottom bold">{this.props.profile.city}</div>
                         <div className="singleprofilebottom bold">Speciality:</div>
-                        <div className="singleprofilebottom">{this.props.profile.specialities.substring(0,75) + " [...]"} </div>
+                        <div className="singleprofilebottom">{this.props.profile.specialities.substring(0,80) + " [...]"} </div>
                     </div>
                 </div>
             </Link>
