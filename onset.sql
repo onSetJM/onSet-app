@@ -59,9 +59,9 @@ ALTER TABLE Profile ADD education VARCHAR(255);
 
 
 
-INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1464550580740-b3f73fd373cb", "insta004 ");
-INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1470500507674-2cbd7f1a08ea", "insta004 ");
-INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1462398355601-12d5b9db2f3d", "insta004 ");
+INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1433873703448-d6a62dc3285a", "insta008 ");
+INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1432807653616-37f5f5c2508e", "insta008 ");
+INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1458232546092-9fcbb14b2c1d", "insta008 ");
 INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1443180528392-bf4de2d8e2c8", "insta003");
 INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1447194537595-69d5dd826707", "insta003");
 INSERT INTO Photos (photourl, token) VALUES ("https://hd.unsplash.com/photo-1462804993656-fac4ff489837", "insta003");
@@ -69,9 +69,9 @@ INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.n
 INSERT INTO Photos (photourl, token) VALUES ("https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/11873551_879642315462065_6597657287330249639_n.jpg?oh=1bd56f1897d93e3cedf5d0ef4d175fb3&oe=584A7EC6", "insta5245");
 
 UPDATE Profile SET email='onsetwebsite@gmail.com' where id=3 ;
-UPDATE Profile SET profilepic='https://scontent-yyz1-1.cdninstagram.com/t51.2885-19/s150x150/12534389_1702368806652422_499037292_a.jpg' where id=10 ;
+UPDATE Profile SET profilepic='https://scontent-yyz1-1.cdninstagram.com/t51.2885-19/s150x150/10369420_785605148238691_1197452344_a.jpg' where id=14 ;
 UPDATE Profile SET specialities='I do make-up for TV commercials and movies.Ive worked on american movies' where id=9 ;
-UPDATE Profile SET token="insta005" where id=11;
+UPDATE Profile SET name="Christina Bloom" where id=14;
 
 UPDATE Profile SET employment="Aveda Salon", education="Aveda Institute";
 
