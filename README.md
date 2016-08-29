@@ -15,7 +15,7 @@ Features include:
 <img src="./public/img/onSet.png" />
 
 # Profile View
-<img src="./public/img/profile.png" />
+<img src="./public/img/profile.png" /> 
 
 # Search Results View
 <img src="./public/img/searchresults.png" />
