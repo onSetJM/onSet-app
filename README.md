@@ -10,3 +10,9 @@ Features include:
 - profiles searchable by public 
 - review system for professionals to build up their reputation
 - contact by email feature for potential employers to connect with professionals
+
+# Home Page View
+<img src="./public/onset.png" />
+
+
+<img src="./public/profile.png" />
