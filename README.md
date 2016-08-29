@@ -16,3 +16,6 @@ Features include:
 
 # Profile View
 <img src="./public/img/profile.png" />
+
+# Search Results View
+<img src="./public/img/searchresults.png" />
