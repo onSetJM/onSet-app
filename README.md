@@ -14,8 +14,8 @@ Features include:
 # Home Page View
 <img src="./public/img/onSet.png" />
 
-# Profile View
-<img src="./public/img/profile.png" /> 
-
 # Search Results View
 <img src="./public/img/searchresults.png" />
+
+# Profile View
+<img src="./public/img/profileview.jpg" /> 
