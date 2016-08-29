@@ -12,7 +12,7 @@ Features include:
 - contact by email feature for potential employers to connect with professionals
 
 # Home Page View
-<img src="./public/onset.png" />
+<img src="./public/img/onset.png" />
 
-
-<img src="./public/profile.png" />
+# Profile View
+<img src="./public/img/profile.png" />
