@@ -13,10 +13,10 @@ Features include:
 
 Stack structure : 
 Front-end :
-React, jQuery, Auth0Lock, CSS3, Flexbox, Bootstrap
+- React, jQuery, Auth0Lock, CSS3, Flexbox, Bootstrap
 Back-end:
-Node.js, Express, Nodemailer, and MySQL
-Instagram API to automatically create a visual portfolio on the professional's profile 
+- Node.js, Express, Nodemailer, and MySQL
+- Instagram API to automatically create a visual portfolio on the professional's profile 
 
 
 # Home Page View
