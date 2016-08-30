@@ -6,6 +6,7 @@ var bodyParser = require("body-parser");
 var request = require("request");
 var nodemailer = require("nodemailer");
 var smtpTransport = require('nodemailer-smtp-transport');
+var $ = require('jquery');
 
 function insertPhotos(arr, index, token) {
   if (index >= 0) {
@@ -381,14 +382,12 @@ app.post('/reviews', function(req, res){
 });
 
 app.post('/searchresults', function(req, res) {
-  console.log(req.body);
   onSetAPI.getAllProfiles({}, req.body.category, req.body.city, req.body.sortingMethod, function(err, profiles) {
     if (err) {
       console.log(err);
       res.status(400).send("Whoopsy! Something went wrong!");
     }
     else {
-      console.log(profiles);
       res.send({
         success: true,
         profiles: profiles

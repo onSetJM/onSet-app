@@ -80,6 +80,11 @@ var Profile = React.createClass({
   componentDidMount:function(){
       this.fetchData();
   },
+  componentDidUpdate: function(prevProps) {
+      if (prevProps.params.username !== this.props.params.username) {
+          this.fetchData();
+      }
+  },
   _reviewSubmitted:function(){
       this.fetchData();
   },

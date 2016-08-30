@@ -26,12 +26,14 @@ var SearchResults = React.createClass({
         this.setState({
             searchObj:searchObj
         })
+        console.log(searchObj, "SEARCHOBJ!!");
         var that = this;
         $.ajax({           
             url: '/searchresults', 
-            data: searchObj,
             type: 'POST',
+            data: searchObj,
             success: function(result) {
+                console.log(result, "THIS IS the result August 30th!!")
                 that.setState({
                  profiles:result.profiles
                 });

@@ -21,7 +21,6 @@ var Careers = require("./components/Careers");
 
 var SearchBar = require("./components/SearchBar");
 var SearchResults = require("./components/SearchResults");
-var SearchForm = require("./components/SearchForm");
 var Editprofile = require("./components/Editprofile");
 var AboutUs = require("./components/AboutUs");
 
