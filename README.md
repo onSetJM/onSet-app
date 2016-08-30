@@ -12,11 +12,11 @@ Features include:
 - contact by email feature for potential employers to connect with professionals
 
 Stack structure : 
-Front-end :
-- React, jQuery, Auth0Lock, CSS3, Flexbox, Bootstrap
-Back-end:
-- Node.js, Express, Nodemailer, and MySQL
-- Instagram API to automatically create a visual portfolio on the professional's profile 
+-Front-end :
+  - React, jQuery, Auth0Lock, CSS3, Flexbox, Bootstrap
+-Back-end:
+  - Node.js, Express, Nodemailer, and MySQL
+  - Instagram API to automatically create a visual portfolio on the professional's profile 
 
 
 # Home Page View
